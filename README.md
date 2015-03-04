@@ -29,3 +29,8 @@ This app will agents to quickly delete or esclate each ticket to the apporiate t
 ### Detail View
 
 ![image](detail_page.jpg)
+
+
+### Wireframe
+
+![image](wires.png)
