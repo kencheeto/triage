@@ -1,6 +1,9 @@
 ## Zendesk Triage App
 
-We are using the Inbox app as our inspiration.  
+We are using the Inbox app as our inspiration. The goal of this app is to enable agents to quickly and simply triage the majority of zendesk tickets in a queue. 
+
+This app will agents to quickly delete or esclate each ticket to the apporiate tier. 
+
 
 ## Views
 
