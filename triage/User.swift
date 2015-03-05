@@ -11,7 +11,7 @@ var email: String?
 var _password: String?
 let currentUserKey = "triage_current_user_key"
 
-class User: ApiResourse {
+class User: ApiResource {
   var dictionary: NSDictionary?
   var name: String?
   var id: Int?
@@ -24,13 +24,12 @@ class User: ApiResourse {
     id = dict["id"] as? Int
     email = dict["email"] as? String
   }
-  
+
   init(email: String, password: String) {
     self.email = email
     self.password = password
   }
-  
-  
+
   class var currentUser: User? {
     get {
       if _currentUser == nil {

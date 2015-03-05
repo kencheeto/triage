@@ -8,7 +8,6 @@
 
 
 let apiBaseURL = "https://z3nios.zendesk.com/api/v2/"
-class ApiResourse {
-    
-    
+
+class ApiResource {
 }
