@@ -32,17 +32,17 @@
 		353525C43F7A356824135E5E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		475FCA991AA7D45E00C579C6 /* triage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FCA9D1AA7D45E00C579C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		475FCAA01AA7D45E00C579C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
+		475FCAA01AA7D45E00C579C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = Classes/ViewControllers/ViewController.swift; sourceTree = "<group>"; };
 		475FCAA31AA7D45E00C579C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		475FCAA51AA7D45E00C579C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		475FCAA81AA7D45E00C579C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		475FCAAE1AA7D45E00C579C6 /* triageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = triageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FCAB31AA7D45E00C579C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		475FCAB41AA7D45E00C579C6 /* triageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triageTests.swift; sourceTree = "<group>"; };
-		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "triage-Bridging-Header.h"; sourceTree = "<group>"; };
-		475FCAC21AA8076100C579C6 /* ApiResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResource.swift; sourceTree = "<group>"; };
-		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "triage-Bridging-Header.h"; path = "Classes/triage-Bridging-Header.h"; sourceTree = "<group>"; };
+		475FCAC21AA8076100C579C6 /* ApiResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiResource.swift; path = Classes/Models/ApiResource.swift; sourceTree = "<group>"; };
+		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,14 +98,11 @@
 		475FCA9B1AA7D45E00C579C6 /* triage */ = {
 			isa = PBXGroup;
 			children = (
-				475FCAC11AA8074800C579C6 /* Models */,
-				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
-				475FCAA01AA7D45E00C579C6 /* ViewController.swift */,
+				C55E6F821AA8201C00B55982 /* Classes */,
 				475FCAA21AA7D45E00C579C6 /* Main.storyboard */,
 				475FCAA51AA7D45E00C579C6 /* Images.xcassets */,
 				475FCAA71AA7D45E00C579C6 /* LaunchScreen.xib */,
 				475FCA9C1AA7D45E00C579C6 /* Supporting Files */,
-				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
 			);
 			path = triage;
 			sourceTree = "<group>";
@@ -142,6 +139,17 @@
 				475FCAC41AA8076D00C579C6 /* User.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		C55E6F821AA8201C00B55982 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
+				475FCAA01AA7D45E00C579C6 /* ViewController.swift */,
+				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
+				475FCAC11AA8074800C579C6 /* Models */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		FDA7EF44915C3052DFDABC4F /* Frameworks */ = {
