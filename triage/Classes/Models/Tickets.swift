@@ -18,10 +18,7 @@ class Tickets {
     let rows = json["rows"].array!
 
     self.data = json
-
-    for row in rows {
-      self.items.append(Ticket(json: row))
-    }
+    self.items = rows.map({ Ticket(json: $0) })
   }
 
   convenience init(fixture: NSString) {
