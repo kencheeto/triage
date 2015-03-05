@@ -11,23 +11,19 @@ var email: String?
 var _password: String?
 let currentUserKey = "triage_current_user_key"
 
-class User: ApiResource {
+class User: Resource {
   var dictionary: NSDictionary?
   var name: String?
   var id: Int?
   var email: String?
-  var password: String?
+  var ouathToken: String?
 
   init(dict: NSDictionary) {
     dictionary = dict
     name = dict["name"] as? String
     id = dict["id"] as? Int
     email = dict["email"] as? String
-  }
-
-  init(email: String, password: String) {
-    self.email = email
-    self.password = password
+    ouathToken = dict["oauthToken"] as? String
   }
 
   class var currentUser: User? {
@@ -52,6 +48,11 @@ class User: ApiResource {
       }
       NSUserDefaults.standardUserDefaults().synchronize()
     }
+  }
+  
+  func getAccessToken() {
+    
+    
   }
   
   
