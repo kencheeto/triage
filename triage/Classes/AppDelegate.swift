@@ -10,11 +10,11 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-  
+
   var window: UIWindow?
   var storyboard = UIStoryboard(name: "Main", bundle: nil)
-  
-  
+
+
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: "userDidLogoutNotification", object: nil)
     if User.currentUser != nil {
@@ -22,14 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         User.currentUser = nil // something messed up with the stored user
       } else {
         var vc = storyboard.instantiateViewControllerWithIdentifier("TicketsViewController") as TicketsViewController
+        vc.tickets = Tickets(fixture: "tickets")
         window?.rootViewController = vc
       }
-      
     }
-    
+
     return true
   }
-  
+
   func userDidLogout() {
     var vc = storyboard.instantiateInitialViewController() as UIViewController
     

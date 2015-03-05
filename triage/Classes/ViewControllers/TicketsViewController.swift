@@ -10,6 +10,8 @@ import UIKit
 
 class TicketsViewController: UIViewController {
 
+  var tickets: Tickets?
+
   @IBOutlet weak var currentUserLabel: UILabel!
   
     override func viewDidLoad() {
@@ -18,7 +20,8 @@ class TicketsViewController: UIViewController {
       if var user = User.currentUser {
         currentUserLabel.text = user.name
       }
-      
+
+      println(tickets?.data)
     }
 
     override func didReceiveMemoryWarning() {

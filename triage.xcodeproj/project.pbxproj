@@ -15,9 +15,13 @@
 		475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA71AA7D45E00C579C6 /* LaunchScreen.xib */; };
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
-		47BC6FCD1AA82C6C00202B61 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC6FCC1AA82C6C00202B61 /* TicketsViewController.swift */; };
-		47BC6FD01AA82CA600202B61 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47BC6FCF1AA82CA600202B61 /* LoginViewController.swift */; };
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
+		C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */; };
+		C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */; };
+		C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB31AA84757003F29C1 /* Ticket.swift */; };
+		C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB41AA84757003F29C1 /* Tickets.swift */; };
+		C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */; };
+		C58EBCBC1AA849B6003F29C1 /* tickets.json in Resources */ = {isa = PBXBuildFile; fileRef = C58EBCBB1AA849B6003F29C1 /* tickets.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +49,14 @@
 		475FCAB41AA7D45E00C579C6 /* triageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triageTests.swift; sourceTree = "<group>"; };
 		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "triage-Bridging-Header.h"; path = "Classes/triage-Bridging-Header.h"; sourceTree = "<group>"; };
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
-		47BC6FCC1AA82C6C00202B61 /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = Classes/TicketsViewController.swift; sourceTree = "<group>"; };
-		47BC6FCF1AA82CA600202B61 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/LoginViewController.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
+		C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = Classes/ViewControllers/TicketsViewController.swift; sourceTree = "<group>"; };
+		C58EBCB31AA84757003F29C1 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Classes/Models/Ticket.swift; sourceTree = "<group>"; };
+		C58EBCB41AA84757003F29C1 /* Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = Classes/Models/Tickets.swift; sourceTree = "<group>"; };
+		C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		C58EBCBB1AA849B6003F29C1 /* tickets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tickets.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +110,7 @@
 		475FCA9B1AA7D45E00C579C6 /* triage */ = {
 			isa = PBXGroup;
 			children = (
-				47BC6FCE1AA82C7A00202B61 /* ViewControllers */,
+				C58EBCBA1AA849B6003F29C1 /* Fixtures */,
 				C55E6F821AA8201C00B55982 /* Classes */,
 				475FCAA21AA7D45E00C579C6 /* Main.storyboard */,
 				475FCAA51AA7D45E00C579C6 /* Images.xcassets */,
@@ -141,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				4728A33A1AA82AC3005FA37A /* ApiClient.swift */,
+				C58EBCB31AA84757003F29C1 /* Ticket.swift */,
+				C58EBCB41AA84757003F29C1 /* Tickets.swift */,
 				4728A3381AA82ABB005FA37A /* Resource.swift */,
 				475FCAC41AA8076D00C579C6 /* User.swift */,
 			);
@@ -150,8 +160,8 @@
 		47BC6FCE1AA82C7A00202B61 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				47BC6FCC1AA82C6C00202B61 /* TicketsViewController.swift */,
-				47BC6FCF1AA82CA600202B61 /* LoginViewController.swift */,
+				C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */,
+				C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -159,11 +169,30 @@
 		C55E6F821AA8201C00B55982 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				475FCAC11AA8074800C579C6 /* Models */,
+				C58EBCB71AA847B2003F29C1 /* Vendor */,
 				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
 				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
-				475FCAC11AA8074800C579C6 /* Models */,
+				47BC6FCE1AA82C7A00202B61 /* ViewControllers */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		C58EBCB71AA847B2003F29C1 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */,
+			);
+			name = Vendor;
+			path = Classes/Vendor;
+			sourceTree = "<group>";
+		};
+		C58EBCBA1AA849B6003F29C1 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				C58EBCBB1AA849B6003F29C1 /* tickets.json */,
+			);
+			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		FDA7EF44915C3052DFDABC4F /* Frameworks */ = {
@@ -259,6 +288,7 @@
 				475FCAA41AA7D45E00C579C6 /* Main.storyboard in Resources */,
 				475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */,
 				475FCAA61AA7D45E00C579C6 /* Images.xcassets in Resources */,
+				C58EBCBC1AA849B6003F29C1 /* tickets.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,12 +339,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47BC6FD01AA82CA600202B61 /* LoginViewController.swift in Sources */,
+				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
 				475FCAC51AA8076D00C579C6 /* User.swift in Sources */,
-				47BC6FCD1AA82C6C00202B61 /* TicketsViewController.swift in Sources */,
+				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				4728A3391AA82ABB005FA37A /* Resource.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
+				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
+				C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */,
 				4728A33B1AA82AC3005FA37A /* ApiClient.swift in Sources */,
+				C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +475,7 @@
 				INFOPLIST_FILE = triage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "triage/triage-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "triage/Classes/triage-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -456,7 +489,7 @@
 				INFOPLIST_FILE = triage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "triage/triage-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "triage/Classes/triage-Bridging-Header.h";
 			};
 			name = Release;
 		};
