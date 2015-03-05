@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "triage/ApiClient.swift"
-            timestampString = "447225172.719164"
+            timestampString = "447227953.479173"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "getAccessToken(_:password:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "triage/ApiClient.swift"
-            timestampString = "447225034.570891"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "getAccessToken(_:password:)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getAccessToken(_:password:completion:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -50,11 +50,25 @@ class User: Resource {
     }
   }
   
-  func getAccessToken() {
-    
+  class func loginUser(email: String, password: String) {
+
+    ApiClient.sharedInstance.getAccessToken(email, password: password) { (token) -> () in
+      ApiClient.sharedInstance.setToken(token)
+      self.loadCurrentUser()
+    }
+  }
+  
+  class func loadCurrentUser() {
+    ApiClient.sharedInstance.GET("/api/v2/users/me.json", parameters: nil, success: { (task: NSURLSessionDataTask!, response: AnyObject!) -> Void in
+        var user = User(dict: response as NSDictionary)
+        NSLog("user: %@", response as NSDictionary)
+        user.ouathToken = ApiClient.sharedInstance.accessToken
+        User.currentUser = user
+      }, failure: handleFailure)
     
   }
   
-  
-  
+  class func handleFailure(task: NSURLSessionDataTask!, error: NSError!) {
+    NSLog("Error %@", error)
+  }
 }
