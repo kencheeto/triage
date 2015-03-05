@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4728A3391AA82ABB005FA37A /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728A3381AA82ABB005FA37A /* Resource.swift */; };
-		4728A33B1AA82AC3005FA37A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728A33A1AA82AC3005FA37A /* ApiClient.swift */; };
 		475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */; };
 		475FCAA41AA7D45E00C579C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA21AA7D45E00C579C6 /* Main.storyboard */; };
 		475FCAA61AA7D45E00C579C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA51AA7D45E00C579C6 /* Images.xcassets */; };
@@ -22,6 +21,7 @@
 		C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB41AA84757003F29C1 /* Tickets.swift */; };
 		C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */; };
 		C58EBCBC1AA849B6003F29C1 /* tickets.json in Resources */ = {isa = PBXBuildFile; fileRef = C58EBCBB1AA849B6003F29C1 /* tickets.json */; };
+		C58EBCC01AA84B32003F29C1 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCBE1AA84B32003F29C1 /* ApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		353525C43F7A356824135E5E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4728A3381AA82ABB005FA37A /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Classes/Models/Resource.swift; sourceTree = "<group>"; };
-		4728A33A1AA82AC3005FA37A /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApiClient.swift; path = Classes/Models/ApiClient.swift; sourceTree = "<group>"; };
 		475FCA991AA7D45E00C579C6 /* triage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FCA9D1AA7D45E00C579C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +56,7 @@
 		C58EBCB41AA84757003F29C1 /* Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = Classes/Models/Tickets.swift; sourceTree = "<group>"; };
 		C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C58EBCBB1AA849B6003F29C1 /* tickets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tickets.json; sourceTree = "<group>"; };
+		C58EBCBE1AA84B32003F29C1 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +148,6 @@
 		475FCAC11AA8074800C579C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4728A33A1AA82AC3005FA37A /* ApiClient.swift */,
 				C58EBCB31AA84757003F29C1 /* Ticket.swift */,
 				C58EBCB41AA84757003F29C1 /* Tickets.swift */,
 				4728A3381AA82ABB005FA37A /* Resource.swift */,
@@ -170,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				475FCAC11AA8074800C579C6 /* Models */,
+				C58EBCBF1AA84B32003F29C1 /* Networking */,
 				C58EBCB71AA847B2003F29C1 /* Vendor */,
 				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
 				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
@@ -193,6 +193,15 @@
 				C58EBCBB1AA849B6003F29C1 /* tickets.json */,
 			);
 			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		C58EBCBF1AA84B32003F29C1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C58EBCBE1AA84B32003F29C1 /* ApiClient.swift */,
+			);
+			name = Networking;
+			path = Classes/Networking;
 			sourceTree = "<group>";
 		};
 		FDA7EF44915C3052DFDABC4F /* Frameworks */ = {
@@ -341,12 +350,12 @@
 			files = (
 				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
 				475FCAC51AA8076D00C579C6 /* User.swift in Sources */,
+				C58EBCC01AA84B32003F29C1 /* ApiClient.swift in Sources */,
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				4728A3391AA82ABB005FA37A /* Resource.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
 				C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */,
-				4728A33B1AA82AC3005FA37A /* ApiClient.swift in Sources */,
 				C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
