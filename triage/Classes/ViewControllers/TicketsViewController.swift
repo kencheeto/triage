@@ -8,36 +8,44 @@
 
 import UIKit
 
-class TicketsViewController: UIViewController {
+class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   var tickets: Tickets?
 
   @IBOutlet weak var currentUserLabel: UILabel!
-  
-    override func viewDidLoad() {
-      super.viewDidLoad()
-      
-      if var user = User.currentUser {
-        currentUserLabel.text = user.name
-      }
+  @IBOutlet weak var ticketsTableView: UITableView!
 
-      println(tickets?.data)
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    ticketsTableView.registerClass(
+      TicketTableViewCell.self,
+      forCellReuseIdentifier: "TicketTableViewCell"
+    )
+
+    if var user = User.currentUser {
+      currentUserLabel.text = user.name
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    ticketsTableView.delegate = self
+    ticketsTableView.dataSource = self
 
-    /*
-    // MARK: - Navigation
+    ticketsTableView.reloadData()
+  }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  func tableView(tableView: UITableView,
+    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let ticket = tickets!.items[indexPath.row]
+    let cell = ticketsTableView.dequeueReusableCellWithIdentifier(
+      "TicketTableViewCell"
+    ) as TicketTableViewCell
 
+    cell.ticket = ticket
+
+    return cell
+  }
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return tickets!.items.count
+  }
 }
