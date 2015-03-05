@@ -17,7 +17,7 @@ This app will agents to quickly delete or esclate each ticket to the apporiate t
 
 ### Main View
 
-![image](list_view.jpg)
+![image](Wireframes/list_view.jpg)
 
 #### Swipe Actions
 
@@ -28,9 +28,9 @@ This app will agents to quickly delete or esclate each ticket to the apporiate t
 
 ### Detail View
 
-![image](detail_page.jpg)
+![image](Wireframes/detail_page.jpg)
 
 
 ### Wireframe
 
-![image](wires.png)
+![image](Wireframes/wires.png)
