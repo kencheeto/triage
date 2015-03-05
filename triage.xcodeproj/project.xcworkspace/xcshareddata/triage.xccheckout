@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>59A8A766-A153-4263-A8DD-BE4907774281</string>
+	<key>IDESourceControlProjectName</key>
+	<string>triage</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>F51BE0B3BF497ED87A8F8981D20779D8AEAC309A</key>
+		<string>github.com:kencheeto/triage.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>triage/triage.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>F51BE0B3BF497ED87A8F8981D20779D8AEAC309A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:kencheeto/triage.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>F51BE0B3BF497ED87A8F8981D20779D8AEAC309A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F51BE0B3BF497ED87A8F8981D20779D8AEAC309A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>triage</string>
+		</dict>
+	</array>
+</dict>
+</plist>
