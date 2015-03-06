@@ -31,7 +31,6 @@ class ApiClient: AFHTTPSessionManager {
     
   }
 
-
   required init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
   }
@@ -54,19 +53,7 @@ class ApiClient: AFHTTPSessionManager {
 
   }
   
-  
-  
   func handleFailure(task: NSURLSessionDataTask!, error: NSError!) {
     NSLog("Error %@", error)
   }
-  
-  
-  /*
-  AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-  [manager GET:@"http://example.com/resources.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-  NSLog(@"JSON: %@", responseObject);
-  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-  NSLog(@"Error: %@", error);
-  }];
-  */
 }

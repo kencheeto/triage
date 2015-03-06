@@ -12,19 +12,27 @@ var _password: String?
 let currentUserKey = "triage_current_user_key"
 
 class User: Resource {
-  var dictionary: NSDictionary?
   var name: String?
-  var id: Int?
   var email: String?
   var ouathToken: String?
-
-  init(dict: NSDictionary) {
+  
+  
+  override func updateFromDict(dict: NSDictionary) {
     dictionary = dict
     name = dict["name"] as? String
     id = dict["id"] as? Int
     email = dict["email"] as? String
     ouathToken = dict["oauthToken"] as? String
   }
+  
+  override class func resourceUrl(id: Int) -> String {
+    return "/api/v2/users/\(id).json"
+  }
+  
+  override class func resourceName() -> String {
+    return "user"
+  }
+  
 
   class var currentUser: User? {
     get {
@@ -62,8 +70,7 @@ class User: Resource {
     ApiClient.sharedInstance.GET("/api/v2/users/me.json", parameters: nil, success: { (task: NSURLSessionDataTask!, response: AnyObject!) -> Void in
         var hash = response as NSDictionary
         var userDict = hash.valueForKey("user") as NSDictionary
-      
-        var user = User(dict: userDict as NSDictionary)
+        var user = User(dict: userDict)
       
         NSLog("user: %@", response as NSDictionary)
         user.ouathToken = ApiClient.sharedInstance.accessToken
@@ -73,7 +80,5 @@ class User: Resource {
     
   }
   
-  class func handleFailure(task: NSURLSessionDataTask!, error: NSError!) {
-    NSLog("Error %@", error)
-  }
+
 }
