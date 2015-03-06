@@ -13,6 +13,7 @@ let apiBaseURL = "https://z3nios.zendesk.com/api/v2/"
 class Resource {
   var dictionary: NSDictionary?
   var id: Int?
+  var url: String?
   
   init() {
     
@@ -47,6 +48,17 @@ class Resource {
       var resource = Resource(dict: resourceDict)
       
       completion(resource: resource, error: nil)
+      }, failure: handleFailure)
+    
+  }
+  
+  class func findAll(url: String, completion: (resources: [Resource]?, error: NSError?) -> ())  {
+    ApiClient.sharedInstance.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask!, response: AnyObject!) -> Void in
+      var hash = response as NSDictionary
+      var resourceArray = hash.valueForKey("\(self.resourceName())s") as [NSDictionary]
+      var items = resourceArray.map{Resource(dict: $0)}
+      
+      completion(resources: items, error: nil)
       }, failure: handleFailure)
     
   }

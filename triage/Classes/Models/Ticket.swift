@@ -10,7 +10,7 @@ class Ticket: Resource {
 
   internal var data: JSON
 
-  var subject: String
+  var subject: String?
   
 
   init(json: JSON) {
@@ -29,9 +29,10 @@ class Ticket: Resource {
   }
   
   override func updateFromDict(dict: NSDictionary) {
-    
-    
-    
+    subject = dict["subject"] as? String
+    id = dict["id"] as? Int
+    url = dict["url"] as? String
   }
+  
   
 }

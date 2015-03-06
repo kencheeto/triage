@@ -19,6 +19,7 @@ class ApiClient: AFHTTPSessionManager {
     return Static.instance
   }
   
+  
   var accessToken: String!
   
   init() {
@@ -28,7 +29,8 @@ class ApiClient: AFHTTPSessionManager {
     super.init(baseURL: zendeskURL, sessionConfiguration: config)
     requestSerializer = AFJSONRequestSerializer() as AFJSONRequestSerializer // #wtf apple
     responseSerializer = AFJSONResponseSerializer() as AFJSONResponseSerializer
-    
+  
+ 
   }
 
   required init(coder aDecoder: NSCoder) {
