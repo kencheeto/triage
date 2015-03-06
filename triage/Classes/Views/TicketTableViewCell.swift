@@ -13,27 +13,25 @@ class TicketTableViewCell: UITableViewCell {
   var ticket: Ticket? {
     didSet {
       subjectLabel.text = ticket?.data["subject"].string!
+      descriptionLabel.text = ticket?.metadata["description"]?.string!
     }
   }
 
-  @IBOutlet var subjectLabel: UILabel!
+  @IBOutlet weak var userAvatar: UIImageView!
+  @IBOutlet weak var subjectLabel: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
 
   required init(coder: NSCoder) {
-    fatalError("init(coder: has not been implemented")
+    super.init(coder: coder)
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    let nib = UINib(nibName: "TicketTableViewCell", bundle: nil)
-
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    nib.instantiateWithOwner(self, options: nil)
 
     layoutMargins = UIEdgeInsetsZero
-    subjectLabel.frame = bounds
-    addSubview(subjectLabel)
-  }
 
-  override func awakeFromNib() {
-    super.awakeFromNib()
+    userAvatar.backgroundColor = UIColor.cyanColor()
+    subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
+    descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
   }
 }

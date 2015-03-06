@@ -12,21 +12,18 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
   var tickets: Tickets?
 
-
   @IBOutlet weak var ticketsTableView: UITableView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    ticketsTableView.registerClass(
-      TicketTableViewCell.self,
-      forCellReuseIdentifier: "TicketTableViewCell"
-    )
+    ticketsTableView.rowHeight = UITableViewAutomaticDimension;
+    ticketsTableView.estimatedRowHeight = 44
     ticketsTableView.delegate = self
     ticketsTableView.dataSource = self
     ticketsTableView.layoutMargins = UIEdgeInsetsZero
     ticketsTableView.separatorInset = UIEdgeInsetsZero
-    ticketsTableView.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height)
+    ticketsTableView.tableFooterView = UIView(frame: CGRectZero)
 
     ticketsTableView.reloadData()
   }
@@ -35,7 +32,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
     cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let ticket = tickets!.items[indexPath.row]
     let cell = ticketsTableView.dequeueReusableCellWithIdentifier(
-      "TicketTableViewCell"
+      "TicketTableViewCell", forIndexPath: indexPath
     ) as TicketTableViewCell
 
     cell.ticket = ticket
@@ -44,6 +41,10 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
   }
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tickets!.items.count
+    if tickets != nil {
+      return tickets!.items.count
+    } else {
+      return 0
+    }
   }
 }

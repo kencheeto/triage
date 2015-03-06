@@ -11,15 +11,15 @@ class Ticket: Resource {
   internal var data: JSON
 
   var subject: String
-  
+  var metadata: [String: JSON]
 
   init(json: JSON) {
     self.data = json
     self.subject = json["subject"].string!
+    self.metadata = json["ticket"].dictionary!
     super.init()
   }
-  
-  
+
   override class func resourceUrl(id: Int) -> String {
     return "/api/v2/tickets/\(id).json"
   }
@@ -29,9 +29,5 @@ class Ticket: Resource {
   }
   
   override func updateFromDict(dict: NSDictionary) {
-    
-    
-    
   }
-  
 }
