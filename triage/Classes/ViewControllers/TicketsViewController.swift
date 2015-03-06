@@ -12,7 +12,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
   var tickets: Tickets?
 
-  @IBOutlet weak var currentUserLabel: UILabel!
+
   @IBOutlet weak var ticketsTableView: UITableView!
 
   override func viewDidLoad() {
@@ -22,13 +22,11 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
       TicketTableViewCell.self,
       forCellReuseIdentifier: "TicketTableViewCell"
     )
-
-    if var user = User.currentUser {
-      currentUserLabel.text = user.name
-    }
-
     ticketsTableView.delegate = self
     ticketsTableView.dataSource = self
+    ticketsTableView.layoutMargins = UIEdgeInsetsZero
+    ticketsTableView.separatorInset = UIEdgeInsetsZero
+    ticketsTableView.frame = CGRectMake(0, 0, view.bounds.width, view.bounds.height)
 
     ticketsTableView.reloadData()
   }
