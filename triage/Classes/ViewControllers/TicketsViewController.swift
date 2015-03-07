@@ -36,6 +36,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
     ) as TicketTableViewCell
 
     cell.ticket = ticket
+    cell.updateConstraintsIfNeeded()
 
     return cell
   }
