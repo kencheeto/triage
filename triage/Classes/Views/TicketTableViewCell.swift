@@ -45,6 +45,15 @@ class TicketTableViewCell: UITableViewCell {
       origin = center
     } else if recognizer.state == .Changed {
       let translation = recognizer.translationInView(self)
+      if translation.x > frame.width * 0.6 {
+        superview?.backgroundColor = UIColor.purpleColor()
+      } else if translation.x > frame.width * 0.15 {
+        superview?.backgroundColor = UIColor.greenColor()
+      } else if translation.x > frame.width * -0.15 {
+        superview?.backgroundColor = UIColor.whiteColor()
+      } else {
+        superview?.backgroundColor = UIColor.redColor()
+      }
       center = CGPoint(x: origin.x + translation.x, y: origin.y)
     } else if recognizer.state == .Ended {
       center = origin
