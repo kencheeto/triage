@@ -121,6 +121,7 @@
                                                 <constraint firstItem="Jve-jh-5xB" firstAttribute="trailing" secondItem="Qrw-2B-oDQ" secondAttribute="trailing" id="weL-k6-Z6e"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="Qrw-2B-oDQ" id="JqC-Ql-6Hu"/>
                                             <outlet property="subjectLabel" destination="Jve-jh-5xB" id="n9a-o3-ASU"/>

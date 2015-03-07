@@ -23,6 +23,10 @@ class TicketTableViewCell: UITableViewCell {
 
   required init(coder: NSCoder) {
     super.init(coder: coder)
+
+    let recognizer = UIPanGestureRecognizer(target: self, action: "didPan:")
+    recognizer.delegate = self
+    addGestureRecognizer(recognizer)
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -33,5 +37,10 @@ class TicketTableViewCell: UITableViewCell {
     userAvatar.backgroundColor = UIColor.cyanColor()
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
+  }
+
+  func didPan(recognizer: UIPanGestureRecognizer) {
+    let location = recognizer.locationInView(self)
+    println("x: \(location.x), y: \(location.y)")
   }
 }
