@@ -15,6 +15,8 @@
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
+		C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502B1AABBF9A0097FF7D /* Colors.swift */; };
+		C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */; };
 		C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */; };
 		C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */; };
 		C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB31AA84757003F29C1 /* Ticket.swift */; };
@@ -51,6 +53,8 @@
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C583502B1AABBF9A0097FF7D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Triage.swift"; sourceTree = "<group>"; };
 		C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = Classes/ViewControllers/TicketsViewController.swift; sourceTree = "<group>"; };
 		C58EBCB31AA84757003F29C1 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Classes/Models/Ticket.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 		C55E6F821AA8201C00B55982 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C583502D1AABC0CC0097FF7D /* Categories */,
+				C583502A1AABBF9A0097FF7D /* Constants */,
 				475FCAC11AA8074800C579C6 /* Models */,
 				C58EBCBF1AA84B32003F29C1 /* Networking */,
 				C58EBCB71AA847B2003F29C1 /* Vendor */,
@@ -179,6 +185,24 @@
 				47BC6FCE1AA82C7A00202B61 /* ViewControllers */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		C583502A1AABBF9A0097FF7D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C583502B1AABBF9A0097FF7D /* Colors.swift */,
+			);
+			name = Constants;
+			path = Classes/Constants;
+			sourceTree = "<group>";
+		};
+		C583502D1AABC0CC0097FF7D /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */,
+			);
+			name = Categories;
+			path = Classes/Categories;
 			sourceTree = "<group>";
 		};
 		C58EBCB71AA847B2003F29C1 /* Vendor */ = {
@@ -271,7 +295,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "KSCK";
+				ORGANIZATIONNAME = KSCK;
 				TargetAttributes = {
 					475FCA981AA7D45E00C579C6 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -361,11 +385,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
+				C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */,
 				475FCAC51AA8076D00C579C6 /* User.swift in Sources */,
 				C58EBCC01AA84B32003F29C1 /* ApiClient.swift in Sources */,
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				4728A3391AA82ABB005FA37A /* Resource.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
+				C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
 				C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */,
 				C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */,

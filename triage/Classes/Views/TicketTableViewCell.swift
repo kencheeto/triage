@@ -33,7 +33,6 @@ class TicketTableViewCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-    userAvatar.backgroundColor = UIColor.cyanColor()
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
   }
@@ -46,7 +45,7 @@ class TicketTableViewCell: UITableViewCell {
       if translation.x > frame.width * 0.6 {
         superview?.backgroundColor = UIColor.purpleColor()
       } else if translation.x > frame.width * 0.15 {
-        superview?.backgroundColor = UIColor.greenColor()
+        superview?.backgroundColor = Colors.ZendeskGreen
       } else if translation.x > frame.width * -0.15 {
         superview?.backgroundColor = UIColor.whiteColor()
       } else {
