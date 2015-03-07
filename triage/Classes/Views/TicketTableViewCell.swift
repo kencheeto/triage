@@ -33,8 +33,6 @@ class TicketTableViewCell: UITableViewCell {
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-    layoutMargins = UIEdgeInsetsZero
-
     userAvatar.backgroundColor = UIColor.cyanColor()
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width

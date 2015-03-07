@@ -35,6 +35,7 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
       "TicketTableViewCell", forIndexPath: indexPath
     ) as TicketTableViewCell
 
+    cell.layoutMargins = UIEdgeInsetsZero
     cell.ticket = ticket
     cell.updateConstraintsIfNeeded()
 
