@@ -20,6 +20,7 @@ class TicketTableViewCell: UITableViewCell {
   @IBOutlet weak var userAvatar: UIImageView!
   @IBOutlet weak var subjectLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
+  private var origin: CGPoint!
 
   required init(coder: NSCoder) {
     super.init(coder: coder)
@@ -40,7 +41,13 @@ class TicketTableViewCell: UITableViewCell {
   }
 
   func didPan(recognizer: UIPanGestureRecognizer) {
-    let location = recognizer.locationInView(self)
-    println("x: \(location.x), y: \(location.y)")
+    if recognizer.state == .Began {
+      origin = center
+    } else if recognizer.state == .Changed {
+      let translation = recognizer.translationInView(self)
+      center = CGPoint(x: origin.x + translation.x, y: origin.y)
+    } else if recognizer.state == .Ended {
+      center = origin
+    }
   }
 }
