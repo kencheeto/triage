@@ -36,9 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         "TicketsViewController"
       ) as TicketsViewController
     } else {
-      window!.rootViewController = storyboard.instantiateViewControllerWithIdentifier(
-        "LoginViewController"
-      ) as LoginViewController
+      window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
     }
 
     return true
