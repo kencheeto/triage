@@ -29,19 +29,19 @@ extension ZendeskAPI {
   final func executeView(id: Int, parameters: [String: AnyObject],
     success: ((operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) -> Void)?,
     failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
-      GET("api/v2/views/\(id)/execute",
-        parameters: parameters,
-        success: { (operation: AFHTTPRequestOperation!,
-          response: AnyObject!) -> Void in
-          let json = JSON.parse <^> response
-          let rows: [TicketFilterRow]? = json >>- { $0 <| "rows" >>- decodeArray }
+    GET("api/v2/views/\(id)/execute",
+      parameters: parameters,
+      success: { (operation: AFHTTPRequestOperation!,
+        response: AnyObject!) -> Void in
+        let json = JSON.parse <^> response
+        let rows: [TicketFilterRow]? = json >>- { $0 <| "rows" >>- decodeArray }
 
-          _ = success?(operation: operation, rows: rows!)
-        },
-        failure: { (operation: AFHTTPRequestOperation!,
-          error: NSError!) -> Void in
-          _ = failure?(operation: operation, error: error)
-        }
-      )
+        _ = success?(operation: operation, rows: rows!)
+      },
+      failure: { (operation: AFHTTPRequestOperation!,
+        error: NSError!) -> Void in
+        _ = failure?(operation: operation, error: error)
+      }
+    )
   }
 }

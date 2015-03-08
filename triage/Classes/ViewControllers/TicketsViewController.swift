@@ -14,6 +14,7 @@ class TicketsViewController: UIViewController {
 
   private let API = ZendeskAPI.instance
 
+  var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
 
   private var parameters: [String: AnyObject] {
@@ -33,6 +34,7 @@ class TicketsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    API.getMacros(success: didFetchMacros, failure: nil)
     API.executeView(kViewID, parameters: parameters, success: didFetchRows, failure: nil)
 
     ticketsTableView.rowHeight = UITableViewAutomaticDimension;
@@ -44,6 +46,10 @@ class TicketsViewController: UIViewController {
     ticketsTableView.tableFooterView = UIView(frame: CGRectZero)
 
     ticketsTableView.reloadData()
+  }
+
+  func didFetchMacros(operation: AFHTTPRequestOperation!, macros: [Macro]) {
+    self.macros = macros
   }
 
   func didFetchRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
