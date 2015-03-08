@@ -9,6 +9,7 @@
 import UIKit
 
 let kViewID = 47205968
+let kAssignToTier1MacroID = 47314978
 
 class TicketsViewController: UIViewController {
 
@@ -93,6 +94,12 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     rows.removeAtIndex(indexPath.row)
     ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
 
+    API.applyMacroToTicket(
+      kAssignToTier1MacroID,
+      ticketID: cell.ticket!.id,
+      success: nil,
+      failure: nil
+    )
     println("didNearRightSwipe")
   }
 
