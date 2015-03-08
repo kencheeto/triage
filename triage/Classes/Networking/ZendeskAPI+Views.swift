@@ -26,7 +26,7 @@ extension ZendeskAPI {
     )
   }
 
-  final func executeView(id: Int, parameters: [String: AnyObject],
+  final func executeView(id: Int, parameters: NSDictionary,
     success: ((operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) -> Void)?,
     failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
     GET("api/v2/views/\(id)/execute",

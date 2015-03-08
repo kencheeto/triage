@@ -36,11 +36,11 @@ extension User: JSONDecodable, JSONSerializable {
       <*> json <| "email"
   }
 
-  static func toDictionary(model: User) -> NSDictionary {
+  static func toDictionary(user: User) -> NSDictionary {
     return [
-      "id": model.id,
-      "name": model.name,
-      "email": model.email
+      "id": user.id,
+      "name": user.name,
+      "email": user.email
     ]
   }
 
@@ -56,7 +56,7 @@ extension User: JSONDecodable, JSONSerializable {
 
     set(user) {
       if user != nil {
-        currentUserData = toDictionary(user!)
+        _currentUserData = toDictionary(user!) as? [String: AnyObject]
       }
 
       _currentUser = user

@@ -8,13 +8,13 @@
 
 struct Ticket {
   let id: Int
-  let subject: String
+  var subject: String
   let description: String
-  let status: String?
-  let priority: String?
+  var status: String?
+  var priority: String?
 }
 
-extension Ticket: JSONDecodable {
+extension Ticket: JSONDecodable, JSONSerializable {
 
   static func create(id: Int)
     (subject: String)
@@ -37,5 +37,15 @@ extension Ticket: JSONDecodable {
       <*> json <| "description"
       <*> json <|? "status"
       <*> json <|? "priority"
+  }
+
+  static func toDictionary(ticket: Ticket) -> NSDictionary {
+    return [
+      "id": ticket.id,
+      "subject": ticket.subject,
+      "description": ticket.description,
+      "status": ticket.status ?? NSNull(),
+      "priority": ticket.priority ?? NSNull()
+    ]
   }
 }

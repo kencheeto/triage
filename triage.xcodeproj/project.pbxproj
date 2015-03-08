@@ -16,6 +16,7 @@
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
 		C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120D1AABE8C400DE1906 /* APIConstants.swift */; };
+		C56C526D1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */; };
 		C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CA9F1AAC9D3A00BE6BCA /* Array.swift */; };
 		C571CAA51AAC9D3A00BE6BCA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C571CAA01AAC9D3A00BE6BCA /* Info.plist */; };
 		C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAA11AAC9D3A00BE6BCA /* Operators.swift */; };
@@ -73,6 +74,7 @@
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Users.swift"; sourceTree = "<group>"; };
 		C53A120D1AABE8C400DE1906 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Tickets.swift"; sourceTree = "<group>"; };
 		C571CA9F1AAC9D3A00BE6BCA /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		C571CAA01AAC9D3A00BE6BCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C571CAA11AAC9D3A00BE6BCA /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -282,9 +284,10 @@
 			isa = PBXGroup;
 			children = (
 				C58350321AABC8860097FF7D /* ZendeskAPI.swift */,
+				C571CAB71AACE6B000BE6BCA /* ZendeskAPI+Macros.swift */,
+				C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */,
 				C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */,
 				C58350341AABCCEC0097FF7D /* ZendeskAPI+Views.swift */,
-				C571CAB71AACE6B000BE6BCA /* ZendeskAPI+Macros.swift */,
 			);
 			name = Networking;
 			path = Classes/Networking;
@@ -519,6 +522,7 @@
 				C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
 				C571CAB81AACE6B000BE6BCA /* ZendeskAPI+Macros.swift in Sources */,
+				C56C526D1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift in Sources */,
 				C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
 				C5D281891AAC98A4003ED493 /* flatReduce.swift in Sources */,

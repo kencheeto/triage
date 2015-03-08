@@ -17,7 +17,7 @@ class TicketsViewController: UIViewController {
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
 
-  private var parameters: [String: AnyObject] {
+  private var parameters: NSDictionary {
     get {
       return [
         "per_page": 30,

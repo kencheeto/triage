@@ -35,4 +35,9 @@ extension ZendeskAPI {
       failure: failure
     )
   }
+
+  final func applyMacroToTicket(ticket: Ticket,
+    success: ((operation: AFHTTPRequestOperation!, ticket: Ticket) -> Void)?,
+    failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
+  }
 }
