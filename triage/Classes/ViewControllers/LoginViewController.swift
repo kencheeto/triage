@@ -9,47 +9,36 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+  private let API = ZendeskAPI.instance
+
   @IBOutlet weak var emailField: UITextField!
   @IBOutlet weak var passwordField: UITextField!
   
   @IBAction func loginTapped(sender: UIButton) {
-    User.loginUser(emailField.text, password: passwordField.text) { (user, error) -> () in
-      if user != nil {
+    API.authenticateUsingOAuthWithURLString(
+      "oauth/tokens",
+      username: emailField.text,
+      password: passwordField.text,
+      scope: "read write",
+      success: didLogin,
+      failure: didFail
+    )
+  }
+
+  func didLogin(credential: AFOAuthCredential!) {
+    AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
+    API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
+    API.getMe(
+      success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+        println(response)
+//        User.currentUser = User.create(JSON(response))
         self.performSegueWithIdentifier("loginSegue", sender: self)
-      }
-      
-      self.handleError(error)
-      
-    }
-  }
-  
-  
-  func handleError(error: NSError?) {
-    if error != nil {
-      NSLog("error: %@", error!)
-    }
+      },
+      failure: nil
+    )
   }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+  func didFail(error: NSError!) {
+    println(error)
+  }
 }
