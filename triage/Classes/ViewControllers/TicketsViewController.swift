@@ -88,11 +88,20 @@ extension TicketsViewController: TicketTableViewCellDelegate {
   }
 
   func didNearRightSwipe(cell: TicketTableViewCell) {
+    let indexPath = ticketsTableView.indexPathForCell(cell)!
+
+    rows.removeAtIndex(indexPath.row)
+    ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+
     println("didNearRightSwipe")
   }
 
   func didLeftSwipe(cell: TicketTableViewCell) {
+    let indexPath = ticketsTableView.indexPathForCell(cell)!
+
+    rows.removeAtIndex(indexPath.row)
+    ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+
     println("didLeftRightSwipe")
   }
-
 }

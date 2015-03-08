@@ -69,14 +69,14 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     } else if recognizer.state == .Ended {
       if translation.x > farRightX {
         delegate?.didFarRightSwipe(self)
+        center = origin
       } else if translation.x > deadX {
         delegate?.didNearRightSwipe(self)
       } else if translation.x > -deadX {
-        // noop
+        center = origin
       } else {
         delegate?.didLeftSwipe(self)
       }
-      center = origin
     }
   }
 
