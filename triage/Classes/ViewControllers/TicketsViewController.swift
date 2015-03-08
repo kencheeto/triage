@@ -69,4 +69,5 @@ extension TicketsViewController: TicketTableViewCellDelegate {
   func didLeftSwipe(cell: TicketTableViewCell) {
     println("didLeftRightSwipe")
   }
+
 }

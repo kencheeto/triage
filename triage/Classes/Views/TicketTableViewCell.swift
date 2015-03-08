@@ -14,7 +14,7 @@ protocol TicketTableViewCellDelegate {
   func didLeftSwipe(cell: TicketTableViewCell)
 }
 
-class TicketTableViewCell: UITableViewCell {
+class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
   var ticket: Ticket? {
     didSet {
@@ -26,15 +26,20 @@ class TicketTableViewCell: UITableViewCell {
   @IBOutlet weak var userAvatar: UIImageView!
   @IBOutlet weak var subjectLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
+
+  private var panGestureRecognizer: UIPanGestureRecognizer!
   private var origin: CGPoint!
   var delegate: TicketsViewController!
   
   required init(coder: NSCoder) {
     super.init(coder: coder)
 
-    let recognizer = UIPanGestureRecognizer(target: self, action: "didPan:")
-    recognizer.delegate = self
-    addGestureRecognizer(recognizer)
+    panGestureRecognizer = UIPanGestureRecognizer(
+      target: self,
+      action: "didPan:"
+    )
+    panGestureRecognizer.delegate = self
+    addGestureRecognizer(panGestureRecognizer)
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -73,5 +78,15 @@ class TicketTableViewCell: UITableViewCell {
       }
       center = origin
     }
+  }
+
+  override func gestureRecognizerShouldBegin(
+    gestureRecognizer: UIGestureRecognizer) -> Bool {
+    let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
+    let translation = panGestureRecognizer.translationInView(
+      panGestureRecognizer.view!
+    )
+
+    return fabs(translation.x) > fabs(translation.y)
   }
 }
