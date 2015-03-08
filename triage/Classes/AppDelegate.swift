@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
 
     if (credential != nil) {
+      User.refreshCurrentUser()
       API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
 
       window!.rootViewController = storyboard.instantiateViewControllerWithIdentifier(
@@ -45,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func userDidLogout() {
     AFOAuthCredential.deleteCredentialWithIdentifier(APICredentialID)
+    User.currentUser = nil
+
     window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
   }
 }

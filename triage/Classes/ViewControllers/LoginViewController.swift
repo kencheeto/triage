@@ -30,7 +30,8 @@ class LoginViewController: UIViewController {
     API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
     API.getMe(
       success: { (operation: AFHTTPRequestOperation!, user: User) -> Void in
-//        User.currentUser = User.create(JSON(response))
+        User.currentUser = user
+
         self.performSegueWithIdentifier("loginSegue", sender: self)
       },
       failure: nil

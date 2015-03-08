@@ -23,6 +23,8 @@
 		C571CAA91AAC9DE200BE6BCA /* ArgoOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAA81AAC9DE200BE6BCA /* ArgoOperators.swift */; };
 		C571CAAD1AACA51000BE6BCA /* TicketFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAAC1AACA51000BE6BCA /* TicketFilter.swift */; };
 		C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAAE1AACA5BA00BE6BCA /* TicketFilterRow.swift */; };
+		C571CAB11AACC87800BE6BCA /* CacheConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAB01AACC87800BE6BCA /* CacheConstants.swift */; };
+		C571CAB51AACDBD600BE6BCA /* JSONSerializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAB41AACDBD600BE6BCA /* JSONSerializable.swift */; };
 		C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502B1AABBF9A0097FF7D /* Colors.swift */; };
 		C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */; };
 		C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58350321AABC8860097FF7D /* ZendeskAPI.swift */; };
@@ -77,6 +79,8 @@
 		C571CAA81AAC9DE200BE6BCA /* ArgoOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgoOperators.swift; sourceTree = "<group>"; };
 		C571CAAC1AACA51000BE6BCA /* TicketFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketFilter.swift; path = Classes/Models/TicketFilter.swift; sourceTree = "<group>"; };
 		C571CAAE1AACA5BA00BE6BCA /* TicketFilterRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketFilterRow.swift; path = Classes/Models/TicketFilterRow.swift; sourceTree = "<group>"; };
+		C571CAB01AACC87800BE6BCA /* CacheConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheConstants.swift; sourceTree = "<group>"; };
+		C571CAB41AACDBD600BE6BCA /* JSONSerializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONSerializable.swift; path = Classes/Protocols/JSONSerializable.swift; sourceTree = "<group>"; };
 		C583502B1AABBF9A0097FF7D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Triage.swift"; sourceTree = "<group>"; };
 		C58350321AABC8860097FF7D /* ZendeskAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZendeskAPI.swift; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				C583502A1AABBF9A0097FF7D /* Constants */,
 				475FCAC11AA8074800C579C6 /* Models */,
 				C58EBCBF1AA84B32003F29C1 /* Networking */,
+				C571CAB61AACDBE100BE6BCA /* Protocols */,
 				C58EBCB71AA847B2003F29C1 /* Vendor */,
 				C58EBCC11AA84FDE003F29C1 /* Views */,
 				47BC6FCE1AA82C7A00202B61 /* ViewControllers */,
@@ -230,10 +235,19 @@
 			path = Runes;
 			sourceTree = "<group>";
 		};
+		C571CAB61AACDBE100BE6BCA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C571CAB41AACDBD600BE6BCA /* JSONSerializable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		C583502A1AABBF9A0097FF7D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				C53A120D1AABE8C400DE1906 /* APIConstants.swift */,
+				C571CAB01AACC87800BE6BCA /* CacheConstants.swift */,
 				C583502B1AABBF9A0097FF7D /* Colors.swift */,
 			);
 			name = Constants;
@@ -484,6 +498,7 @@
 			files = (
 				C58350351AABCCEC0097FF7D /* ZendeskAPI+Views.swift in Sources */,
 				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
+				C571CAB51AACDBD600BE6BCA /* JSONSerializable.swift in Sources */,
 				C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */,
 				C571CAA71AAC9D3A00BE6BCA /* Optional.swift in Sources */,
 				C571CAAD1AACA51000BE6BCA /* TicketFilter.swift in Sources */,
@@ -502,6 +517,7 @@
 				C5D281881AAC98A4003ED493 /* curry.swift in Sources */,
 				C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */,
 				C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */,
+				C571CAB11AACC87800BE6BCA /* CacheConstants.swift in Sources */,
 				C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */,
 				C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */,
 				C5D2818B1AAC98A4003ED493 /* sequence.swift in Sources */,
