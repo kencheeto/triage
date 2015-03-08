@@ -42,6 +42,7 @@ extension TicketsViewController: UITableViewDataSource {
 
     cell.layoutMargins = UIEdgeInsetsZero
     cell.ticket = ticket
+    cell.delegate = self
     cell.updateConstraintsIfNeeded()
 
     return cell
