@@ -15,15 +15,18 @@
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
+		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
+		C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120D1AABE8C400DE1906 /* APIConstants.swift */; };
 		C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502B1AABBF9A0097FF7D /* Colors.swift */; };
 		C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */; };
+		C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58350321AABC8860097FF7D /* ZendeskAPI.swift */; };
+		C58350351AABCCEC0097FF7D /* ZendeskAPI+Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58350341AABCCEC0097FF7D /* ZendeskAPI+Views.swift */; };
 		C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */; };
 		C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */; };
 		C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB31AA84757003F29C1 /* Ticket.swift */; };
 		C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB41AA84757003F29C1 /* Tickets.swift */; };
 		C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */; };
 		C58EBCBC1AA849B6003F29C1 /* tickets.json in Resources */ = {isa = PBXBuildFile; fileRef = C58EBCBB1AA849B6003F29C1 /* tickets.json */; };
-		C58EBCC01AA84B32003F29C1 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCBE1AA84B32003F29C1 /* ApiClient.swift */; };
 		C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,15 +56,18 @@
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Users.swift"; sourceTree = "<group>"; };
+		C53A120D1AABE8C400DE1906 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		C583502B1AABBF9A0097FF7D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Triage.swift"; sourceTree = "<group>"; };
+		C58350321AABC8860097FF7D /* ZendeskAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZendeskAPI.swift; sourceTree = "<group>"; };
+		C58350341AABCCEC0097FF7D /* ZendeskAPI+Views.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Views.swift"; sourceTree = "<group>"; };
 		C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = Classes/ViewControllers/TicketsViewController.swift; sourceTree = "<group>"; };
 		C58EBCB31AA84757003F29C1 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Classes/Models/Ticket.swift; sourceTree = "<group>"; };
 		C58EBCB41AA84757003F29C1 /* Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = Classes/Models/Tickets.swift; sourceTree = "<group>"; };
 		C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		C58EBCBB1AA849B6003F29C1 /* tickets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tickets.json; sourceTree = "<group>"; };
-		C58EBCBE1AA84B32003F29C1 /* ApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -174,13 +180,13 @@
 		C55E6F821AA8201C00B55982 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
+				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
 				C583502D1AABC0CC0097FF7D /* Categories */,
 				C583502A1AABBF9A0097FF7D /* Constants */,
 				475FCAC11AA8074800C579C6 /* Models */,
 				C58EBCBF1AA84B32003F29C1 /* Networking */,
 				C58EBCB71AA847B2003F29C1 /* Vendor */,
-				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
-				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
 				C58EBCC11AA84FDE003F29C1 /* Views */,
 				47BC6FCE1AA82C7A00202B61 /* ViewControllers */,
 			);
@@ -190,6 +196,7 @@
 		C583502A1AABBF9A0097FF7D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				C53A120D1AABE8C400DE1906 /* APIConstants.swift */,
 				C583502B1AABBF9A0097FF7D /* Colors.swift */,
 			);
 			name = Constants;
@@ -225,7 +232,9 @@
 		C58EBCBF1AA84B32003F29C1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				C58EBCBE1AA84B32003F29C1 /* ApiClient.swift */,
+				C58350321AABC8860097FF7D /* ZendeskAPI.swift */,
+				C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */,
+				C58350341AABCCEC0097FF7D /* ZendeskAPI+Views.swift */,
 			);
 			name = Networking;
 			path = Classes/Networking;
@@ -384,15 +393,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C58350351AABCCEC0097FF7D /* ZendeskAPI+Views.swift in Sources */,
 				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
 				C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */,
 				475FCAC51AA8076D00C579C6 /* User.swift in Sources */,
-				C58EBCC01AA84B32003F29C1 /* ApiClient.swift in Sources */,
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				4728A3391AA82ABB005FA37A /* Resource.swift in Sources */,
+				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
+				C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
 				C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
+				C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */,
 				C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */,
 				C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */,
 				C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */,

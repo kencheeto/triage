@@ -14,15 +14,12 @@ let currentUserKey = "triage_current_user_key"
 class User: Resource {
   var name: String?
   var email: String?
-  var ouathToken: String?
-  
   
   override func updateFromDict(dict: NSDictionary) {
     dictionary = dict
     name = dict["name"] as? String
     id = dict["id"] as? Int
     email = dict["email"] as? String
-    ouathToken = dict["oauthToken"] as? String
   }
   
   override class func resourceUrl(id: Int) -> String {
@@ -58,25 +55,16 @@ class User: Resource {
     }
   }
   
-  class func loginUser(email: String, password: String, completion: (user: User?, error: NSError?) -> () ) {
-
-    ApiClient.sharedInstance.getAccessToken(email, password: password) { (token) -> () in
-      ApiClient.sharedInstance.setToken(token)
-      self.loadCurrentUser(completion)
-    }
-  }
-  
   class func loadCurrentUser(completion: (user: User?, error: NSError?) -> ()) {
-    ApiClient.sharedInstance.GET("/api/v2/users/me.json", parameters: nil, success: { (task: NSURLSessionDataTask!, response: AnyObject!) -> Void in
+    ZendeskAPI.instance.GET("/api/v2/users/me.json", parameters: nil, success: { (task: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
         var hash = response as NSDictionary
         var userDict = hash.valueForKey("user") as NSDictionary
         var user = User(dict: userDict)
       
         NSLog("user: %@", response as NSDictionary)
-        user.ouathToken = ApiClient.sharedInstance.accessToken
         User.currentUser = user
         completion(user: user, error: nil)
-      }, failure: handleFailure)
+      }, failure: nil)
     
   }
   

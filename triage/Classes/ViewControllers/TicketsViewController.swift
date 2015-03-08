@@ -10,12 +10,17 @@ import UIKit
 
 class TicketsViewController: UIViewController {
 
+  private let API = ZendeskAPI.instance
+
   var tickets: Tickets?
 
   @IBOutlet weak var ticketsTableView: UITableView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+//    API.getViews(success: nil, failure: nil)
+    tickets = Tickets(fixture: "tickets")
 
     ticketsTableView.rowHeight = UITableViewAutomaticDimension;
     ticketsTableView.estimatedRowHeight = 44

@@ -15,7 +15,6 @@ class Resource {
   var id: Int?
   
   init() {
-    
   }
   
   init(dict: NSDictionary) {
@@ -41,13 +40,13 @@ class Resource {
   
   class func find(id: Int, completion: (resource: Resource?, error: NSError?) -> ())  {
     var url = resourceUrl(id)
-    ApiClient.sharedInstance.GET(url, parameters: nil, success: { (task: NSURLSessionDataTask!, response: AnyObject!) -> Void in
+    ZendeskAPI.instance.GET(url, parameters: nil, success: { (task: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
       var hash = response as NSDictionary
       var resourceDict = hash.valueForKey(self.resourceName()) as NSDictionary
       var resource = Resource(dict: resourceDict)
       
       completion(resource: resource, error: nil)
-      }, failure: handleFailure)
+      }, failure: nil)
     
   }
 }
