@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4728A3391AA82ABB005FA37A /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4728A3381AA82ABB005FA37A /* Resource.swift */; };
 		475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */; };
 		475FCAA41AA7D45E00C579C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA21AA7D45E00C579C6 /* Main.storyboard */; };
 		475FCAA61AA7D45E00C579C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA51AA7D45E00C579C6 /* Images.xcassets */; };
@@ -17,6 +16,13 @@
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
 		C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120D1AABE8C400DE1906 /* APIConstants.swift */; };
+		C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CA9F1AAC9D3A00BE6BCA /* Array.swift */; };
+		C571CAA51AAC9D3A00BE6BCA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C571CAA01AAC9D3A00BE6BCA /* Info.plist */; };
+		C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAA11AAC9D3A00BE6BCA /* Operators.swift */; };
+		C571CAA71AAC9D3A00BE6BCA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAA21AAC9D3A00BE6BCA /* Optional.swift */; };
+		C571CAA91AAC9DE200BE6BCA /* ArgoOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAA81AAC9DE200BE6BCA /* ArgoOperators.swift */; };
+		C571CAAD1AACA51000BE6BCA /* TicketFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAAC1AACA51000BE6BCA /* TicketFilter.swift */; };
+		C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAAE1AACA5BA00BE6BCA /* TicketFilterRow.swift */; };
 		C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502B1AABBF9A0097FF7D /* Colors.swift */; };
 		C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */; };
 		C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58350321AABC8860097FF7D /* ZendeskAPI.swift */; };
@@ -24,10 +30,16 @@
 		C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */; };
 		C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */; };
 		C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB31AA84757003F29C1 /* Ticket.swift */; };
-		C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB41AA84757003F29C1 /* Tickets.swift */; };
-		C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */; };
-		C58EBCBC1AA849B6003F29C1 /* tickets.json in Resources */ = {isa = PBXBuildFile; fileRef = C58EBCBB1AA849B6003F29C1 /* tickets.json */; };
 		C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */; };
+		C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281781AAC98A4003ED493 /* Dictionary.swift */; };
+		C5D281881AAC98A4003ED493 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817A1AAC98A4003ED493 /* curry.swift */; };
+		C5D281891AAC98A4003ED493 /* flatReduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817B1AAC98A4003ED493 /* flatReduce.swift */; };
+		C5D2818A1AAC98A4003ED493 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817C1AAC98A4003ED493 /* JSON.swift */; };
+		C5D2818B1AAC98A4003ED493 /* sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817D1AAC98A4003ED493 /* sequence.swift */; };
+		C5D2818C1AAC98A4003ED493 /* StandardTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817E1AAC98A4003ED493 /* StandardTypes.swift */; };
+		C5D2818D1AAC98A4003ED493 /* JSONOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281801AAC98A4003ED493 /* JSONOperators.swift */; };
+		C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281831AAC98A4003ED493 /* JSONDecodable.swift */; };
+		C5D281901AAC98A4003ED493 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5D281861AAC98A4003ED493 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		353525C43F7A356824135E5E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4728A3381AA82ABB005FA37A /* Resource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Resource.swift; path = Classes/Models/Resource.swift; sourceTree = "<group>"; };
 		475FCA991AA7D45E00C579C6 /* triage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FCA9D1AA7D45E00C579C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +69,14 @@
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Users.swift"; sourceTree = "<group>"; };
 		C53A120D1AABE8C400DE1906 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		C571CA9F1AAC9D3A00BE6BCA /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		C571CAA01AAC9D3A00BE6BCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C571CAA11AAC9D3A00BE6BCA /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		C571CAA21AAC9D3A00BE6BCA /* Optional.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		C571CAA31AAC9D3A00BE6BCA /* Runes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Runes.h; sourceTree = "<group>"; };
+		C571CAA81AAC9DE200BE6BCA /* ArgoOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArgoOperators.swift; sourceTree = "<group>"; };
+		C571CAAC1AACA51000BE6BCA /* TicketFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketFilter.swift; path = Classes/Models/TicketFilter.swift; sourceTree = "<group>"; };
+		C571CAAE1AACA5BA00BE6BCA /* TicketFilterRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketFilterRow.swift; path = Classes/Models/TicketFilterRow.swift; sourceTree = "<group>"; };
 		C583502B1AABBF9A0097FF7D /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Triage.swift"; sourceTree = "<group>"; };
 		C58350321AABC8860097FF7D /* ZendeskAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZendeskAPI.swift; sourceTree = "<group>"; };
@@ -65,10 +84,17 @@
 		C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Classes/ViewControllers/LoginViewController.swift; sourceTree = "<group>"; };
 		C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = Classes/ViewControllers/TicketsViewController.swift; sourceTree = "<group>"; };
 		C58EBCB31AA84757003F29C1 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Classes/Models/Ticket.swift; sourceTree = "<group>"; };
-		C58EBCB41AA84757003F29C1 /* Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tickets.swift; path = Classes/Models/Tickets.swift; sourceTree = "<group>"; };
-		C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		C58EBCBB1AA849B6003F29C1 /* tickets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tickets.json; sourceTree = "<group>"; };
 		C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
+		C5D281781AAC98A4003ED493 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		C5D2817A1AAC98A4003ED493 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
+		C5D2817B1AAC98A4003ED493 /* flatReduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flatReduce.swift; sourceTree = "<group>"; };
+		C5D2817C1AAC98A4003ED493 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		C5D2817D1AAC98A4003ED493 /* sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sequence.swift; sourceTree = "<group>"; };
+		C5D2817E1AAC98A4003ED493 /* StandardTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardTypes.swift; sourceTree = "<group>"; };
+		C5D281801AAC98A4003ED493 /* JSONOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONOperators.swift; sourceTree = "<group>"; };
+		C5D281831AAC98A4003ED493 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
+		C5D281851AAC98A4003ED493 /* Argo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Argo.h; sourceTree = "<group>"; };
+		C5D281861AAC98A4003ED493 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +148,6 @@
 		475FCA9B1AA7D45E00C579C6 /* triage */ = {
 			isa = PBXGroup;
 			children = (
-				C58EBCBA1AA849B6003F29C1 /* Fixtures */,
 				C55E6F821AA8201C00B55982 /* Classes */,
 				475FCAA21AA7D45E00C579C6 /* Main.storyboard */,
 				475FCAA51AA7D45E00C579C6 /* Images.xcassets */,
@@ -161,8 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				C58EBCB31AA84757003F29C1 /* Ticket.swift */,
-				C58EBCB41AA84757003F29C1 /* Tickets.swift */,
-				4728A3381AA82ABB005FA37A /* Resource.swift */,
+				C571CAAC1AACA51000BE6BCA /* TicketFilter.swift */,
+				C571CAAE1AACA5BA00BE6BCA /* TicketFilterRow.swift */,
 				475FCAC41AA8076D00C579C6 /* User.swift */,
 			);
 			name = Models;
@@ -193,6 +218,18 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		C571CA9E1AAC9D3A00BE6BCA /* Runes */ = {
+			isa = PBXGroup;
+			children = (
+				C571CA9F1AAC9D3A00BE6BCA /* Array.swift */,
+				C571CAA01AAC9D3A00BE6BCA /* Info.plist */,
+				C571CAA11AAC9D3A00BE6BCA /* Operators.swift */,
+				C571CAA21AAC9D3A00BE6BCA /* Optional.swift */,
+				C571CAA31AAC9D3A00BE6BCA /* Runes.h */,
+			);
+			path = Runes;
+			sourceTree = "<group>";
+		};
 		C583502A1AABBF9A0097FF7D /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,18 +252,11 @@
 		C58EBCB71AA847B2003F29C1 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				C58EBCB81AA847B2003F29C1 /* SwiftyJSON.swift */,
+				C5D281761AAC98A4003ED493 /* Argo */,
+				C571CA9E1AAC9D3A00BE6BCA /* Runes */,
 			);
 			name = Vendor;
 			path = Classes/Vendor;
-			sourceTree = "<group>";
-		};
-		C58EBCBA1AA849B6003F29C1 /* Fixtures */ = {
-			isa = PBXGroup;
-			children = (
-				C58EBCBB1AA849B6003F29C1 /* tickets.json */,
-			);
-			path = Fixtures;
 			sourceTree = "<group>";
 		};
 		C58EBCBF1AA84B32003F29C1 /* Networking */ = {
@@ -247,6 +277,64 @@
 			);
 			name = Views;
 			path = Classes/Views;
+			sourceTree = "<group>";
+		};
+		C5D281761AAC98A4003ED493 /* Argo */ = {
+			isa = PBXGroup;
+			children = (
+				C5D281771AAC98A4003ED493 /* Extensions */,
+				C5D281791AAC98A4003ED493 /* Globals */,
+				C5D2817F1AAC98A4003ED493 /* Operators */,
+				C5D281821AAC98A4003ED493 /* Protocols */,
+				C5D281841AAC98A4003ED493 /* Resources */,
+			);
+			path = Argo;
+			sourceTree = "<group>";
+		};
+		C5D281771AAC98A4003ED493 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C5D281781AAC98A4003ED493 /* Dictionary.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C5D281791AAC98A4003ED493 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				C5D2817A1AAC98A4003ED493 /* curry.swift */,
+				C5D2817B1AAC98A4003ED493 /* flatReduce.swift */,
+				C5D2817C1AAC98A4003ED493 /* JSON.swift */,
+				C5D2817D1AAC98A4003ED493 /* sequence.swift */,
+				C5D2817E1AAC98A4003ED493 /* StandardTypes.swift */,
+			);
+			path = Globals;
+			sourceTree = "<group>";
+		};
+		C5D2817F1AAC98A4003ED493 /* Operators */ = {
+			isa = PBXGroup;
+			children = (
+				C571CAA81AAC9DE200BE6BCA /* ArgoOperators.swift */,
+				C5D281801AAC98A4003ED493 /* JSONOperators.swift */,
+			);
+			path = Operators;
+			sourceTree = "<group>";
+		};
+		C5D281821AAC98A4003ED493 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				C5D281831AAC98A4003ED493 /* JSONDecodable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		C5D281841AAC98A4003ED493 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5D281851AAC98A4003ED493 /* Argo.h */,
+				C5D281861AAC98A4003ED493 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FDA7EF44915C3052DFDABC4F /* Frameworks */ = {
@@ -341,8 +429,9 @@
 			files = (
 				475FCAA41AA7D45E00C579C6 /* Main.storyboard in Resources */,
 				475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */,
+				C571CAA51AAC9D3A00BE6BCA /* Info.plist in Resources */,
 				475FCAA61AA7D45E00C579C6 /* Images.xcassets in Resources */,
-				C58EBCBC1AA849B6003F29C1 /* tickets.json in Resources */,
+				C5D281901AAC98A4003ED493 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,18 +485,29 @@
 				C58350351AABCCEC0097FF7D /* ZendeskAPI+Views.swift in Sources */,
 				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
 				C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */,
+				C571CAA71AAC9D3A00BE6BCA /* Optional.swift in Sources */,
+				C571CAAD1AACA51000BE6BCA /* TicketFilter.swift in Sources */,
+				C5D2818A1AAC98A4003ED493 /* JSON.swift in Sources */,
+				C5D2818D1AAC98A4003ED493 /* JSONOperators.swift in Sources */,
+				C5D2818C1AAC98A4003ED493 /* StandardTypes.swift in Sources */,
 				475FCAC51AA8076D00C579C6 /* User.swift in Sources */,
+				C571CAA91AAC9DE200BE6BCA /* ArgoOperators.swift in Sources */,
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
-				4728A3391AA82ABB005FA37A /* Resource.swift in Sources */,
 				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
 				C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
 				C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
+				C5D281891AAC98A4003ED493 /* flatReduce.swift in Sources */,
+				C5D281881AAC98A4003ED493 /* curry.swift in Sources */,
+				C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */,
+				C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */,
+				C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */,
+				C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */,
+				C5D2818B1AAC98A4003ED493 /* sequence.swift in Sources */,
 				C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */,
+				C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */,
 				C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */,
-				C58EBCB91AA847B2003F29C1 /* SwiftyJSON.swift in Sources */,
-				C58EBCB61AA84757003F29C1 /* Tickets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = triage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -546,6 +647,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = triage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

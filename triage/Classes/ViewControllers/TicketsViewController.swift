@@ -8,19 +8,32 @@
 
 import UIKit
 
+let kViewID = 47205968
+
 class TicketsViewController: UIViewController {
 
   private let API = ZendeskAPI.instance
 
-  var tickets: Tickets?
+  var rows: [TicketFilterRow] = []
+
+  private var parameters: [String: AnyObject] {
+    get {
+      return [
+        "per_page": 30,
+        "page": 1,
+        "sort_order": "desc",
+        "group_by": "+",
+        "include": "via_id"
+      ]
+    }
+  }
 
   @IBOutlet weak var ticketsTableView: UITableView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-//    API.getViews(success: nil, failure: nil)
-    tickets = Tickets(fixture: "tickets")
+    API.executeView(kViewID, parameters: parameters, success: didFetchRows, failure: nil)
 
     ticketsTableView.rowHeight = UITableViewAutomaticDimension;
     ticketsTableView.estimatedRowHeight = 44
@@ -32,6 +45,11 @@ class TicketsViewController: UIViewController {
 
     ticketsTableView.reloadData()
   }
+
+  func didFetchRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
+    self.rows = rows
+    ticketsTableView.reloadData()
+  }
 }
 
 extension TicketsViewController: UITableViewDelegate {
@@ -40,13 +58,13 @@ extension TicketsViewController: UITableViewDelegate {
 
 extension TicketsViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let ticket = tickets!.items[indexPath.row]
+    let row = rows[indexPath.row]
     let cell = ticketsTableView.dequeueReusableCellWithIdentifier(
       "TicketTableViewCell", forIndexPath: indexPath
     ) as TicketTableViewCell
 
     cell.layoutMargins = UIEdgeInsetsZero
-    cell.ticket = ticket
+    cell.ticket = row.ticket
     cell.delegate = self
     cell.updateConstraintsIfNeeded()
 
@@ -54,11 +72,7 @@ extension TicketsViewController: UITableViewDataSource {
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if tickets != nil {
-      return tickets!.items.count
-    } else {
-      return 0
-    }
+    return rows.count
   }
 }
 

@@ -8,13 +8,16 @@
 
 extension ZendeskAPI {
 
-  func getMe(#success: ((operation: AFHTTPRequestOperation!, response: AnyObject) -> Void)?,
+  final func getMe(#success: ((operation: AFHTTPRequestOperation!, user: User) -> Void)?,
     failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
     GET("api/v2/users/me",
       parameters: nil,
       success: { (operation: AFHTTPRequestOperation!,
         response: AnyObject!) -> Void in
-        _ = success?(operation: operation, response: response)
+        let json = JSON.parse <^> response
+        let user: User? = json >>- { $0 <| "user" >>- User.decode }
+
+        _ = success?(operation: operation, user: user!)
       },
       failure: { (operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void in

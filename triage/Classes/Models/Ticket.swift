@@ -6,28 +6,36 @@
 //  Copyright (c) 2015 Christopher Kintner. All rights reserved.
 //
 
-class Ticket: Resource {
+struct Ticket {
+  let id: Int
+  let subject: String
+  let description: String
+  let status: String?
+  let priority: String?
+}
 
-  internal var data: JSON
+extension Ticket: JSONDecodable {
 
-  var subject: String
-  var metadata: [String: JSON]
-
-  init(json: JSON) {
-    self.data = json
-    self.subject = json["subject"].string!
-    self.metadata = json["ticket"].dictionary!
-    super.init()
+  static func create(id: Int)
+    (subject: String)
+    (description: String)
+    (status: String?)
+    (priority: String?) -> Ticket {
+    return Ticket(
+      id: id,
+      subject: subject,
+      description: description,
+      status: status,
+      priority: priority
+    )
   }
 
-  override class func resourceUrl(id: Int) -> String {
-    return "/api/v2/tickets/\(id).json"
-  }
-  
-  override class func resourceName() -> String {
-    return "ticket"
-  }
-  
-  override func updateFromDict(dict: NSDictionary) {
+  static func decode(json: JSON) -> Ticket? {
+    return Ticket.create
+      <^> json <| "id"
+      <*> json <| "subject"
+      <*> json <| "description"
+      <*> json <|? "status"
+      <*> json <|? "priority"
   }
 }

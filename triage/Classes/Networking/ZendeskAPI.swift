@@ -12,9 +12,9 @@ let _ZendeskAPIInstance = ZendeskAPI(
   secret: APISecret
 )
 
-class ZendeskAPI: AFOAuth2Manager {
+final class ZendeskAPI: AFOAuth2Manager {
 
-  class var instance: ZendeskAPI {
+  final class var instance: ZendeskAPI {
     return _ZendeskAPIInstance
   }
 }

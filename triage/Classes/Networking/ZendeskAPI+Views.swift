@@ -8,23 +8,40 @@
 
 extension ZendeskAPI {
 
-  func getViews(#success: ((response: AnyObject) -> Void)?,
-    failure: ((error: NSError) -> Void)?) {
+  final func getViews(#success: ((operation: AFHTTPRequestOperation!, filters: [TicketFilter]) -> Void)?,
+    failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
     GET("api/v2/views",
       parameters: [],
       success: { (operation: AFHTTPRequestOperation!,
         response: AnyObject!) -> Void in
-        _ = success?(response: response)
+        let json = JSON.parse <^> response
+        let filters: [TicketFilter]? = json >>- { $0 <| "views" >>- decodeArray }
+
+        _ = success?(operation: operation, filters: filters!)
       },
       failure: { (operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void in
-        // Handle error
-        _ = failure?(error: error)
+        _ = failure?(operation: operation, error: error)
       }
     )
   }
 
-  func executeView(id: NSString, success: ((response: AnyObject) -> Void)?,
-    failure: ((error: NSError) -> Void)?) {
+  final func executeView(id: Int, parameters: [String: AnyObject],
+    success: ((operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) -> Void)?,
+    failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
+      GET("api/v2/views/\(id)/execute",
+        parameters: parameters,
+        success: { (operation: AFHTTPRequestOperation!,
+          response: AnyObject!) -> Void in
+          let json = JSON.parse <^> response
+          let rows: [TicketFilterRow]? = json >>- { $0 <| "rows" >>- decodeArray }
+
+          _ = success?(operation: operation, rows: rows!)
+        },
+        failure: { (operation: AFHTTPRequestOperation!,
+          error: NSError!) -> Void in
+          _ = failure?(operation: operation, error: error)
+        }
+      )
   }
 }

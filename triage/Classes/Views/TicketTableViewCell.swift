@@ -18,8 +18,8 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
   var ticket: Ticket? {
     didSet {
-      subjectLabel.text = ticket?.data["subject"].string!
-      descriptionLabel.text = ticket?.metadata["description"]?.string!
+      subjectLabel.text = ticket?.subject
+      descriptionLabel.text = ticket?.description
     }
   }
 
