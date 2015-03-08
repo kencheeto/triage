@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TicketsViewController: UIViewController {
 
   var tickets: Tickets?
 
@@ -27,9 +27,14 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     ticketsTableView.reloadData()
   }
+}
 
-  func tableView(tableView: UITableView,
-    cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+extension TicketsViewController: UITableViewDelegate {
+  
+}
+
+extension TicketsViewController: UITableViewDataSource {
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let ticket = tickets!.items[indexPath.row]
     let cell = ticketsTableView.dequeueReusableCellWithIdentifier(
       "TicketTableViewCell", forIndexPath: indexPath
@@ -41,12 +46,26 @@ class TicketsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     return cell
   }
-
+  
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if tickets != nil {
       return tickets!.items.count
     } else {
       return 0
     }
+  }
+}
+
+extension TicketsViewController: TicketTableViewCellDelegate {
+  func didFarRightSwipe(cell: TicketTableViewCell) {
+    println("didFarRightSwipe")
+  }
+
+  func didNearRightSwipe(cell: TicketTableViewCell) {
+    println("didNearRightSwipe")
+  }
+
+  func didLeftSwipe(cell: TicketTableViewCell) {
+    println("didLeftRightSwipe")
   }
 }
