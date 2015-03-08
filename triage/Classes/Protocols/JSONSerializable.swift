@@ -7,6 +7,5 @@
 //
 
 protocol JSONSerializable {
-  typealias ModelType = Self
-  class func toDictionary(model: ModelType) -> NSDictionary
+  func toDictionary() -> NSDictionary
 }

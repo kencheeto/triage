@@ -27,10 +27,9 @@ extension ZendeskAPI {
   final func updateTicket(ticket: Ticket,
     success: ((operation: AFHTTPRequestOperation, response: AnyObject!) -> Void)?,
     failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
-      println(Ticket.toDictionary(ticket) as NSDictionary)
     updateTicket(
       ticket.id,
-      parameters: Ticket.toDictionary(ticket) as NSDictionary,
+      parameters: ticket.toDictionary() as NSDictionary,
       success: success,
       failure: failure
     )

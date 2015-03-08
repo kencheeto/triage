@@ -39,13 +39,13 @@ extension Ticket: JSONDecodable, JSONSerializable {
       <*> json <|? "priority"
   }
 
-  static func toDictionary(ticket: Ticket) -> NSDictionary {
+  func toDictionary() -> NSDictionary {
     return [
-      "id": ticket.id,
-      "subject": ticket.subject,
-      "description": ticket.description,
-      "status": ticket.status ?? NSNull(),
-      "priority": ticket.priority ?? NSNull()
+      "id": id,
+      "subject": subject,
+      "description": description,
+      "status": status ?? NSNull(),
+      "priority": priority ?? NSNull()
     ]
   }
 }
