@@ -32,12 +32,13 @@ class TicketsViewController: UIViewController {
   }
 
   @IBOutlet weak var ticketsTableView: UITableView!
+  lazy private var refreshControl: UIRefreshControl = UIRefreshControl()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    API.getMacros(success: didFetchMacros, failure: nil)
-    API.executeView(kViewID, parameters: parameters, success: didFetchRows, failure: nil)
+    fetchMacros()
+    fetchTickets()
 
     ticketsTableView.rowHeight = UITableViewAutomaticDimension;
     ticketsTableView.estimatedRowHeight = 44
@@ -47,7 +48,22 @@ class TicketsViewController: UIViewController {
     ticketsTableView.separatorInset = UIEdgeInsetsZero
     ticketsTableView.tableFooterView = UIView(frame: CGRectZero)
 
+    refreshControl.addTarget(
+      self,
+      action: "didBeginRefresh:",
+      forControlEvents: .ValueChanged
+    )
+    ticketsTableView.insertSubview(refreshControl, atIndex: 0)
+
     ticketsTableView.reloadData()
+  }
+
+  func fetchMacros() {
+    API.getMacros(success: didFetchMacros, failure: nil)
+  }
+
+  func fetchTickets() {
+    API.executeView(kViewID, parameters: parameters, success: didFetchRows, failure: nil)
   }
 
   func didFetchMacros(operation: AFHTTPRequestOperation!, macros: [Macro]) {
@@ -57,6 +73,12 @@ class TicketsViewController: UIViewController {
   func didFetchRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
     self.rows = rows
     ticketsTableView.reloadData()
+    refreshControl.endRefreshing()
+  }
+
+  func didBeginRefresh(sender: UIRefreshControl) {
+    sender.beginRefreshing()
+    fetchTickets()
   }
 }
 
