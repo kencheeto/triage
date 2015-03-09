@@ -17,8 +17,11 @@ class TicketsViewController: UIViewController {
   private let API = ZendeskAPI.instance
 
   private var page: Int = 1
+
+  // XXX - Change to enum for state
   private var isExhausted: Bool = false
   private var isFetching: Bool = false
+  private var isRefreshing: Bool = false
 
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
@@ -108,22 +111,30 @@ class TicketsViewController: UIViewController {
       isExhausted = true
     }
 
-    self.rows += rows
+    if (isRefreshing) {
+      self.rows = rows
+    } else {
+      self.rows += rows
+    }
+
     ticketsTableView.reloadData()
     activityIndicator.stopAnimating()
     refreshControl.endRefreshing()
+
     isFetching = false
+    isRefreshing = false
   }
 
   func didError(operation: AFHTTPRequestOperation!, error: NSError) {
     activityIndicator.stopAnimating()
     refreshControl.endRefreshing()
     isFetching = false
+    isRefreshing = false
   }
 
   func willRefresh(sender: UIRefreshControl) {
     sender.beginRefreshing()
-    rows = []
+    isRefreshing = true
     fetchTicketRows(page: 1)
   }
 
