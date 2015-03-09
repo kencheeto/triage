@@ -16,14 +16,18 @@ class TicketsViewController: UIViewController {
 
   private let API = ZendeskAPI.instance
 
+  private var page: Int = 1
+  private var isExhausted: Bool = false
+  private var isFetching: Bool = false
+
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
 
-  private var parameters: NSDictionary {
+  private var parameters: NSMutableDictionary {
     get {
       return [
         "per_page": 30,
-        "page": 1,
+        "page": self.page + 1,
         "sort_order": "desc",
         "group_by": "+",
         "include": "via_id"
@@ -32,13 +36,13 @@ class TicketsViewController: UIViewController {
   }
 
   @IBOutlet weak var ticketsTableView: UITableView!
+
+  lazy private var activityIndicator: UIActivityIndicatorView =
+    UIActivityIndicatorView(activityIndicatorStyle: .Gray)
   lazy private var refreshControl: UIRefreshControl = UIRefreshControl()
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    fetchMacros()
-    fetchTickets()
 
     ticketsTableView.rowHeight = UITableViewAutomaticDimension;
     ticketsTableView.estimatedRowHeight = 44
@@ -46,39 +50,95 @@ class TicketsViewController: UIViewController {
     ticketsTableView.dataSource = self
     ticketsTableView.layoutMargins = UIEdgeInsetsZero
     ticketsTableView.separatorInset = UIEdgeInsetsZero
-    ticketsTableView.tableFooterView = UIView(frame: CGRectZero)
+
+    activityIndicator.frame = CGRectMake(
+      0,
+      0,
+      ticketsTableView.bounds.width,
+      44
+    )
+    ticketsTableView.tableFooterView = activityIndicator
+    ticketsTableView.insertSubview(refreshControl, atIndex: 0)
 
     refreshControl.addTarget(
       self,
-      action: "didBeginRefresh:",
+      action: "willRefresh:",
       forControlEvents: .ValueChanged
     )
-    ticketsTableView.insertSubview(refreshControl, atIndex: 0)
 
-    ticketsTableView.reloadData()
+    activityIndicator.startAnimating()
+
+    fetchMacros()
+    fetchTicketRows(page: 1)
   }
 
   func fetchMacros() {
     API.getMacros(success: didFetchMacros, failure: nil)
   }
 
-  func fetchTickets() {
-    API.executeView(kViewID, parameters: parameters, success: didFetchRows, failure: nil)
+  func fetchTicketRows(#page: Int?) {
+    if (isFetching) {
+      return
+    }
+
+    var params: NSMutableDictionary = parameters
+
+    isFetching = true
+
+    if page != nil {
+      params["page"] = page!
+    } else {
+      self.page = params["page"] as Int
+    }
+
+    API.executeView(
+      kViewID,
+      parameters: params,
+      success: didFetchTicketRows,
+      failure: didError
+    )
   }
 
   func didFetchMacros(operation: AFHTTPRequestOperation!, macros: [Macro]) {
     self.macros = macros
   }
 
-  func didFetchRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
-    self.rows = rows
+  func didFetchTicketRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
+    if (rows.count == 0) {
+      isExhausted = true
+    }
+
+    self.rows += rows
     ticketsTableView.reloadData()
+    activityIndicator.stopAnimating()
     refreshControl.endRefreshing()
+    isFetching = false
   }
 
-  func didBeginRefresh(sender: UIRefreshControl) {
+  func didError(operation: AFHTTPRequestOperation!, error: NSError) {
+    activityIndicator.stopAnimating()
+    refreshControl.endRefreshing()
+    isFetching = false
+  }
+
+  func willRefresh(sender: UIRefreshControl) {
     sender.beginRefreshing()
-    fetchTickets()
+    rows = []
+    fetchTicketRows(page: 1)
+  }
+
+  func scrollViewDidScroll(scrollView: UIScrollView) {
+    if isFetching || isExhausted {
+      return
+    }
+
+    let tableHeight = ticketsTableView.frame.height
+    let offset = scrollView.contentOffset.y + tableHeight
+    let limit = scrollView.contentSize.height - 300
+
+    if (offset > limit) {
+      fetchTicketRows(page: nil)
+    }
   }
 }
 
