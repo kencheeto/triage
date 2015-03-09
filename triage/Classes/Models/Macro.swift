@@ -30,6 +30,22 @@ extension MacroAction: JSONDecodable {
   }
 }
 
+struct MacroResult {
+  let ticket: Ticket
+}
+
+extension MacroResult: JSONDecodable {
+
+  static func create(ticket: Ticket) -> MacroResult {
+    return MacroResult(ticket: ticket)
+  }
+
+  static func decode(json: JSON) -> MacroResult? {
+    return MacroResult.create
+      <^> json <| "ticket"
+  }
+}
+
 struct Macro {
   let id: Int
   let title: String

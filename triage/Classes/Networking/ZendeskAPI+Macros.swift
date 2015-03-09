@@ -43,26 +43,41 @@ extension ZendeskAPI {
       parameters: [],
       success: { (operation: AFHTTPRequestOperation!,
         response: AnyObject!) -> Void in
-        println(response)
         _ = success?(operation: operation, response: response!)
       },
       failure: { (operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void in
-        println(error)
+        _ = failure?(operation: operation, error: error)
+      }
+    )
+  }
+
+  final func applyMacroToTicket(macroID: Int, ticketID: Int,
+    success: ((operation: AFHTTPRequestOperation!, result: MacroResult) -> Void)?,
+    failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
+    GET("api/v2/tickets/\(ticketID)/macros/\(macroID)/apply",
+      parameters: [],
+      success: { (operation: AFHTTPRequestOperation!,
+        response: AnyObject!) -> Void in
+        let json = JSON.parse <^> response
+        let result: MacroResult? = json >>- { $0 <| "result" >>- MacroResult.decode }
+
+        _ = success?(operation: operation, result: result!)
+      },
+      failure: { (operation: AFHTTPRequestOperation!,
+        error: NSError!) -> Void in
         _ = failure?(operation: operation, error: error)
       }
     )
   }
 
   final func applyMacroToTicket(macro: Macro, ticket: Ticket,
-    success: ((operation: AFHTTPRequestOperation!, ticket: Ticket) -> Void)?,
+    success: ((operation: AFHTTPRequestOperation!, result: MacroResult) -> Void)?,
     failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
     applyMacroToTicket(
       macro.id,
       ticketID: ticket.id,
-      success: { (operation, response: AnyObject!) -> Void in
-        println(response)
-      },
+      success: success,
       failure: failure
     )
   }

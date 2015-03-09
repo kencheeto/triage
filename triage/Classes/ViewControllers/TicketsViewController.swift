@@ -10,6 +10,7 @@ import UIKit
 
 let kViewID = 47205968
 let kAssignToTier1MacroID = 47314978
+let kAssignToTrashAgent = 47314477
 
 class TicketsViewController: UIViewController {
 
@@ -97,7 +98,13 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     API.applyMacroToTicket(
       kAssignToTier1MacroID,
       ticketID: cell.ticket!.id,
-      success: nil,
+      success: { (operation: AFHTTPRequestOperation!, result: MacroResult) -> Void in
+        let ticket = result.ticket
+
+        cell.ticket = ticket
+
+        ticket.save(success: nil, failure: nil)
+      },
       failure: nil
     )
     println("didNearRightSwipe")
@@ -109,6 +116,18 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     rows.removeAtIndex(indexPath.row)
     ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
 
+    API.applyMacroToTicket(
+      kAssignToTrashAgent,
+      ticketID: cell.ticket!.id,
+      success: { (operation: AFHTTPRequestOperation!, result: MacroResult) -> Void in
+        let ticket = result.ticket
+
+        cell.ticket = ticket
+
+        ticket.save(success: nil, failure: nil)
+      },
+      failure: nil
+    )
     println("didLeftRightSwipe")
   }
 }
