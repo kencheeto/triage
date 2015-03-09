@@ -15,9 +15,9 @@ struct TicketFilter {
 extension TicketFilter: JSONDecodable {
 
   static func create(id: Int) -> TicketFilter {
-      return TicketFilter(
-        id: id
-      )
+    return TicketFilter(
+      id: id
+    )
   }
 
   static func decode(json: JSON) -> TicketFilter? {

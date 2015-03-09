@@ -147,5 +147,52 @@
             </objects>
             <point key="canvasLocation" x="1233" y="346"/>
         </scene>
+        <!--Macros View Controller-->
+        <scene sceneID="8rb-Mw-CFz">
+            <objects>
+                <viewController storyboardIdentifier="MacrosViewController" id="Fvq-yQ-B7P" customClass="MacrosViewController" customModule="triage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PEb-94-stt"/>
+                        <viewControllerLayoutGuide type="bottom" id="z5c-uw-RsO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2IK-0w-xgK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mcr-5b-Vnl">
+                                <rect key="frame" x="150" y="100" width="300" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="XAG-Pd-nTx"/>
+                                    <constraint firstAttribute="width" constant="300" id="s36-xT-KP4"/>
+                                </constraints>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mcr-5b-Vnl" firstAttribute="top" secondItem="2IK-0w-xgK" secondAttribute="topMargin" constant="50" id="6yo-xE-Msw"/>
+                            <constraint firstItem="Mcr-5b-Vnl" firstAttribute="top" secondItem="2IK-0w-xgK" secondAttribute="topMargin" constant="50" id="Gmz-Oy-86D"/>
+                            <constraint firstItem="Mcr-5b-Vnl" firstAttribute="leading" secondItem="2IK-0w-xgK" secondAttribute="leadingMargin" constant="50" id="IdQ-cC-Of7"/>
+                            <constraint firstAttribute="centerY" secondItem="Mcr-5b-Vnl" secondAttribute="centerY" id="ULb-p2-29N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mcr-5b-Vnl" secondAttribute="trailing" constant="50" id="dxt-eW-uAB"/>
+                            <constraint firstAttribute="centerX" secondItem="Mcr-5b-Vnl" secondAttribute="centerX" id="g9K-oe-FRd"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6yo-xE-Msw"/>
+                                <exclude reference="Gmz-Oy-86D"/>
+                                <exclude reference="IdQ-cC-Of7"/>
+                                <exclude reference="dxt-eW-uAB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="macrosTableView" destination="Mcr-5b-Vnl" id="18d-7g-f3M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nhv-kd-Beh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1998" y="346"/>
+        </scene>
     </scenes>
 </document>

@@ -17,6 +17,7 @@
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
 		C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120D1AABE8C400DE1906 /* APIConstants.swift */; };
 		C56C526D1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */; };
+		C56C52711AAD4FDA000A5098 /* MacrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */; };
 		C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CA9F1AAC9D3A00BE6BCA /* Array.swift */; };
 		C571CAA51AAC9D3A00BE6BCA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C571CAA01AAC9D3A00BE6BCA /* Info.plist */; };
 		C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CAA11AAC9D3A00BE6BCA /* Operators.swift */; };
@@ -75,6 +76,7 @@
 		C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Users.swift"; sourceTree = "<group>"; };
 		C53A120D1AABE8C400DE1906 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Tickets.swift"; sourceTree = "<group>"; };
+		C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MacrosViewController.swift; path = Classes/ViewControllers/MacrosViewController.swift; sourceTree = "<group>"; };
 		C571CA9F1AAC9D3A00BE6BCA /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		C571CAA01AAC9D3A00BE6BCA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C571CAA11AAC9D3A00BE6BCA /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */,
+				C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */,
 				C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
@@ -530,6 +533,7 @@
 				C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */,
 				C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */,
 				C571CAB11AACC87800BE6BCA /* CacheConstants.swift in Sources */,
+				C56C52711AAD4FDA000A5098 /* MacrosViewController.swift in Sources */,
 				C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */,
 				C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */,
 				C5D2818B1AAC98A4003ED493 /* sequence.swift in Sources */,

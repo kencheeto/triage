@@ -169,6 +169,14 @@ extension TicketsViewController: UITableViewDataSource {
 extension TicketsViewController: TicketTableViewCellDelegate {
   func didFarRightSwipe(cell: TicketTableViewCell) {
     println("didFarRightSwipe")
+    let viewController =
+      storyboard?.instantiateViewControllerWithIdentifier("MacrosViewController") as MacrosViewController
+
+    viewController.transitioningDelegate = viewController
+    viewController.macros = macros
+    viewController.modalPresentationStyle = .Custom
+
+    presentViewController(viewController, animated: true, completion: nil)
   }
 
   func didNearRightSwipe(cell: TicketTableViewCell) {
