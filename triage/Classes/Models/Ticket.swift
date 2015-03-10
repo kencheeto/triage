@@ -16,17 +16,19 @@ struct Ticket {
   var priority: String?
   var assignee_id: Int?
   var group_id: Int?
+  var created_at: String? //swift hangs if this is a NSDate in the create function below
 }
 
 extension Ticket: JSONDecodable, JSONSerializable {
-
+  
   static func create(id: Int)
     (subject: String)
     (description: String)
     (status: String?)
     (priority: String?)
     (assignee_id: Int?)
-    (group_id: Int?) -> Ticket {
+    (group_id: Int?)
+    (created_at: String?) -> Ticket {
     return Ticket(
       id: id,
       subject: subject,
@@ -34,11 +36,13 @@ extension Ticket: JSONDecodable, JSONSerializable {
       status: status,
       priority: priority,
       assignee_id: assignee_id,
-      group_id: group_id
+      group_id: group_id,
+      created_at: created_at
     )
   }
 
   static func decode(json: JSON) -> Ticket? {
+   
     return Ticket.create
       <^> json <| "id"
       <*> json <| "subject"
@@ -47,6 +51,7 @@ extension Ticket: JSONDecodable, JSONSerializable {
       <*> json <|? "priority"
       <*> json <|? "assignee_id"
       <*> json <|? "group_id"
+      <*> json <|? ["last_comment", "created_at"]
   }
 
   func save(#success: ((operation: AFHTTPRequestOperation!, ticket: Ticket) -> Void)?,
@@ -68,7 +73,24 @@ extension Ticket: JSONDecodable, JSONSerializable {
       "status": status ?? NSNull(),
       "priority": priority ?? NSNull(),
       "assignee_id": assignee_id ?? NSNull(),
-      "group_id": group_id ?? NSNull()
+      "group_id": group_id ?? NSNull(),
+      "created_at": created_at ?? NSNull()
     ]
   }
+  
+  
+  func createdAtInWords() -> String {
+    var f = Ticket.dateFormatter()
+    var date = f.dateFromString(created_at!)
+    return date!.timeAgoSinceNow()
+  }
+  
+  // refactor so this caches the dateFormatter
+  static func dateFormatter() -> NSDateFormatter {
+    var formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
+    
+    return formatter;
+  }
+  
 }

@@ -18,8 +18,15 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
   var ticket: Ticket? {
     didSet {
-      subjectLabel.text = ticket?.subject
-      descriptionLabel.text = ticket?.description
+      if let t = ticket {
+        subjectLabel.text = t.subject
+        descriptionLabel.text = t.description
+        ticketCreatedAtLabel.text = t.createdAtInWords()
+      } else {
+        subjectLabel.text = "no ticket"
+        descriptionLabel.text = "no ticket"
+        ticketCreatedAtLabel.text = "no ticket"
+      }
     }
   }
 

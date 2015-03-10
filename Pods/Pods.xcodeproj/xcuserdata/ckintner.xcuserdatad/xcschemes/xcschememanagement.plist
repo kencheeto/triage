@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-AFOAuth2Manager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,37 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0DB8CBB1E96364A003B186E3</key>
+		<key>1A0CCD156613B5498F2BB7A0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>0E58E98D7577CF2A97F3EB1C</key>
+		<key>55FC25404CD4381480C0D22C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E9AEE3D7E02979F7732CD2E</key>
+		<key>6250B9B3AA331416A9F4E714</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F4629A26E5916428F9CB4F3</key>
+		<key>A1916B3390D6FA3F4F037BB3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9EB07A28A4FF4B28DC40DF6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D7DF9DF52BC6923B079CF3AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E903B1920159EF067770C877</key>
+		<key>D6A497ABC5DC13C8A3609ECC</key>
 		<dict>
 			<key>primary</key>
 			<true/>

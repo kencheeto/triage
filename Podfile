@@ -5,3 +5,4 @@ platform :ios, "8.0"
 pod "AFNetworking"
 pod "AFOAuth2Manager"
 pod 'SVProgressHUD'
+pod 'DateTools'
