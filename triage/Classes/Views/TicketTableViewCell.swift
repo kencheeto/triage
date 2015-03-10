@@ -26,6 +26,8 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   @IBOutlet weak var userAvatar: UIImageView!
   @IBOutlet weak var subjectLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
+  @IBOutlet weak var ticketCreatedAtLabel: UILabel!
+  @IBOutlet weak var userNameLabel: UILabel!
 
   private var panGestureRecognizer: UIPanGestureRecognizer!
   private var origin: CGPoint!
