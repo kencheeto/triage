@@ -8,20 +8,43 @@
 
 import UIKit
 
-struct TicketFilterRow {
+struct TicketFilterRowFields {
+  let requester_id: Int
   let ticket: Ticket
 }
 
-extension TicketFilterRow: JSONDecodable {
+extension TicketFilterRowFields: JSONDecodable {
 
-  static func create(ticket: Ticket) -> TicketFilterRow {
-    return TicketFilterRow(
+  static func create(requester_id: Int)(ticket: Ticket) -> TicketFilterRowFields {
+    return TicketFilterRowFields(
+      requester_id: requester_id,
       ticket: ticket
     )
   }
 
-  static func decode(json: JSON) -> TicketFilterRow? {
-    return TicketFilterRow.create
+  static func decode(json: JSON) -> TicketFilterRowFields? {
+    return TicketFilterRowFields.create
+      <^> json <| "requester_id"
       <*> json <| "ticket"
+  }
+}
+
+class TicketFilterRow {
+  var fields: TicketFilterRowFields
+  
+  var requester_id: Int {
+    get {
+      return fields.requester_id
+    }
+  }
+  
+  var ticket: Ticket {
+    get {
+      return fields.ticket
+    }
+  }
+  
+  init(fields: TicketFilterRowFields) {
+    self.fields = fields
   }
 }

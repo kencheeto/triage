@@ -13,6 +13,8 @@
 		475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA71AA7D45E00C579C6 /* LaunchScreen.xib */; };
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
+		47DC3A0D1AAEB40A0074F453 /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC3A0C1AAEB40A0074F453 /* UserCache.swift */; };
+		47DC3A0F1AAED7D00074F453 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC3A0E1AAED7D00074F453 /* String.swift */; };
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
 		9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C799B651AAEB706009086C1 /* DetailViewController.swift */; };
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
@@ -72,6 +74,8 @@
 		475FCAB41AA7D45E00C579C6 /* triageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triageTests.swift; sourceTree = "<group>"; };
 		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "triage-Bridging-Header.h"; path = "Classes/triage-Bridging-Header.h"; sourceTree = "<group>"; };
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
+		47DC3A0C1AAEB40A0074F453 /* UserCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
+		47DC3A0E1AAED7D00074F453 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9C799B651AAEB706009086C1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Classes/ViewControllers/DetailViewController.swift; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +208,7 @@
 				C571CAAC1AACA51000BE6BCA /* TicketFilter.swift */,
 				C571CAAE1AACA5BA00BE6BCA /* TicketFilterRow.swift */,
 				475FCAC41AA8076D00C579C6 /* User.swift */,
+				47DC3A0C1AAEB40A0074F453 /* UserCache.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				C583502E1AABC0CC0097FF7D /* UIColor+Triage.swift */,
+				47DC3A0E1AAED7D00074F453 /* String.swift */,
 			);
 			name = Categories;
 			path = Classes/Categories;
@@ -526,6 +532,7 @@
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
 				9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */,
+				47DC3A0F1AAED7D00074F453 /* String.swift in Sources */,
 				C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
 				C571CAB81AACE6B000BE6BCA /* ZendeskAPI+Macros.swift in Sources */,
@@ -537,6 +544,7 @@
 				C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */,
 				C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */,
 				C571CAB11AACC87800BE6BCA /* CacheConstants.swift in Sources */,
+				47DC3A0D1AAEB40A0074F453 /* UserCache.swift in Sources */,
 				C56C52711AAD4FDA000A5098 /* MacrosViewController.swift in Sources */,
 				C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */,
 				C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */,

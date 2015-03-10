@@ -23,6 +23,14 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
         subjectLabel.text = t.subject
         descriptionLabel.text = t.description
         ticketCreatedAtLabel.text = t.createdAtInWords()
+        
+        if let r = t.requester? {
+          userNameLabel.text = r.fields.name
+          userAvatar.setImageWithURL(NSURL(string: r.avatarURL()))
+        } else {
+          userNameLabel.text = "loading"
+        }
+        
       } else {
         subjectLabel.text = "no ticket"
         descriptionLabel.text = "no ticket"

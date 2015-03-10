@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   let API = ZendeskAPI.instance
+  let userCache = UserCache()
 
   var window: UIWindow?
   var storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -29,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
 
     if (credential != nil) {
-      User.refreshCurrentUser()
+      UserFields.refreshCurrentUser()
       API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
 
       window!.rootViewController = storyboard.instantiateViewControllerWithIdentifier(
@@ -44,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func userDidLogout() {
     AFOAuthCredential.deleteCredentialWithIdentifier(APICredentialID)
-    User.currentUser = nil
+    UserFields.currentUser = nil
 
     window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
   }

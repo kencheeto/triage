@@ -17,6 +17,7 @@ struct Ticket {
   var assignee_id: Int?
   var group_id: Int?
   var created_at: String? //swift hangs if this is a NSDate in the create function below
+  var requester: User?
 }
 
 extension Ticket: JSONDecodable, JSONSerializable {
@@ -37,7 +38,8 @@ extension Ticket: JSONDecodable, JSONSerializable {
       priority: priority,
       assignee_id: assignee_id,
       group_id: group_id,
-      created_at: created_at
+      created_at: created_at,
+      requester: nil
     )
   }
 

@@ -34,9 +34,10 @@ extension ZendeskAPI {
       success: { (operation: AFHTTPRequestOperation!,
         response: AnyObject!) -> Void in
         let json = JSON.parse <^> response
-        let rows: [TicketFilterRow]? = json >>- { $0 <| "rows" >>- decodeArray }
+        let rowsFields: [TicketFilterRowFields]? = json >>- { $0 <| "rows" >>- decodeArray }
+        let rows = rowsFields!.map({TicketFilterRow(fields: $0)})
 
-        _ = success?(operation: operation, rows: rows!)
+        _ = success?(operation: operation, rows: rows)
       },
       failure: { (operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void in

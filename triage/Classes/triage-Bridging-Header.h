@@ -8,3 +8,4 @@
 #import "UIImageView+AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "NSDate+DateTools.h"
+#import <CommonCrypto/CommonCrypto.h>

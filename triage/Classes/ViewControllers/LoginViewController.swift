@@ -29,8 +29,8 @@ class LoginViewController: UIViewController {
     AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
     API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
     API.getMe(
-      success: { (operation: AFHTTPRequestOperation!, user: User) -> Void in
-        User.currentUser = user
+      success: { (operation: AFHTTPRequestOperation!, user: UserFields) -> Void in
+        UserFields.currentUser = user
 
         self.performSegueWithIdentifier("loginSegue", sender: self)
       },

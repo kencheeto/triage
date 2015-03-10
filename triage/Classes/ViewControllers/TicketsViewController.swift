@@ -15,6 +15,7 @@ let kAssignToTrashAgent = 47314477
 class TicketsViewController: UIViewController {
 
   private let API = ZendeskAPI.instance
+  private let userCache = UserCache()
 
   private var page: Int = 1
 
@@ -110,6 +111,8 @@ class TicketsViewController: UIViewController {
     if (rows.count == 0) {
       isExhausted = true
     }
+    
+    loadRequesters(rows)
 
     if (isRefreshing) {
       self.rows = rows
@@ -123,6 +126,41 @@ class TicketsViewController: UIViewController {
 
     isFetching = false
     isRefreshing = false
+  }
+  
+  func loadRequesters(rows: [TicketFilterRow]) {
+    var ticketsNeedingRequester = [TicketFilterRow]()
+    var userIdsToFetch = [Int: AnyObject]() // hash as set
+    
+    for ticketRow in rows {
+      if ticketRow.ticket.requester == nil {
+        if let cachedUser = userCache.lookupUserByUserId(ticketRow.requester_id) {
+          var ticket = ticketRow.fields.ticket
+          ticket.requester = cachedUser
+        } else {
+          ticketsNeedingRequester.append(ticketRow)
+          userIdsToFetch[ticketRow.requester_id] = 1
+        }
+      }
+    }
+    
+
+    API.getManyUsers(userIdsToFetch.keys.array, success: { (operation: AFHTTPRequestOperation!, users: [User]) -> Void in
+      
+      for ticketRow in ticketsNeedingRequester {
+        var match = users.filter({$0.fields.id == ticketRow.requester_id})
+        if match.count > 0 {
+          var fields = ticketRow.fields
+          var ticket = fields.ticket
+          ticket.requester = match[0]
+          
+          ticketRow.fields = TicketFilterRowFields(requester_id: fields.requester_id, ticket: ticket)
+          
+        }
+      }
+      
+      self.ticketsTableView.reloadData()
+      }, failure: didError)
   }
 
   func didError(operation: AFHTTPRequestOperation!, error: NSError) {
