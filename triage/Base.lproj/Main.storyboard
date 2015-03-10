@@ -232,5 +232,39 @@
             </objects>
             <point key="canvasLocation" x="1998" y="346"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="yFv-IL-rgf">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="PYk-Fn-ZCQ" customClass="DetailViewController" customModule="triage" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="524-8I-TUx"/>
+                        <viewControllerLayoutGuide type="bottom" id="CMf-89-YMR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Cdz-gC-pbs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMO-nH-hPj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHQ-iT-yXh">
+                                        <rect key="frame" x="8" y="17" width="49" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="BACK"/>
+                                        <connections>
+                                            <action selector="onBackButton:" destination="PYk-Fn-ZCQ" eventType="touchUpInside" id="4Dm-fx-LEZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.16078431900000001" green="0.86666673419999996" blue="0.72156864399999998" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6nx-hD-ZPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2698" y="347"/>
+        </scene>
     </scenes>
 </document>

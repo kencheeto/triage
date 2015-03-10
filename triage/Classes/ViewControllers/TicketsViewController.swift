@@ -231,4 +231,19 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     )
     println("didLeftRightSwipe")
   }
+    
+  func didTap(cell: TicketTableViewCell){
+    println(cell.frame.minY)
+    println("didTap")
+    
+    let viewController =
+    storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
+    
+    viewController.ticket = cell.ticket
+    
+    viewController.transitioningDelegate = viewController
+    viewController.modalPresentationStyle = .Custom
+    presentViewController(viewController, animated: true, completion: nil)
+    
+  }
 }

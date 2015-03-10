@@ -12,6 +12,7 @@ protocol TicketTableViewCellDelegate {
   func didNearRightSwipe(cell: TicketTableViewCell)
   func didFarRightSwipe(cell: TicketTableViewCell)
   func didLeftSwipe(cell: TicketTableViewCell)
+  func didTap(cell: TicketTableViewCell)
 }
 
 class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
@@ -37,6 +38,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   @IBOutlet weak var userNameLabel: UILabel!
 
   private var panGestureRecognizer: UIPanGestureRecognizer!
+  private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
   var delegate: TicketsViewController!
   
@@ -49,6 +51,13 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     )
     panGestureRecognizer.delegate = self
     addGestureRecognizer(panGestureRecognizer)
+    
+    tapGestureRecognizer = UITapGestureRecognizer(
+      target: self,
+      action: "didTap:"
+    )
+    tapGestureRecognizer.delegate = self
+    addGestureRecognizer(tapGestureRecognizer)
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -88,14 +97,23 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       }
     }
   }
+    
+  func didTap(recognizer: UIPanGestureRecognizer) {
+    delegate?.didTap(self)
+  }
 
   override func gestureRecognizerShouldBegin(
     gestureRecognizer: UIGestureRecognizer) -> Bool {
-    let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
-    let translation = panGestureRecognizer.translationInView(
+        
+    if gestureRecognizer.isKindOfClass(UIPanGestureRecognizer){
+      let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
+      let translation = panGestureRecognizer.translationInView(
       panGestureRecognizer.view!
     )
 
-    return fabs(translation.x) > fabs(translation.y)
+      return fabs(translation.x) > fabs(translation.y)
+    } else{
+      return true
+    }
   }
 }
