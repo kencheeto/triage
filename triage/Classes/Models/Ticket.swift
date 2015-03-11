@@ -79,8 +79,7 @@ extension Ticket: JSONDecodable, JSONSerializable {
       "created_at": created_at ?? NSNull()
     ]
   }
-  
-  
+
   func createdAtInWords() -> String {
     if let time = created_at {
       var f = Ticket.dateFormatter()
@@ -98,5 +97,17 @@ extension Ticket: JSONDecodable, JSONSerializable {
     
     return formatter;
   }
-  
+    
+  func createAtInEnglish() -> String
+  {
+    if let time = created_at {
+      var f = Ticket.dateFormatter()
+      var date = f.dateFromString(time)
+      var formatter = NSDateFormatter()
+      formatter.dateFormat = "MMM d, y"
+      return formatter.stringFromDate(date!)
+    } else {
+      return ""
+    }
+  }
 }

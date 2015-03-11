@@ -13,11 +13,31 @@ class DetailViewController: UIViewController {
     var ticket: Ticket!
     
     private var isPresenting: Bool!
+    @IBOutlet var requesterLabel: UILabel!
+    @IBOutlet var createdAtLabel: UILabel!
+    @IBOutlet var subjectLabel: UILabel!
+
+    @IBOutlet var requesterPhoto: UIImageView!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var commentLabel: UILabel!
+    @IBOutlet var userLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        createdAtLabel.text = ticket.createAtInEnglish()
+        subjectLabel.text = ticket.subject
+        timeLabel.text = ticket.createdAtInWords()
+        commentLabel.text = ticket.description
+        
+        if let r = ticket.requester?{
+            requesterPhoto.setImageWithURL(NSURL(string: r.avatarURL()))
+            requesterLabel.text = r.fields.name
+            userLabel.text = r.fields.name
+        } else {
+            requesterLabel.text = ""
+            userLabel.text = ""
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,8 +56,6 @@ class DetailViewController: UIViewController {
 
         destinationVC.transitioningDelegate = self
     }
-    
-
 }
 
 extension DetailViewController: UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate{
@@ -49,7 +67,7 @@ extension DetailViewController: UIViewControllerAnimatedTransitioning, UIViewCon
         let toView = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         
         let duration = self.transitionDuration(transitionContext)
-        
+
         if isPresenting! {
             println("addView")
             container.addSubview(toView.view)
