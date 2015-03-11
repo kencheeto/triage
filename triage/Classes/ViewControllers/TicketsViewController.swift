@@ -198,19 +198,24 @@ class TicketsViewController: UIViewController {
     configureTableView()
     fetchTicketRows(page: 1)
   }
-
-  func scrollViewDidScroll(scrollView: UIScrollView) {
+  
+  func loadMoreTicketsIfNeeded() {
     if isFetching || isExhausted {
       return
     }
-
+    
     let tableHeight = ticketsTableView.frame.height
-    let offset = scrollView.contentOffset.y + tableHeight
-    let limit = scrollView.contentSize.height - 300
-
+    let offset = ticketsTableView.contentOffset.y + tableHeight
+    let limit = ticketsTableView.contentSize.height - 300
+  
     if (offset > limit) {
+      println("running low of tickets - loading more")
       fetchTicketRows(page: nil)
     }
+  }
+
+  func scrollViewDidScroll(scrollView: UIScrollView) {
+    loadMoreTicketsIfNeeded()
   }
 }
 
@@ -258,9 +263,11 @@ extension TicketsViewController: TicketTableViewCellDelegate {
 
   func didNearRightSwipe(cell: TicketTableViewCell) {
     let indexPath = ticketsTableView.indexPathForCell(cell)!
-
+    
+    loadMoreTicketsIfNeeded() // this needs to be before we remove the cell since the contentsize.height is wrong afterwards
     rows.removeAtIndex(indexPath.row)
     ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
+    
 
     API.applyMacroToTicket(
       kAssignToTier1MacroID,
@@ -280,8 +287,10 @@ extension TicketsViewController: TicketTableViewCellDelegate {
   func didLeftSwipe(cell: TicketTableViewCell) {
     let indexPath = ticketsTableView.indexPathForCell(cell)!
 
+    loadMoreTicketsIfNeeded() // this needs to be before we remove the cell since the contentsize.height is wrong afterwards
     rows.removeAtIndex(indexPath.row)
     ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+    
 
     API.applyMacroToTicket(
       kAssignToTrashAgent,
