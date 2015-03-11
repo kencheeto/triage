@@ -13,6 +13,9 @@
 		475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA71AA7D45E00C579C6 /* LaunchScreen.xib */; };
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
+		47D379901AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */; };
+		47D379921AAFE5FA00E1ED41 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */; };
+		47D379941AAFE60C00E1ED41 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */; };
 		47DC3A0D1AAEB40A0074F453 /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC3A0C1AAEB40A0074F453 /* UserCache.swift */; };
 		47DC3A0F1AAED7D00074F453 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC3A0E1AAED7D00074F453 /* String.swift */; };
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
@@ -74,6 +77,9 @@
 		475FCAB41AA7D45E00C579C6 /* triageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triageTests.swift; sourceTree = "<group>"; };
 		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "triage-Bridging-Header.h"; path = "Classes/triage-Bridging-Header.h"; sourceTree = "<group>"; };
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
+		47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewDataSources.swift; sourceTree = "<group>"; };
+		47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		47DC3A0C1AAEB40A0074F453 /* UserCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
 		47DC3A0E1AAED7D00074F453 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +243,7 @@
 				C58EBCB71AA847B2003F29C1 /* Vendor */,
 				C58EBCC11AA84FDE003F29C1 /* Views */,
 				47BC6FCE1AA82C7A00202B61 /* ViewControllers */,
+				47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -308,6 +315,8 @@
 		C58EBCC11AA84FDE003F29C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */,
+				47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */,
 				C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */,
 			);
 			name = Views;
@@ -520,6 +529,7 @@
 				C58350351AABCCEC0097FF7D /* ZendeskAPI+Views.swift in Sources */,
 				C58EBCB01AA8470A003F29C1 /* LoginViewController.swift in Sources */,
 				C571CAB51AACDBD600BE6BCA /* JSONSerializable.swift in Sources */,
+				47D379921AAFE5FA00E1ED41 /* LoadingTableViewCell.swift in Sources */,
 				C583502C1AABBF9A0097FF7D /* Colors.swift in Sources */,
 				C571CABA1AACE75700BE6BCA /* Macro.swift in Sources */,
 				C571CAA71AAC9D3A00BE6BCA /* Optional.swift in Sources */,
@@ -546,10 +556,12 @@
 				C571CAB11AACC87800BE6BCA /* CacheConstants.swift in Sources */,
 				47DC3A0D1AAEB40A0074F453 /* UserCache.swift in Sources */,
 				C56C52711AAD4FDA000A5098 /* MacrosViewController.swift in Sources */,
+				47D379901AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift in Sources */,
 				C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */,
 				C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */,
 				C5D2818B1AAC98A4003ED493 /* sequence.swift in Sources */,
 				C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */,
+				47D379941AAFE60C00E1ED41 /* EmptyTableViewCell.swift in Sources */,
 				C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */,
 				C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */,
 			);

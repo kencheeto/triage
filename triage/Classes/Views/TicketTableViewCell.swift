@@ -28,7 +28,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
           userNameLabel.text = r.fields.name
           userAvatar.setImageWithURL(NSURL(string: r.avatarURL()))
         } else {
-          userNameLabel.text = "loading"
+          userNameLabel.text = ""
         }
         
       } else {

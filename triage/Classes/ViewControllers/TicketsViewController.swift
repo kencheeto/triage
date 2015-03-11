@@ -23,7 +23,10 @@ class TicketsViewController: UIViewController {
   private var isExhausted: Bool = false
   private var isFetching: Bool = false
   private var isRefreshing: Bool = false
-
+  private let emptyDataSource =  EmptyTableViewSource()
+  private let loadingDataSource = LoadingTableViewSource()
+  private let initialTableViewRowHeight = CGFloat(400)
+  private var flag = false
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
 
@@ -47,11 +50,13 @@ class TicketsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    ticketsTableView.rowHeight = UITableViewAutomaticDimension;
+  
+  
+  
+    ticketsTableView.rowHeight = initialTableViewRowHeight;
     ticketsTableView.estimatedRowHeight = 44
     ticketsTableView.delegate = self
-    ticketsTableView.dataSource = self
+    ticketsTableView.dataSource = loadingDataSource
     ticketsTableView.layoutMargins = UIEdgeInsetsZero
     ticketsTableView.separatorInset = UIEdgeInsetsZero
 
@@ -74,6 +79,21 @@ class TicketsViewController: UIViewController {
 
     fetchMacros()
     fetchTicketRows(page: 1)
+  }
+  
+  func configureTableView() {
+    if rows.count > 0 {
+      ticketsTableView.dataSource = self
+      ticketsTableView.rowHeight = UITableViewAutomaticDimension
+    } else if isFetching || isRefreshing {
+      ticketsTableView.rowHeight = initialTableViewRowHeight
+      ticketsTableView.dataSource = loadingDataSource
+    } else {
+      ticketsTableView.rowHeight = initialTableViewRowHeight
+      ticketsTableView.dataSource = emptyDataSource
+    }
+    
+    ticketsTableView.reloadData()
   }
 
   func fetchMacros() {
@@ -108,6 +128,7 @@ class TicketsViewController: UIViewController {
   }
 
   func didFetchTicketRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
+
     if (rows.count == 0) {
       isExhausted = true
     }
@@ -119,13 +140,14 @@ class TicketsViewController: UIViewController {
     } else {
       self.rows += rows
     }
-
-    ticketsTableView.reloadData()
-    activityIndicator.stopAnimating()
-    refreshControl.endRefreshing()
-
+    
     isFetching = false
     isRefreshing = false
+    
+    configureTableView()
+    
+    activityIndicator.stopAnimating()
+    refreshControl.endRefreshing()
   }
   
   func loadRequesters(rows: [TicketFilterRow]) {
@@ -173,6 +195,7 @@ class TicketsViewController: UIViewController {
   func willRefresh(sender: UIRefreshControl) {
     sender.beginRefreshing()
     isRefreshing = true
+    configureTableView()
     fetchTicketRows(page: 1)
   }
 
@@ -192,6 +215,8 @@ class TicketsViewController: UIViewController {
 }
 
 extension TicketsViewController: UITableViewDelegate {
+
+  
   
 }
 
@@ -215,7 +240,10 @@ extension TicketsViewController: UITableViewDataSource {
   }
 }
 
+
 extension TicketsViewController: TicketTableViewCellDelegate {
+  
+  
   func didFarRightSwipe(cell: TicketTableViewCell) {
     println("didFarRightSwipe")
     let viewController =
