@@ -267,7 +267,7 @@ extension TicketsViewController: TicketTableViewCellDelegate {
       },
       failure: nil
     )
-    println("didLeftRightSwipe")
+    println("didLeftSwipe")
   }
     
   func didTap(cell: TicketTableViewCell){
