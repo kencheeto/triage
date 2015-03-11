@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
 
       window!.rootViewController = storyboard.instantiateViewControllerWithIdentifier(
-        "TicketsViewController"
-      ) as TicketsViewController
+        "TicketsNavViewController"
+      ) as UIViewController
     } else {
       window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
     }

@@ -13,6 +13,7 @@
 		475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 475FCAA71AA7D45E00C579C6 /* LaunchScreen.xib */; };
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
+		476FB78D1AB1088300085F12 /* TicketsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476FB78C1AB1088300085F12 /* TicketsNavigationController.swift */; };
 		47D379901AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */; };
 		47D379921AAFE5FA00E1ED41 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */; };
 		47D379941AAFE60C00E1ED41 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */; };
@@ -77,6 +78,7 @@
 		475FCAB41AA7D45E00C579C6 /* triageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = triageTests.swift; sourceTree = "<group>"; };
 		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "triage-Bridging-Header.h"; path = "Classes/triage-Bridging-Header.h"; sourceTree = "<group>"; };
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
+		476FB78C1AB1088300085F12 /* TicketsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsNavigationController.swift; path = Classes/ViewControllers/TicketsNavigationController.swift; sourceTree = "<group>"; };
 		47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewDataSources.swift; sourceTree = "<group>"; };
 		47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			children = (
 				9C799B651AAEB706009086C1 /* DetailViewController.swift */,
 				C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */,
+				476FB78C1AB1088300085F12 /* TicketsNavigationController.swift */,
 				C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */,
 				C58EBCAF1AA8470A003F29C1 /* LoginViewController.swift */,
 			);
@@ -549,6 +552,7 @@
 				C56C526D1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift in Sources */,
 				C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
+				476FB78D1AB1088300085F12 /* TicketsNavigationController.swift in Sources */,
 				C5D281891AAC98A4003ED493 /* flatReduce.swift in Sources */,
 				C5D281881AAC98A4003ED493 /* curry.swift in Sources */,
 				C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */,

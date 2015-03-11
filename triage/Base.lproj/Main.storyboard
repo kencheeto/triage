@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -44,7 +44,7 @@
                     <connections>
                         <outlet property="emailField" destination="LJa-RY-fTW" id="e1k-NU-j9g"/>
                         <outlet property="passwordField" destination="kbq-Wo-61Q" id="BOs-44-JqJ"/>
-                        <segue destination="FgK-H6-XWN" kind="presentation" identifier="loginSegue" id="lE4-k7-46O"/>
+                        <segue destination="EGh-jC-dIw" kind="presentation" identifier="loginSegue" id="lE4-k7-46O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5o-v7-ykG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,13 +226,14 @@
                             <constraint firstItem="dJA-eu-LLv" firstAttribute="top" secondItem="iaM-mt-DCS" secondAttribute="top" id="xyE-et-eJw"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="7ca-hQ-Qtu"/>
                     <connections>
                         <outlet property="ticketsTableView" destination="dJA-eu-LLv" id="yNE-KB-HhY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tz2-2D-3gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="345"/>
+            <point key="canvasLocation" x="2045" y="345"/>
         </scene>
         <!--Macros View Controller-->
         <scene sceneID="8rb-Mw-CFz">
@@ -279,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhv-kd-Beh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1998" y="346"/>
+            <point key="canvasLocation" x="2810" y="346"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="yFv-IL-rgf">
@@ -444,7 +445,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6nx-hD-ZPT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="347"/>
+            <point key="canvasLocation" x="3510" y="347"/>
+        </scene>
+        <!--Tickets Navigation Controller-->
+        <scene sceneID="Jiq-1s-c3s">
+            <objects>
+                <navigationController storyboardIdentifier="TicketsNavViewController" automaticallyAdjustsScrollViewInsets="NO" id="EGh-jC-dIw" customClass="TicketsNavigationController" customModule="triage" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Klx-Fw-xOY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FgK-H6-XWN" kind="relationship" relationship="rootViewController" id="TKI-Ni-sof"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p9R-7m-8o7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1233" y="345"/>
         </scene>
     </scenes>
 </document>

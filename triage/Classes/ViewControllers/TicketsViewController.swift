@@ -79,6 +79,14 @@ class TicketsViewController: UIViewController {
 
     fetchMacros()
     fetchTicketRows(page: 1)
+    
+    
+    var logoutButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "doLogout")
+    self.navigationItem.leftBarButtonItem = logoutButton
+    self.navigationItem.title = "Triage"
+    
+    
+    
   }
   
   func configureTableView() {
