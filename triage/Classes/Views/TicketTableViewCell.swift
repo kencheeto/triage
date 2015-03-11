@@ -111,14 +111,22 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       if translation.x > farRightX {
         delegate?.didFarRightSwipe(self)
         ticketView.center = origin
+        swipeView.removeFromSuperview()
       } else if translation.x > deadX {
         delegate?.didNearRightSwipe(self)
+        swipeView.removeFromSuperview()
       } else if translation.x > -deadX {
-        ticketView.center = origin
+        UIView.animateWithDuration(0.2, animations: {
+          self.ticketView.center = self.origin
+          self.swipeView.center = CGPoint(x: self.origin.x - self.cellWidth, y: self.origin.y)
+          }, completion: {(value: Bool) in
+            self.swipeView.removeFromSuperview()
+          }
+        )
       } else {
         delegate?.didLeftSwipe(self)
+        swipeView.removeFromSuperview()
       }
-      swipeView.removeFromSuperview()
     }
   }
     
