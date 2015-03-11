@@ -319,6 +319,5 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     viewController.transitioningDelegate = viewController
     viewController.modalPresentationStyle = .Custom
     presentViewController(viewController, animated: true, completion: nil)
-    
   }
 }

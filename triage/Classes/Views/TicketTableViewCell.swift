@@ -98,35 +98,35 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     } else if recognizer.state == .Changed {
       if translation.x > farRightX {
         swipeView.backgroundColor = UIColor.purpleColor()
+        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+        swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
       } else if translation.x > deadX {
         swipeView.backgroundColor = Colors.ZendeskGreen
+        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+        swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
       } else if translation.x > -deadX {
         swipeView.backgroundColor = UIColor.whiteColor()
+        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+        swipeView.center = CGPoint(x: origin.x + translation.x + cellWidth, y: origin.y)
       } else {
         swipeView.backgroundColor = UIColor.redColor()
+        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+        swipeView.center = CGPoint(x: origin.x + translation.x + cellWidth, y: origin.y)
       }
-      ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
-      swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
     } else if recognizer.state == .Ended {
       if translation.x > farRightX {
         delegate?.didFarRightSwipe(self)
         ticketView.center = origin
-        swipeView.removeFromSuperview()
       } else if translation.x > deadX {
         delegate?.didNearRightSwipe(self)
-        swipeView.removeFromSuperview()
       } else if translation.x > -deadX {
         UIView.animateWithDuration(0.2, animations: {
           self.ticketView.center = self.origin
-          self.swipeView.center = CGPoint(x: self.origin.x - self.cellWidth, y: self.origin.y)
-          }, completion: {(value: Bool) in
-            self.swipeView.removeFromSuperview()
-          }
-        )
+        })
       } else {
         delegate?.didLeftSwipe(self)
-        swipeView.removeFromSuperview()
       }
+      swipeView.removeFromSuperview()
     }
   }
     
