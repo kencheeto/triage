@@ -39,6 +39,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     }
   }
 
+  @IBOutlet weak var ticketView: UIView!
   @IBOutlet weak var userAvatar: UIImageView!
   @IBOutlet weak var subjectLabel: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
@@ -49,23 +50,13 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
   var delegate: TicketsViewController!
+  private var swipeView: UIView!
+  private var deadX: CGFloat!
+  private var farRightX: CGFloat!
+  private var cellWidth: CGFloat!
   
   required init(coder: NSCoder) {
     super.init(coder: coder)
-
-    panGestureRecognizer = UIPanGestureRecognizer(
-      target: self,
-      action: "didPan:"
-    )
-    panGestureRecognizer.delegate = self
-    addGestureRecognizer(panGestureRecognizer)
-    
-    tapGestureRecognizer = UITapGestureRecognizer(
-      target: self,
-      action: "didTap:"
-    )
-    tapGestureRecognizer.delegate = self
-    addGestureRecognizer(tapGestureRecognizer)
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -75,34 +66,59 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
   }
 
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    
+    panGestureRecognizer = UIPanGestureRecognizer(
+      target: self,
+      action: "didPan:"
+    )
+    panGestureRecognizer.delegate = self
+    ticketView.addGestureRecognizer(panGestureRecognizer)
+    
+    tapGestureRecognizer = UITapGestureRecognizer(
+      target: self,
+      action: "didTap:"
+    )
+    tapGestureRecognizer.delegate = self
+    ticketView.addGestureRecognizer(tapGestureRecognizer)
+    deadX = frame.width * 0.15
+    farRightX = frame.width * 0.5
+    cellWidth = frame.width
+    origin = ticketView.center
+  }
+
+  
   func didPan(recognizer: UIPanGestureRecognizer) {
-    let deadX = frame.width * 0.15
-    let farRightX = frame.width * 0.5
     let translation = recognizer.translationInView(self)
     if recognizer.state == .Began {
-      origin = center
+      swipeView = UIView(frame: frame)
+      swipeView.center = origin
+      insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
       if translation.x > farRightX {
-        superview?.backgroundColor = UIColor.purpleColor()
+        swipeView.backgroundColor = UIColor.purpleColor()
       } else if translation.x > deadX {
-        superview?.backgroundColor = Colors.ZendeskGreen
+        swipeView.backgroundColor = Colors.ZendeskGreen
       } else if translation.x > -deadX {
-        superview?.backgroundColor = UIColor.whiteColor()
+        swipeView.backgroundColor = UIColor.whiteColor()
       } else {
-        superview?.backgroundColor = UIColor.redColor()
+        swipeView.backgroundColor = UIColor.redColor()
       }
-      center = CGPoint(x: origin.x + translation.x, y: origin.y)
+      ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+      swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
     } else if recognizer.state == .Ended {
       if translation.x > farRightX {
         delegate?.didFarRightSwipe(self)
-        center = origin
+        ticketView.center = origin
       } else if translation.x > deadX {
         delegate?.didNearRightSwipe(self)
       } else if translation.x > -deadX {
-        center = origin
+        ticketView.center = origin
       } else {
         delegate?.didLeftSwipe(self)
       }
+      swipeView.removeFromSuperview()
     }
   }
     

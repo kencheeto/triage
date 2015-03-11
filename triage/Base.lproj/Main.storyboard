@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -69,99 +70,97 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TicketTableViewCell" rowHeight="121" id="llb-o9-sL1" customClass="TicketTableViewCell" customModule="triage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="llb-o9-sL1" id="NLC-wk-fbk">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="llb-o9-sL1" id="NLC-wk-fbk">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-H5-GOO">
-                                                    <rect key="frame" x="18" y="18" width="64" height="64"/>
-                                                    <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHd-pu-5yI">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="121"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jve-jh-5xB">
+                                                            <rect key="frame" x="121" y="32" width="83" height="21.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21.5" id="EOr-Ah-LXm"/>
+                                                            </constraints>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="A Subject">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                                                        <font key="NSOriginalFont" size="18" name="HelveticaNeue-Bold"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="4 hours ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa0-Zt-Y5R">
+                                                            <rect key="frame" x="518" y="10" width="71.5" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="kP8-uy-x6d"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Bob Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTV-eS-AXU">
+                                                            <rect key="frame" x="121" y="10" width="63.5" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="up5-e5-7ld"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5cX-H5-GOO">
+                                                            <rect key="frame" x="10" y="10" width="101" height="101"/>
+                                                            <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="5cX-H5-GOO" secondAttribute="height" multiplier="1:1" id="WaX-67-pdc"/>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="uWY-vV-Pc3"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrw-2B-oDQ">
+                                                            <rect key="frame" x="121" y="59.5" width="156.5" height="15.5"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="A description of your ticket">
+                                                                    <attributes>
+                                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="64" id="3uk-cV-MrK"/>
-                                                        <constraint firstAttribute="width" constant="64" id="7cp-9Q-LPJ"/>
+                                                        <constraint firstItem="Jve-jh-5xB" firstAttribute="top" secondItem="NTV-eS-AXU" secondAttribute="bottom" constant="6" id="1sA-ps-w4w"/>
+                                                        <constraint firstItem="Qrw-2B-oDQ" firstAttribute="leading" secondItem="5cX-H5-GOO" secondAttribute="trailing" constant="10" id="5pc-EF-ffq"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5cX-H5-GOO" secondAttribute="bottom" constant="10" id="6w6-ww-66x"/>
+                                                        <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="uHd-pu-5yI" secondAttribute="top" constant="10" id="ErQ-PR-Hxl"/>
+                                                        <constraint firstItem="aa0-Zt-Y5R" firstAttribute="top" secondItem="uHd-pu-5yI" secondAttribute="top" constant="10" id="GlM-2b-Ppy"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aa0-Zt-Y5R" secondAttribute="trailing" constant="10" id="MyM-Vg-wue"/>
+                                                        <constraint firstItem="Qrw-2B-oDQ" firstAttribute="top" secondItem="Jve-jh-5xB" secondAttribute="bottom" constant="6" id="TZC-sC-3Os"/>
+                                                        <constraint firstItem="Jve-jh-5xB" firstAttribute="leading" secondItem="5cX-H5-GOO" secondAttribute="trailing" constant="10" id="bwO-E3-PTo"/>
+                                                        <constraint firstItem="5cX-H5-GOO" firstAttribute="leading" secondItem="uHd-pu-5yI" secondAttribute="leading" constant="10" id="hCh-Xc-JiD"/>
+                                                        <constraint firstItem="5cX-H5-GOO" firstAttribute="top" secondItem="uHd-pu-5yI" secondAttribute="top" constant="10" id="p5o-DR-bj9"/>
+                                                        <constraint firstItem="NTV-eS-AXU" firstAttribute="leading" secondItem="5cX-H5-GOO" secondAttribute="trailing" constant="10" id="zCh-Mc-3Nt"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrw-2B-oDQ">
-                                                    <rect key="frame" x="92" y="67" width="490" height="16"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="A description of your ticket">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="13" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Bob Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTV-eS-AXU">
-                                                    <rect key="frame" x="92" y="18" width="416" height="16"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="4 hours ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa0-Zt-Y5R">
-                                                    <rect key="frame" x="518" y="18" width="72" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="kP8-uy-x6d"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jve-jh-5xB">
-                                                    <rect key="frame" x="92" y="39" width="490" height="22"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="A Subject">
-                                                            <attributes>
-                                                                <color key="NSColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
-                                                                <font key="NSOriginalFont" size="18" name="HelveticaNeue-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="5cX-H5-GOO" secondAttribute="top" id="13R-lJ-e7k"/>
-                                                <constraint firstItem="aa0-Zt-Y5R" firstAttribute="leading" secondItem="NTV-eS-AXU" secondAttribute="trailing" constant="10" id="2Gs-Fj-lep"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="5cX-H5-GOO" secondAttribute="bottom" constant="10" id="64h-7N-3h1"/>
-                                                <constraint firstItem="Jve-jh-5xB" firstAttribute="leading" secondItem="5cX-H5-GOO" secondAttribute="trailing" constant="10" id="8wu-Yv-GTK"/>
-                                                <constraint firstItem="5cX-H5-GOO" firstAttribute="top" secondItem="NLC-wk-fbk" secondAttribute="topMargin" constant="10" id="9vV-WE-SmI"/>
-                                                <constraint firstItem="NTV-eS-AXU" firstAttribute="leading" secondItem="5cX-H5-GOO" secondAttribute="trailing" constant="10" id="Ch8-uc-uTB"/>
-                                                <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="aa0-Zt-Y5R" secondAttribute="top" id="KTq-Ek-psc"/>
-                                                <constraint firstItem="5cX-H5-GOO" firstAttribute="leading" secondItem="NLC-wk-fbk" secondAttribute="leadingMargin" constant="10" id="MQi-0i-8m5"/>
-                                                <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="aa0-Zt-Y5R" secondAttribute="top" id="MqA-Pt-KFR"/>
-                                                <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="NLC-wk-fbk" secondAttribute="top" constant="10" id="SCH-fr-yRw"/>
-                                                <constraint firstItem="Jve-jh-5xB" firstAttribute="top" secondItem="aa0-Zt-Y5R" secondAttribute="bottom" id="SMB-9v-h6u"/>
-                                                <constraint firstAttribute="trailing" secondItem="aa0-Zt-Y5R" secondAttribute="trailing" constant="10" id="XNc-g6-255"/>
-                                                <constraint firstItem="Jve-jh-5xB" firstAttribute="leading" secondItem="Qrw-2B-oDQ" secondAttribute="leading" id="aXt-QB-0rc"/>
-                                                <constraint firstItem="Jve-jh-5xB" firstAttribute="top" secondItem="5cX-H5-GOO" secondAttribute="top" id="d8m-Ng-weo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Jve-jh-5xB" secondAttribute="trailing" constant="10" id="dPa-Ir-JQ6"/>
-                                                <constraint firstItem="Qrw-2B-oDQ" firstAttribute="top" secondItem="Jve-jh-5xB" secondAttribute="bottom" constant="6" id="iGP-Wz-1wh"/>
-                                                <constraint firstItem="aa0-Zt-Y5R" firstAttribute="leading" secondItem="NTV-eS-AXU" secondAttribute="trailing" constant="10" id="jar-To-KOs"/>
-                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Qrw-2B-oDQ" secondAttribute="bottom" constant="5" id="kbI-Gn-SbF"/>
-                                                <constraint firstItem="aa0-Zt-Y5R" firstAttribute="top" secondItem="NLC-wk-fbk" secondAttribute="top" constant="10" id="tsk-OM-7BN"/>
-                                                <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="5cX-H5-GOO" secondAttribute="top" id="wJT-1j-wBu"/>
-                                                <constraint firstItem="Jve-jh-5xB" firstAttribute="trailing" secondItem="Qrw-2B-oDQ" secondAttribute="trailing" id="weL-k6-Z6e"/>
+                                                <constraint firstItem="uHd-pu-5yI" firstAttribute="top" secondItem="NLC-wk-fbk" secondAttribute="top" id="J5H-sL-HTz"/>
+                                                <constraint firstAttribute="trailing" secondItem="uHd-pu-5yI" secondAttribute="trailing" id="Jjv-hJ-YOh"/>
+                                                <constraint firstAttribute="bottom" secondItem="uHd-pu-5yI" secondAttribute="bottom" id="Yh4-wx-XWh"/>
+                                                <constraint firstItem="uHd-pu-5yI" firstAttribute="leading" secondItem="NLC-wk-fbk" secondAttribute="leading" id="iDm-Iu-JtS"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="MqA-Pt-KFR"/>
-                                                    <exclude reference="SCH-fr-yRw"/>
-                                                    <exclude reference="wJT-1j-wBu"/>
-                                                    <exclude reference="d8m-Ng-weo"/>
-                                                    <exclude reference="jar-To-KOs"/>
-                                                    <exclude reference="tsk-OM-7BN"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="Qrw-2B-oDQ" id="JqC-Ql-6Hu"/>
                                             <outlet property="subjectLabel" destination="Jve-jh-5xB" id="n9a-o3-ASU"/>
                                             <outlet property="ticketCreatedAtLabel" destination="aa0-Zt-Y5R" id="EOg-s0-saX"/>
+                                            <outlet property="ticketView" destination="uHd-pu-5yI" id="pXA-lj-tBB"/>
                                             <outlet property="userAvatar" destination="5cX-H5-GOO" id="YXI-hN-X9c"/>
                                             <outlet property="userNameLabel" destination="NTV-eS-AXU" id="jp3-Uc-Gkw"/>
                                         </connections>
