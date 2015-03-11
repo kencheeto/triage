@@ -54,6 +54,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   private var deadX: CGFloat!
   private var farRightX: CGFloat!
   private var cellWidth: CGFloat!
+  var expanded: Bool = false
   
   required init(coder: NSCoder) {
     super.init(coder: coder)
@@ -81,7 +82,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       action: "didTap:"
     )
     tapGestureRecognizer.delegate = self
-    ticketView.addGestureRecognizer(tapGestureRecognizer)
+//    ticketView.addGestureRecognizer(tapGestureRecognizer)
     deadX = frame.width * 0.15
     farRightX = frame.width * 0.5
     cellWidth = frame.width
