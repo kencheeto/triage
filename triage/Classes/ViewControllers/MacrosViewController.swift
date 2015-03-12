@@ -22,6 +22,18 @@ class MacrosViewController: UIViewController {
     view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
   }
 
+  @IBAction func didTap(sender: UITapGestureRecognizer) {
+    let height = macrosTableView.bounds.height
+    let width = macrosTableView.bounds.width
+    let point = sender.locationInView(macrosTableView)
+    let x = point.x
+    let y = point.y
+
+    if (x > width || x < 0 || y > height || y < 0) {
+      dismissViewControllerAnimated(true, completion: nil)
+    }
+  }
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     var destinationVC = segue.destinationViewController as UIViewController
 

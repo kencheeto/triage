@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -260,6 +260,7 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Mcr-5b-Vnl" firstAttribute="top" secondItem="2IK-0w-xgK" secondAttribute="topMargin" constant="50" id="6yo-xE-Msw"/>
                             <constraint firstItem="Mcr-5b-Vnl" firstAttribute="top" secondItem="2IK-0w-xgK" secondAttribute="topMargin" constant="50" id="Gmz-Oy-86D"/>
@@ -276,12 +277,20 @@
                                 <exclude reference="dxt-eW-uAB"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dWf-Jp-1V0" appends="YES" id="gMs-xD-MzE"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="macrosTableView" destination="Mcr-5b-Vnl" id="18d-7g-f3M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhv-kd-Beh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dWf-Jp-1V0">
+                    <connections>
+                        <action selector="didTap:" destination="Fvq-yQ-B7P" id="GAj-Sp-uXU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2810" y="346"/>
         </scene>
