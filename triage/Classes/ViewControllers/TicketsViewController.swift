@@ -254,6 +254,13 @@ extension TicketsViewController: UITableViewDataSource {
     
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     selectedRowIndex = indexPath
+
+    var cellRect = tableView.rectForRowAtIndexPath(indexPath)
+
+    UIView.animateWithDuration(0.3, animations: { () -> Void in
+        tableView.contentOffset = CGPoint(x: 0, y: cellRect.minY - 64)
+
+    })
     tableView.beginUpdates()
     tableView.endUpdates()
   }
