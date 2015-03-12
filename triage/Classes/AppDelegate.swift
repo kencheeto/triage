@@ -25,9 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     NSNotificationCenter.defaultCenter().addObserver(
       self,
       selector: "userDidLogout",
-      name: "userDidLogoutNotification",
+      name: LogoutNotification,
       object: nil
     )
+    
 
     if (credential != nil) {
       UserFields.refreshCurrentUser()
