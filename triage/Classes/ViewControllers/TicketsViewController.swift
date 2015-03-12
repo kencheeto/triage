@@ -25,10 +25,12 @@ class TicketsViewController: UIViewController {
   private var isRefreshing: Bool = false
   private let emptyDataSource =  EmptyTableViewSource()
   private let loadingDataSource = LoadingTableViewSource()
-  private let initialTableViewRowHeight = CGFloat(400)
+  private let initialTableViewRowHeight = CGFloat(100)
   private var flag = false
+  private var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
+
 
   private var parameters: NSMutableDictionary {
     get {
@@ -249,8 +251,20 @@ extension TicketsViewController: UITableViewDataSource {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return rows.count
   }
+    
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    selectedRowIndex = indexPath
+    tableView.beginUpdates()
+    tableView.endUpdates()
+  }
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    if indexPath.row == selectedRowIndex.row{
+        return UITableViewAutomaticDimension > self.view.bounds.height ? UITableViewAutomaticDimension: self.view.bounds.height
+    }else {
+      return initialTableViewRowHeight
+    }
+  }
 }
-
 
 extension TicketsViewController: TicketTableViewCellDelegate {
   
