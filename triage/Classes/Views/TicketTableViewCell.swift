@@ -99,19 +99,17 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     } else if recognizer.state == .Changed {
       if translation.x > farRightX {
         swipeView.backgroundColor = UIColor.purpleColor()
-        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
-        swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
       } else if translation.x > deadX {
         swipeView.backgroundColor = Colors.ZendeskGreen
-        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
-        swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
       } else if translation.x > -deadX {
         swipeView.backgroundColor = UIColor.whiteColor()
-        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
-        swipeView.center = CGPoint(x: origin.x + translation.x + cellWidth, y: origin.y)
       } else {
         swipeView.backgroundColor = UIColor.redColor()
-        ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+      }
+      ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
+      if translation.x > 0 {
+        swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
+      } else {
         swipeView.center = CGPoint(x: origin.x + translation.x + cellWidth, y: origin.y)
       }
     } else if recognizer.state == .Ended {
