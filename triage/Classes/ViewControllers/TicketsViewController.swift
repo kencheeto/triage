@@ -25,12 +25,13 @@ class TicketsViewController: UIViewController {
   private var isRefreshing: Bool = false
   private let emptyDataSource =  EmptyTableViewSource()
   private let loadingDataSource = LoadingTableViewSource()
-  private let initialTableViewRowHeight = CGFloat(100)
+  private let initialTableViewRowHeight = CGFloat(90)
   private var flag = false
   private var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
+  private var expanded: Bool = false
+  private var offset: CGFloat!
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
-
 
   private var parameters: NSMutableDictionary {
     get {
@@ -53,8 +54,8 @@ class TicketsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    ticketsTableView.rowHeight = initialTableViewRowHeight;
-    ticketsTableView.estimatedRowHeight = 44
+    ticketsTableView.rowHeight = initialTableViewRowHeight
+    ticketsTableView.estimatedRowHeight = initialTableViewRowHeight//44
     ticketsTableView.delegate = self
     ticketsTableView.dataSource = loadingDataSource
     ticketsTableView.layoutMargins = UIEdgeInsetsZero
@@ -233,9 +234,23 @@ extension TicketsViewController: UITableViewDelegate {
   
 }
 
-extension TicketsViewController: UITableViewDataSource {
+extension TicketsViewController: UITableViewDataSource{
+    
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let row = rows[indexPath.row]
+    
+    if (indexPath.row == self.selectedRowIndex.row){
+        let cell = ticketsTableView.dequeueReusableCellWithIdentifier(
+            "DetailTableViewCell", forIndexPath: indexPath
+            ) as DetailTableViewCell
+        
+        cell.layoutMargins = UIEdgeInsetsZero
+        cell.ticket = row.ticket
+        cell.delegate = self
+        cell.updateConstraintsIfNeeded()
+        return cell
+    }
+    
     let cell = ticketsTableView.dequeueReusableCellWithIdentifier(
       "TicketTableViewCell", forIndexPath: indexPath
     ) as TicketTableViewCell
@@ -254,18 +269,21 @@ extension TicketsViewController: UITableViewDataSource {
     
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     selectedRowIndex = indexPath
-
+    expanded = true
+    
+    offset = tableView.contentOffset.y
     var cellRect = tableView.rectForRowAtIndexPath(indexPath)
 
+    self.navigationController?.setNavigationBarHidden(true, animated: false)
     UIView.animateWithDuration(0.3, animations: { () -> Void in
-        tableView.contentOffset = CGPoint(x: 0, y: cellRect.minY - 64)
-
+        tableView.contentOffset = CGPoint(x: 0, y: cellRect.minY)
     })
     tableView.beginUpdates()
+    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
     tableView.endUpdates()
   }
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    if indexPath.row == selectedRowIndex.row{
+    if indexPath.row == selectedRowIndex.row {
         return UITableViewAutomaticDimension > self.view.bounds.height ? UITableViewAutomaticDimension: self.view.bounds.height
     }else {
       return initialTableViewRowHeight
@@ -273,8 +291,7 @@ extension TicketsViewController: UITableViewDataSource {
   }
 }
 
-extension TicketsViewController: TicketTableViewCellDelegate {
-  
+extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCellDelegate {
   
   func didFarRightSwipe(cell: TicketTableViewCell) {
     println("didFarRightSwipe")
@@ -295,7 +312,6 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     rows.removeAtIndex(indexPath.row)
     ticketsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Right)
     
-
     API.applyMacroToTicket(
       kAssignToTier1MacroID,
       ticketID: cell.ticket!.id,
@@ -335,7 +351,6 @@ extension TicketsViewController: TicketTableViewCellDelegate {
   }
     
   func didTap(cell: TicketTableViewCell){
-    println(cell.frame.minY)
     println("didTap")
     
     let viewController =
@@ -346,5 +361,25 @@ extension TicketsViewController: TicketTableViewCellDelegate {
     viewController.transitioningDelegate = viewController
     viewController.modalPresentationStyle = .Custom
     presentViewController(viewController, animated: true, completion: nil)
+  }
+    
+  func onCancelbutton(cell: DetailTableViewCell) {
+    print("onCancelButton")
+    self.expanded = false
+    self.selectedRowIndex = NSIndexPath(forRow: -1, inSection: 0)
+    let indexPath = ticketsTableView.indexPathForCell(cell)!
+
+    println(self.offset)
+    println("new\(ticketsTableView.contentOffset.y)")
+    UIView.animateWithDuration(0.3, animations: { () -> Void in
+        self.ticketsTableView.contentOffset = CGPoint(x: 0, y: self.offset)
+        
+    })
+    println("should be\(ticketsTableView.contentOffset.y)")
+ 
+    self.navigationController?.setNavigationBarHidden(false, animated: false)
+    self.ticketsTableView.beginUpdates()
+    self.ticketsTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+    self.ticketsTableView.endUpdates()
   }
 }

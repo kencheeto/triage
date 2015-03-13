@@ -54,7 +54,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   private var deadX: CGFloat!
   private var farRightX: CGFloat!
   private var cellWidth: CGFloat!
-  var expanded: Bool = false
   
   required init(coder: NSCoder) {
     super.init(coder: coder)
