@@ -47,6 +47,7 @@ class TicketsViewController: UIViewController {
 
   @IBOutlet weak var ticketsTableView: UITableView!
 
+  @IBOutlet weak var topConstraint: NSLayoutConstraint!
   lazy private var activityIndicator: UIActivityIndicatorView =
     UIActivityIndicatorView(activityIndicatorStyle: .Gray)
   lazy private var refreshControl: UIRefreshControl = UIRefreshControl()
@@ -75,15 +76,31 @@ class TicketsViewController: UIViewController {
       action: "willRefresh:",
       forControlEvents: .ValueChanged
     )
+    
+    configureNavBar()
 
     activityIndicator.startAnimating()
 
     fetchMacros()
     fetchTicketRows(page: 1)
-    
+  }
+  
+  func configureNavBar() {
     var logoutButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "doLogout")
     self.navigationItem.leftBarButtonItem = logoutButton
-    self.navigationItem.title = "Triage"
+    
+    var title = UILabel()
+    title.text = "Z1 Triage"
+    title.textColor = Colors.ZendeskGreen
+    title.font = UIFont.boldSystemFontOfSize(20)
+    title.frame = CGRectMake(0, 0, 100, 30);
+    title.textAlignment = NSTextAlignment.Center
+    self.navigationItem.titleView = title
+    
+    self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
+    self.setShouldScrollWhenContentFits(true)
+    navigationController?.navigationBar.translucent = false
+    navigationController?.navigationBar.tintColor = Colors.ZendeskGreen
   }
   
   func doLogout() {

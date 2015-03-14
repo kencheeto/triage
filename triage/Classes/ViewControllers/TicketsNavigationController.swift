@@ -22,7 +22,6 @@ class TicketsNavigationController: UINavigationController {
     }
   
   func doLogout() {
-    
     println("adsfd")
   }
     

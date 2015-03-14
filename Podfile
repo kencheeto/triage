@@ -6,3 +6,4 @@ pod "AFNetworking"
 pod "AFOAuth2Manager"
 pod 'SVProgressHUD'
 pod 'DateTools'
+pod 'AMScrollingNavbar'

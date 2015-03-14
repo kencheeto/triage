@@ -337,6 +337,7 @@
                     <size key="freeformSize" width="600" height="1200"/>
                     <connections>
                         <outlet property="ticketsTableView" destination="dJA-eu-LLv" id="yNE-KB-HhY"/>
+                        <outlet property="topConstraint" destination="xyE-et-eJw" id="O0i-pd-Kiu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tz2-2D-3gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
