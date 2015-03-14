@@ -97,8 +97,8 @@ class TicketsViewController: UIViewController {
     title.textAlignment = NSTextAlignment.Center
     self.navigationItem.titleView = title
     
-    self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
-    self.setShouldScrollWhenContentFits(true)
+    //self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
+    //self.setShouldScrollWhenContentFits(true)
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.tintColor = Colors.ZendeskGreen
   }

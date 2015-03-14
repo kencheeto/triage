@@ -9,9 +9,11 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-    
+  
+    private let API = ZendeskAPI.instance
     var ticket: Ticket!
-    
+    var comments: [Comment]?
+  
     private var isPresenting: Bool!
     @IBOutlet var requesterLabel: UILabel!
     @IBOutlet var createdAtLabel: UILabel!
@@ -24,6 +26,9 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+      
+      ZendeskAPI.instance.getTicketComments(ticket.id, success: didLoadComments, failure: nil)
+      
 
         createdAtLabel.text = ticket.createAtInEnglish()
         subjectLabel.text = ticket.subject
@@ -39,6 +44,11 @@ class DetailViewController: UIViewController {
             userLabel.text = ""
         }
     }
+  
+  func didLoadComments(operation: AFHTTPRequestOperation!, comments: [Comment]) {
+    self.comments = comments
+    
+  }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
