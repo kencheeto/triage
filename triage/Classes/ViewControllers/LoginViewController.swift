@@ -24,6 +24,8 @@ class LoginViewController: UIViewController {
       failure: didFail
     )
   }
+  
+  
 
   func didLogin(credential: AFOAuthCredential!) {
     AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
