@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicketTableViewCell" customModule="triage" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwipeView" customModule="triage" customModuleProvider="target">
             <connections>
-                <outlet property="swipeView" destination="nh4-Am-2Yf" id="g6c-WF-Rwu"/>
+                <outlet property="contentView" destination="nh4-Am-2Yf" id="rlq-Py-pHp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

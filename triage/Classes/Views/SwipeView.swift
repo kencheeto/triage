@@ -10,12 +10,26 @@ import UIKit
 
 class SwipeView: UIView {
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+  @IBOutlet var contentView: UIView!
 
+  required init(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    initSubviews()
+  }
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    initSubviews()
+  }
+
+  func initSubviews() {
+    let nib = UINib(nibName: "SwipeView", bundle: nil)
+    nib.instantiateWithOwner(self, options: nil)
+    contentView.frame = bounds
+    addSubview(contentView)
+  }
+
+  func colorForX(x: CGFloat) -> UIColor {
+    return UIColor.redColor()
+  }
 }

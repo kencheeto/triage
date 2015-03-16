@@ -45,16 +45,17 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var ticketCreatedAtLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
-  @IBOutlet var swipeView: UIView!
 
+  var delegate: TicketsViewController!
+  var swipeView: SwipeView!
+  
   private var panGestureRecognizer: UIPanGestureRecognizer!
   private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
-  var delegate: TicketsViewController!
   private var deadX: CGFloat!
   private var farRightX: CGFloat!
   private var cellWidth: CGFloat!
-
+  
   required init(coder: NSCoder) {
     super.init(coder: coder)
   }
@@ -92,18 +93,18 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   func didPan(recognizer: UIPanGestureRecognizer) {
     let translation = recognizer.translationInView(self)
     if recognizer.state == .Began {
-      swipeView = UIView(frame: frame)
+      swipeView = SwipeView(frame: frame)
       swipeView.center = origin
       insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
       if translation.x > farRightX {
-        swipeView.backgroundColor = Colors.MoonYellow
+        swipeView.contentView.backgroundColor = Colors.MoonYellow
       } else if translation.x > deadX {
-        swipeView.backgroundColor = Colors.ZendeskGreen
+        swipeView.contentView.backgroundColor = Colors.ZendeskGreen
       } else if translation.x > -deadX {
-        swipeView.backgroundColor = UIColor.whiteColor()
+        swipeView.contentView.backgroundColor = UIColor.whiteColor()
       } else {
-        swipeView.backgroundColor = UIColor.redColor()
+        swipeView.contentView.backgroundColor = UIColor.redColor()
       }
       ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
       if translation.x > 0 {
