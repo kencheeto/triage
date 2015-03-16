@@ -292,20 +292,25 @@ extension TicketsViewController: UITableViewDataSource{
   }
     
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    selectedRowIndex = indexPath
-    expanded = true
+    if !expanded {
+      selectedRowIndex = indexPath
+      expanded = true
     
-    offset = tableView.contentOffset.y
-    var cellRect = tableView.rectForRowAtIndexPath(indexPath)
+      offset = tableView.contentOffset.y
+      var cellRect = tableView.rectForRowAtIndexPath(indexPath)
 
-    self.navigationController?.setNavigationBarHidden(true, animated: false)
-    UIView.animateWithDuration(0.3, animations: { () -> Void in
+      UIView.animateWithDuration(0.3, animations: { () -> Void in
         tableView.contentOffset = CGPoint(x: 0, y: cellRect.minY)
-    })
-    tableView.beginUpdates()
-    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-    tableView.endUpdates()
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+      })
+      tableView.beginUpdates()
+      tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+      tableView.endUpdates()
+      tableView.scrollEnabled = false
+      tableView.allowsSelection = false
+    }
   }
+
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     if indexPath.row == selectedRowIndex.row {
         return UITableViewAutomaticDimension > self.view.bounds.height ? UITableViewAutomaticDimension: self.view.bounds.height
@@ -403,13 +408,15 @@ extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCel
     println("new\(ticketsTableView.contentOffset.y)")
     UIView.animateWithDuration(0.3, animations: { () -> Void in
         self.ticketsTableView.contentOffset = CGPoint(x: 0, y: self.offset)
-        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     })
     println("should be\(ticketsTableView.contentOffset.y)")
  
-    self.navigationController?.setNavigationBarHidden(false, animated: false)
     self.ticketsTableView.beginUpdates()
     self.ticketsTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
     self.ticketsTableView.endUpdates()
+    self.ticketsTableView.scrollEnabled = true
+    self.ticketsTableView.allowsSelection = true
+
   }
 }
