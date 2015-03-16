@@ -58,6 +58,8 @@
 		C5D2818D1AAC98A4003ED493 /* JSONOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281801AAC98A4003ED493 /* JSONOperators.swift */; };
 		C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281831AAC98A4003ED493 /* JSONDecodable.swift */; };
 		C5D281901AAC98A4003ED493 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5D281861AAC98A4003ED493 /* Info.plist */; };
+		E314EEEB1AB65AB600DB8C30 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */; };
+		E314EEED1AB65ADC00DB8C30 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +133,8 @@
 		C5D281831AAC98A4003ED493 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		C5D281851AAC98A4003ED493 /* Argo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Argo.h; sourceTree = "<group>"; };
 		C5D281861AAC98A4003ED493 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +340,8 @@
 				C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */,
 				C55F705C1AB6182F00CFB5A7 /* MacrosTableViewCell.swift */,
 				C55F705E1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift */,
+				E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */,
+				E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -492,6 +498,7 @@
 				475FCAA41AA7D45E00C579C6 /* Main.storyboard in Resources */,
 				475FCAA91AA7D45E00C579C6 /* LaunchScreen.xib in Resources */,
 				C571CAA51AAC9D3A00BE6BCA /* Info.plist in Resources */,
+				E314EEED1AB65ADC00DB8C30 /* SwipeView.xib in Resources */,
 				475FCAA61AA7D45E00C579C6 /* Images.xcassets in Resources */,
 				C5D281901AAC98A4003ED493 /* Info.plist in Resources */,
 			);
@@ -561,6 +568,7 @@
 				C571CAA91AAC9DE200BE6BCA /* ArgoOperators.swift in Sources */,
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
+				E314EEEB1AB65AB600DB8C30 /* SwipeView.swift in Sources */,
 				9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */,
 				47DC3A0F1AAED7D00074F453 /* String.swift in Sources */,
 				C55F705F1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift in Sources */,

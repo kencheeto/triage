@@ -23,14 +23,14 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
         subjectLabel.text = t.subject
         descriptionLabel.text = t.description
         ticketCreatedAtLabel.text = t.createdAtInWords()
-        
+
         if let r = t.requester? {
           userNameLabel.text = r.fields.name
           userAvatar.setImageWithURL(NSURL(string: r.avatarURL()))
         } else {
           userNameLabel.text = ""
         }
-        
+
       } else {
         subjectLabel.text = "no ticket"
         descriptionLabel.text = "no ticket"
@@ -45,37 +45,37 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var ticketCreatedAtLabel: UILabel!
   @IBOutlet weak var userNameLabel: UILabel!
+  @IBOutlet var swipeView: UIView!
 
   private var panGestureRecognizer: UIPanGestureRecognizer!
   private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
   var delegate: TicketsViewController!
-  var swipeView: UIView!
   private var deadX: CGFloat!
   private var farRightX: CGFloat!
   private var cellWidth: CGFloat!
-  
+
   required init(coder: NSCoder) {
     super.init(coder: coder)
   }
 
   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    
+
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
   }
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    
+
     panGestureRecognizer = UIPanGestureRecognizer(
       target: self,
       action: "didPan:"
     )
     panGestureRecognizer.delegate = self
     ticketView.addGestureRecognizer(panGestureRecognizer)
-    
+
     tapGestureRecognizer = UITapGestureRecognizer(
       target: self,
       action: "didTap:"
@@ -88,7 +88,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     origin = ticketView.center
   }
 
-  
+
   func didPan(recognizer: UIPanGestureRecognizer) {
     let translation = recognizer.translationInView(self)
     if recognizer.state == .Began {
@@ -128,14 +128,14 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       swipeView.removeFromSuperview()
     }
   }
-    
+
   func didTap(recognizer: UIPanGestureRecognizer) {
     delegate?.didTap(self)
   }
 
   override func gestureRecognizerShouldBegin(
     gestureRecognizer: UIGestureRecognizer) -> Bool {
-        
+
     if gestureRecognizer.isKindOfClass(UIPanGestureRecognizer){
       let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
       let translation = panGestureRecognizer.translationInView(
