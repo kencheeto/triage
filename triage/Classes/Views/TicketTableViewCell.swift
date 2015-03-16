@@ -89,21 +89,14 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     origin = ticketView.center
   }
 
-
   func didPan(recognizer: UIPanGestureRecognizer) {
     let translation = recognizer.translationInView(self)
     if recognizer.state == .Began {
-      swipeView = SwipeView(frame: frame)
-      swipeView.center = origin
+      swipeView = SwipeView(frame: frame, origin: origin)
       insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
       swipeView.offset = translation.x
       ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
-      if translation.x > 0 {
-        swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
-      } else {
-        swipeView.center = CGPoint(x: origin.x + translation.x + cellWidth, y: origin.y)
-      }
     } else if recognizer.state == .Ended {
       if translation.x > farRightX {
         swipeView.center = origin
@@ -132,11 +125,11 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     if gestureRecognizer.isKindOfClass(UIPanGestureRecognizer){
       let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
       let translation = panGestureRecognizer.translationInView(
-      panGestureRecognizer.view!
-    )
+        panGestureRecognizer.view!
+      )
 
       return fabs(translation.x) > fabs(translation.y)
-    } else{
+    } else {
       return true
     }
   }
