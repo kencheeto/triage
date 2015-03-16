@@ -50,7 +50,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
   var delegate: TicketsViewController!
-  private var swipeView: UIView!
+  var swipeView: UIView!
   private var deadX: CGFloat!
   private var farRightX: CGFloat!
   private var cellWidth: CGFloat!
@@ -97,7 +97,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
       if translation.x > farRightX {
-        swipeView.backgroundColor = UIColor.purpleColor()
+        swipeView.backgroundColor = Colors.MoonYellow
       } else if translation.x > deadX {
         swipeView.backgroundColor = Colors.ZendeskGreen
       } else if translation.x > -deadX {
@@ -113,8 +113,9 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       }
     } else if recognizer.state == .Ended {
       if translation.x > farRightX {
+        swipeView.center = origin
         delegate?.didFarRightSwipe(self)
-        ticketView.center = origin
+        return
       } else if translation.x > deadX {
         delegate?.didNearRightSwipe(self)
       } else if translation.x > -deadX {

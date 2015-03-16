@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SF5-nF-sAO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -356,13 +356,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mcr-5b-Vnl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Mcr-5b-Vnl">
                                 <rect key="frame" x="150" y="100" width="300" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="XAG-Pd-nTx"/>
                                     <constraint firstAttribute="width" constant="300" id="s36-xT-KP4"/>
                                 </constraints>
+                                <view key="tableFooterView" contentMode="scaleToFill" restorationIdentifier="MacrosTableHeaderView" id="Zo5-Zp-xNj" customClass="MacrosTableHeaderView" customModule="triage" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MacrosTableViewCell" rowHeight="89" id="wj4-qK-Ez1" customClass="MacrosTableViewCell" customModule="triage" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wj4-qK-Ez1" id="mS5-B3-pbQ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Macro title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="06K-oD-VlA">
+                                                    <rect key="frame" x="18" y="23" width="264" height="42.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="06K-oD-VlA" firstAttribute="top" secondItem="mS5-B3-pbQ" secondAttribute="topMargin" constant="15" id="0SL-Si-0rP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="06K-oD-VlA" secondAttribute="bottom" constant="15" id="99g-xX-w3C"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="06K-oD-VlA" secondAttribute="trailing" constant="10" id="EPb-Ww-7rg"/>
+                                                <constraint firstItem="06K-oD-VlA" firstAttribute="leading" secondItem="mS5-B3-pbQ" secondAttribute="leadingMargin" constant="10" id="l1t-7X-5dS"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="06K-oD-VlA" id="vhR-lD-vRY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -389,6 +420,8 @@
                     </view>
                     <connections>
                         <outlet property="macrosTableView" destination="Mcr-5b-Vnl" id="18d-7g-f3M"/>
+                        <outlet property="macrosTableViewHeader" destination="Zo5-Zp-xNj" id="Sot-Yc-Qem"/>
+                        <outlet property="tapGestureRecognizer" destination="dWf-Jp-1V0" id="i0R-e6-UGa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhv-kd-Beh" userLabel="First Responder" sceneMemberID="firstResponder"/>

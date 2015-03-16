@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
       window!.rootViewController = storyboard.instantiateViewControllerWithIdentifier(
         "TicketsNavViewController"
-      ) as UIViewController
+      ) as? UIViewController
     } else {
       window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
     }

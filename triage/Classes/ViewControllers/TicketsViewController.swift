@@ -14,6 +14,9 @@ let kAssignToTrashAgent = 47314477
 
 class TicketsViewController: UIViewController {
 
+  private let notificationCenter: NSNotificationCenter =
+    NSNotificationCenter.defaultCenter()
+
   private let API = ZendeskAPI.instance
   private let userCache = UserCache()
 
@@ -104,7 +107,7 @@ class TicketsViewController: UIViewController {
   }
   
   func doLogout() {
-    NSNotificationCenter.defaultCenter().postNotificationName(LogoutNotification, object: self)
+    notificationCenter.postNotificationName(LogoutNotification, object: self)
   }
   
   func configureTableView() {
@@ -147,6 +150,10 @@ class TicketsViewController: UIViewController {
       success: didFetchTicketRows,
       failure: didError
     )
+  }
+
+  func removeAtIndex(index: NSIndexPath) {
+    rows.removeAtIndex(index.row)
   }
 
   func didFetchMacros(operation: AFHTTPRequestOperation!, macros: [Macro]) {
@@ -318,7 +325,13 @@ extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCel
     viewController.transitioningDelegate = viewController
     viewController.macros = macros
     viewController.modalPresentationStyle = .Custom
+    viewController.cell = cell
 
+    UIView.animateWithDuration(0.2, animations: {
+      cell.center.x = cell.bounds.width / 2
+    })
+
+    viewController.ticketsViewController = self
     presentViewController(viewController, animated: true, completion: nil)
   }
 

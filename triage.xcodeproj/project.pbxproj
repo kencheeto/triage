@@ -26,6 +26,8 @@
 		9C8895F91AB295BE0062F55D /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8895F81AB295BE0062F55D /* DetailTableViewCell.swift */; };
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
 		C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120D1AABE8C400DE1906 /* APIConstants.swift */; };
+		C55F705D1AB6182F00CFB5A7 /* MacrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55F705C1AB6182F00CFB5A7 /* MacrosTableViewCell.swift */; };
+		C55F705F1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C55F705E1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift */; };
 		C56C526D1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */; };
 		C56C52711AAD4FDA000A5098 /* MacrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */; };
 		C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C571CA9F1AAC9D3A00BE6BCA /* Array.swift */; };
@@ -95,6 +97,8 @@
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Users.swift"; sourceTree = "<group>"; };
 		C53A120D1AABE8C400DE1906 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		C55F705C1AB6182F00CFB5A7 /* MacrosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacrosTableViewCell.swift; sourceTree = "<group>"; };
+		C55F705E1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MacrosTableHeaderView.swift; sourceTree = "<group>"; };
 		C56C526C1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Tickets.swift"; sourceTree = "<group>"; };
 		C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MacrosViewController.swift; path = Classes/ViewControllers/MacrosViewController.swift; sourceTree = "<group>"; };
 		C571CA9F1AAC9D3A00BE6BCA /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -330,6 +334,8 @@
 				47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */,
 				47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */,
 				C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */,
+				C55F705C1AB6182F00CFB5A7 /* MacrosTableViewCell.swift */,
+				C55F705E1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -557,10 +563,12 @@
 				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
 				9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */,
 				47DC3A0F1AAED7D00074F453 /* String.swift in Sources */,
+				C55F705F1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift in Sources */,
 				C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */,
 				9C8895F91AB295BE0062F55D /* DetailTableViewCell.swift in Sources */,
 				475FCA9F1AA7D45E00C579C6 /* AppDelegate.swift in Sources */,
 				C571CAB81AACE6B000BE6BCA /* ZendeskAPI+Macros.swift in Sources */,
+				C55F705D1AB6182F00CFB5A7 /* MacrosTableViewCell.swift in Sources */,
 				C56C526D1AACF3BF000A5098 /* ZendeskAPI+Tickets.swift in Sources */,
 				C583502F1AABC0CC0097FF7D /* UIColor+Triage.swift in Sources */,
 				C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */,
