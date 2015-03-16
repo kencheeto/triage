@@ -48,23 +48,29 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
   var delegate: TicketsViewController!
   var swipeView: SwipeView!
-  
+
   private var panGestureRecognizer: UIPanGestureRecognizer!
   private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
   private var deadX: CGFloat!
   private var farRightX: CGFloat!
   private var cellWidth: CGFloat!
-  
+
   required init(coder: NSCoder) {
     super.init(coder: coder)
   }
 
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
+  override func awakeFromNib() {
+    super.awakeFromNib()
 
+/*
+    subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
+    descriptionLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
+    ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+    userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+*/
   }
 
   override func layoutSubviews() {
