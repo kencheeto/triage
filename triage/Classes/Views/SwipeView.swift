@@ -29,7 +29,29 @@ class SwipeView: UIView {
     addSubview(contentView)
   }
 
-  func colorForX(x: CGFloat) -> UIColor {
-    return UIColor.redColor()
+  var offset: CGFloat? {
+    didSet {
+      contentView.backgroundColor = colorForOffset(offset!)
+    }
+  }
+
+  var farRightOffset: CGFloat! {
+    return contentView.frame.width * 0.5
+  }
+
+  var deadOffset: CGFloat! {
+    return contentView.frame.width * 0.15
+  }
+
+  func colorForOffset(offset: CGFloat) -> UIColor {
+    if offset > farRightOffset {
+      return Colors.MoonYellow
+    } else if offset > deadOffset {
+      return Colors.ZendeskGreen
+    } else if offset > -deadOffset {
+      return UIColor.whiteColor()
+    } else {
+      return UIColor.redColor()
+    }
   }
 }

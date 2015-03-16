@@ -97,15 +97,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       swipeView.center = origin
       insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
-      if translation.x > farRightX {
-        swipeView.contentView.backgroundColor = Colors.MoonYellow
-      } else if translation.x > deadX {
-        swipeView.contentView.backgroundColor = Colors.ZendeskGreen
-      } else if translation.x > -deadX {
-        swipeView.contentView.backgroundColor = UIColor.whiteColor()
-      } else {
-        swipeView.contentView.backgroundColor = UIColor.redColor()
-      }
+      swipeView.offset = translation.x
       ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
       if translation.x > 0 {
         swipeView.center = CGPoint(x: origin.x + translation.x - cellWidth, y: origin.y)
