@@ -79,10 +79,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     )
     tapGestureRecognizer.delegate = self
 
-    deadX = frame.width * 0.15
-    farRightX = frame.width * 0.5
-    cellWidth = frame.width
-
     /*
     subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
@@ -91,6 +87,13 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
     userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
 */
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    deadX = frame.width * 0.15
+    farRightX = frame.width * 0.5
+    cellWidth = frame.width
   }
 
   func didPan(recognizer: UIPanGestureRecognizer) {
