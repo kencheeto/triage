@@ -13,40 +13,32 @@ protocol DetailTableViewCellDelegate {
 
 class DetailTableViewCell: UITableViewCell{
 
-    var ticket: Ticket?{
-        didSet {
-            if let t = ticket {
-                subjectLabel.text = t.subject
-//                descriptionLabel.text = t.description
-                createdAtLabel.text = t.createAtInEnglish()
-                
-                if let r = t.requester? {
-                    requesterLabel.text = r.fields.name
-//                    userAvatar.setImageWithURL(NSURL(string: r.avatarURL()))
-                } else {
-                    requesterLabel.text = ""
-                }
-                
-            } else {
-                subjectLabel.text = "no ticket"
-//                descriptionLabel.text = "no ticket"
-                createdAtLabel.text = "no ticket"
-            }
-        }
+    var ticket: Ticket!
 
-    }
-
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var detailTableView: UITableView!
     @IBOutlet var cancelButton: UIButton!
-    @IBOutlet var requesterLabel: UILabel!
-    @IBOutlet var createdAtLabel: UILabel!
-    @IBOutlet var subjectLabel: UILabel!
     
     var delegate: TicketsViewController!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        // Initialization code
+        detailTableView.rowHeight = UITableViewAutomaticDimension
+        detailTableView.estimatedRowHeight = 44
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
+        detailTableView.layoutMargins = UIEdgeInsetsZero
+        detailTableView.separatorColor = UIColor.clearColor()
+        detailTableView.separatorInset = UIEdgeInsetsZero
+        detailTableView.tableFooterView = UIView()
+        detailTableView.allowsSelection = false
+
+        cancelButton.setTitle("✕", forState: .allZeros)
+        cancelButton.titleLabel?.textColor = Colors.Snow
+        cancelButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
+        
+        headerView.backgroundColor = Colors.ZendeskGreen
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -58,5 +50,32 @@ class DetailTableViewCell: UITableViewCell{
     @IBAction func onCancelButton(sender: UIButton) {
         delegate?.onCancelbutton(self)
     }
-    
 }
+
+extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("DetailSubjectTableViewCell") as DetailSubjectTableViewCell
+            cell.ticket = ticket
+            cell.layoutMargins = UIEdgeInsetsZero
+            cell.updateConstraintsIfNeeded()
+            
+            return cell
+        }else {
+            println("indexPath:\(indexPath.row)")
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as CommentTableViewCell
+            cell.ticket = ticket
+            cell.layoutMargins = UIEdgeInsetsZero
+            cell.updateConstraintsIfNeeded()
+            cell.contentView.backgroundColor = Colors.Snow
+            
+            return cell
+        }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+}
+

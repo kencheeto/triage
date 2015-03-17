@@ -22,6 +22,8 @@
 		47DC3A0D1AAEB40A0074F453 /* UserCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC3A0C1AAEB40A0074F453 /* UserCache.swift */; };
 		47DC3A0F1AAED7D00074F453 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DC3A0E1AAED7D00074F453 /* String.swift */; };
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
+		9C23BF261AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23BF251AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift */; };
+		9C23BF281AB7D922009FED3C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23BF271AB7D922009FED3C /* CommentTableViewCell.swift */; };
 		9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C799B651AAEB706009086C1 /* DetailViewController.swift */; };
 		9C8895F91AB295BE0062F55D /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8895F81AB295BE0062F55D /* DetailTableViewCell.swift */; };
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
@@ -58,8 +60,6 @@
 		C5D2818D1AAC98A4003ED493 /* JSONOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281801AAC98A4003ED493 /* JSONOperators.swift */; };
 		C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281831AAC98A4003ED493 /* JSONDecodable.swift */; };
 		C5D281901AAC98A4003ED493 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C5D281861AAC98A4003ED493 /* Info.plist */; };
-		E314EEEB1AB65AB600DB8C30 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */; };
-		E314EEED1AB65ADC00DB8C30 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */; };
 		C5E58E811AB78F55003BAA0B /* Proxima Nova Black It.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5E58E731AB78E96003BAA0B /* Proxima Nova Black It.otf */; };
 		C5E58E821AB78F55003BAA0B /* Proxima Nova Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5E58E741AB78E96003BAA0B /* Proxima Nova Black.otf */; };
 		C5E58E831AB78F55003BAA0B /* Proxima Nova Bold It.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5E58E751AB78E96003BAA0B /* Proxima Nova Bold It.otf */; };
@@ -74,6 +74,8 @@
 		C5E58E8C1AB78F55003BAA0B /* Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5E58E7E1AB78E96003BAA0B /* Proxima Nova Thin.otf */; };
 		C5E58E8D1AB78F55003BAA0B /* Proxima Nova Xbold It.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5E58E7F1AB78E96003BAA0B /* Proxima Nova Xbold It.otf */; };
 		C5E58E8E1AB78F55003BAA0B /* Proxima Nova Xbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C5E58E801AB78E96003BAA0B /* Proxima Nova Xbold.otf */; };
+		E314EEEB1AB65AB600DB8C30 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */; };
+		E314EEED1AB65ADC00DB8C30 /* SwipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,8 @@
 		47DC3A0C1AAEB40A0074F453 /* UserCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCache.swift; sourceTree = "<group>"; };
 		47DC3A0E1AAED7D00074F453 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9C23BF251AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSubjectTableViewCell.swift; sourceTree = "<group>"; };
+		9C23BF271AB7D922009FED3C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
 		9C799B651AAEB706009086C1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Classes/ViewControllers/DetailViewController.swift; sourceTree = "<group>"; };
 		9C8895F81AB295BE0062F55D /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,8 +151,6 @@
 		C5D281831AAC98A4003ED493 /* JSONDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodable.swift; sourceTree = "<group>"; };
 		C5D281851AAC98A4003ED493 /* Argo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Argo.h; sourceTree = "<group>"; };
 		C5D281861AAC98A4003ED493 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
-		E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
 		C5E58E731AB78E96003BAA0B /* Proxima Nova Black It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black It.otf"; sourceTree = "<group>"; };
 		C5E58E741AB78E96003BAA0B /* Proxima Nova Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Black.otf"; sourceTree = "<group>"; };
 		C5E58E751AB78E96003BAA0B /* Proxima Nova Bold It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Bold It.otf"; sourceTree = "<group>"; };
@@ -163,6 +165,8 @@
 		C5E58E7E1AB78E96003BAA0B /* Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		C5E58E7F1AB78E96003BAA0B /* Proxima Nova Xbold It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Xbold It.otf"; sourceTree = "<group>"; };
 		C5E58E801AB78E96003BAA0B /* Proxima Nova Xbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Proxima Nova Xbold.otf"; sourceTree = "<group>"; };
+		E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
+		E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwipeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +390,8 @@
 			children = (
 				9C8895F81AB295BE0062F55D /* DetailTableViewCell.swift */,
 				47D379911AAFE5FA00E1ED41 /* LoadingTableViewCell.swift */,
+				9C23BF251AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift */,
+				9C23BF271AB7D922009FED3C /* CommentTableViewCell.swift */,
 				47D379931AAFE60C00E1ED41 /* EmptyTableViewCell.swift */,
 				C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */,
 				C55F705C1AB6182F00CFB5A7 /* MacrosTableViewCell.swift */,
@@ -648,6 +654,7 @@
 				C5D281891AAC98A4003ED493 /* flatReduce.swift in Sources */,
 				C5D281881AAC98A4003ED493 /* curry.swift in Sources */,
 				C571CAA61AAC9D3A00BE6BCA /* Operators.swift in Sources */,
+				9C23BF281AB7D922009FED3C /* CommentTableViewCell.swift in Sources */,
 				C5D2818F1AAC98A4003ED493 /* JSONDecodable.swift in Sources */,
 				C571CAB11AACC87800BE6BCA /* CacheConstants.swift in Sources */,
 				47DC3A0D1AAEB40A0074F453 /* UserCache.swift in Sources */,
@@ -659,6 +666,7 @@
 				C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */,
 				47D379941AAFE60C00E1ED41 /* EmptyTableViewCell.swift in Sources */,
 				C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */,
+				9C23BF261AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift in Sources */,
 				C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

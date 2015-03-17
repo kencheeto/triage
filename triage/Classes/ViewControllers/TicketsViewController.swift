@@ -407,7 +407,7 @@ extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCel
     println(self.offset)
     println("new\(ticketsTableView.contentOffset.y)")
     UIView.animateWithDuration(0.3, animations: { () -> Void in
-        self.ticketsTableView.contentOffset = CGPoint(x: 0, y: self.offset)
+        self.ticketsTableView.contentOffset = CGPoint(x: 0, y: self.offset - 20)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     })
     println("should be\(ticketsTableView.contentOffset.y)")
