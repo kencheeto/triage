@@ -10,10 +10,11 @@ import UIKit
 
 class SwipeView: UIView {
 
-  @IBOutlet var contentView: UIView!
+  @IBOutlet private var contentView: UIView!
+  @IBOutlet weak var rightLabel: UILabel!
+  @IBOutlet weak var leftLabel: UILabel!
 
-  var origin: CGPoint!
-
+  private var origin: CGPoint!
   private var width: CGFloat!
   private var farRightOffset: CGFloat!
   private var deadOffset: CGFloat!
@@ -26,6 +27,9 @@ class SwipeView: UIView {
   init(frame: CGRect, origin: CGPoint) {
     super.init(frame: frame)
     self.origin = origin
+    width = frame.width
+    farRightOffset = width * 0.5
+    deadOffset = width * 0.15
 
     initSubviews()
   }
@@ -34,9 +38,6 @@ class SwipeView: UIView {
     let nib = UINib(nibName: "SwipeView", bundle: nil)
     nib.instantiateWithOwner(self, options: nil)
     contentView.frame = bounds
-    width = frame.width
-    farRightOffset = width * 0.5
-    deadOffset = width * 0.15
     addSubview(contentView)
   }
 
@@ -44,12 +45,20 @@ class SwipeView: UIView {
     didSet {
       if offset > farRightOffset {
         contentView.backgroundColor = Colors.MoonYellow
+        rightLabel.text = "macro"
+        leftLabel.text = ""
       } else if offset > deadOffset {
         contentView.backgroundColor = Colors.ZendeskGreen
+        rightLabel.text = "tier 1"
+        leftLabel.text = ""
       } else if offset > -deadOffset {
         contentView.backgroundColor = UIColor.whiteColor()
+        rightLabel.text = ""
+        leftLabel.text = ""
       } else {
         contentView.backgroundColor = UIColor.redColor()
+        rightLabel.text = ""
+        leftLabel.text = "trash"
       }
 
       if offset > 0 {

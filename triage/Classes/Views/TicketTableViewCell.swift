@@ -63,19 +63,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   override func awakeFromNib() {
     super.awakeFromNib()
 
-/*
-    subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
-    subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
-    descriptionLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
-    descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
-    ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
-    userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
-*/
-  }
-
-  override func layoutSubviews() {
-    super.layoutSubviews()
-
     panGestureRecognizer = UIPanGestureRecognizer(
       target: self,
       action: "didPan:"
@@ -88,16 +75,25 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       action: "didTap:"
     )
     tapGestureRecognizer.delegate = self
-//    ticketView.addGestureRecognizer(tapGestureRecognizer)
+
     deadX = frame.width * 0.15
     farRightX = frame.width * 0.5
     cellWidth = frame.width
-    origin = ticketView.center
+
+    /*
+    subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
+    subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
+    descriptionLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
+    descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
+    ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+    userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+*/
   }
 
   func didPan(recognizer: UIPanGestureRecognizer) {
     let translation = recognizer.translationInView(self)
     if recognizer.state == .Began {
+      origin = ticketView.center
       swipeView = SwipeView(frame: frame, origin: origin)
       insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
