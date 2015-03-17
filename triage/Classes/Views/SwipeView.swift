@@ -52,9 +52,9 @@ class SwipeView: UIView {
         rightLabel.text = "tier 1"
         leftLabel.text = ""
       } else if offset > -deadOffset {
-        contentView.backgroundColor = UIColor.whiteColor()
-        rightLabel.text = ""
-        leftLabel.text = ""
+        contentView.backgroundColor = UIColor.lightGrayColor()
+        rightLabel.text = "tier 1"
+        leftLabel.text = "trash"
       } else {
         contentView.backgroundColor = UIColor.redColor()
         rightLabel.text = ""
