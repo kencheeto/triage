@@ -26,6 +26,9 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
         if let r = t.requester? {
           userNameLabel.text = r.fields.name
+          userAvatar.layer.cornerRadius = 4.0
+          userAvatar.layer.borderColor = UIColor.whiteColor().CGColor
+          userAvatar.layer.masksToBounds = true
           userAvatar.setImageWithURL(NSURL(string: r.avatarURL()))
         } else {
           userNameLabel.text = ""
