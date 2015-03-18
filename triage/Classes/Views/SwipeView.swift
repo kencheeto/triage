@@ -30,7 +30,7 @@ class SwipeView: UIView {
     width = frame.width
     farRightOffset = width * 0.4
     deadOffset = width * 0.15
-
+    alpha = 0
     initSubviews()
   }
 
@@ -61,6 +61,7 @@ class SwipeView: UIView {
         leftLabel.text = "trash"
       }
 
+      alpha = abs(offset!) / deadOffset
       if offset > 0 {
         center = CGPoint(x: origin.x + offset! - width, y: origin.y)
       } else {
