@@ -28,7 +28,7 @@ class SwipeView: UIView {
     super.init(frame: frame)
     self.origin = origin
     width = frame.width
-    farRightOffset = width * 0.5
+    farRightOffset = width * 0.4
     deadOffset = width * 0.15
 
     initSubviews()
