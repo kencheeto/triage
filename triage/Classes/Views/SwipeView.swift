@@ -14,22 +14,18 @@ class SwipeView: UIView {
   @IBOutlet weak var rightLabel: UILabel!
   @IBOutlet weak var leftLabel: UILabel!
 
-  private var origin: CGPoint!
-  private var width: CGFloat!
-  private var farRightOffset: CGFloat!
-  private var deadOffset: CGFloat!
+  var origin: CGPoint!
+  var cellWidth: CGFloat!
+  var macroZoneStartX: CGFloat!
+  var deadZoneEndX: CGFloat!
 
   required init(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     initSubviews()
   }
 
-  init(frame: CGRect, origin: CGPoint) {
+  override init(frame: CGRect) {
     super.init(frame: frame)
-    self.origin = origin
-    width = frame.width
-    farRightOffset = width * 0.4
-    deadOffset = width * 0.15
     alpha = 0
     initSubviews()
   }
@@ -43,15 +39,15 @@ class SwipeView: UIView {
 
   var offset: CGFloat? {
     didSet {
-      if offset > farRightOffset {
+      if offset > macroZoneStartX {
         contentView.backgroundColor = Colors.MoonYellow
         rightLabel.text = "macro"
         leftLabel.text = ""
-      } else if offset > deadOffset {
+      } else if offset > deadZoneEndX {
         contentView.backgroundColor = Colors.ZendeskGreen
         rightLabel.text = "tier 1"
         leftLabel.text = ""
-      } else if offset > -deadOffset {
+      } else if offset > -deadZoneEndX {
         contentView.backgroundColor = UIColor.lightGrayColor()
         rightLabel.text = "tier 1"
         leftLabel.text = "trash"
@@ -61,11 +57,12 @@ class SwipeView: UIView {
         leftLabel.text = "trash"
       }
 
-      alpha = abs(offset!) / deadOffset
+      alpha = abs(offset!) / deadZoneEndX
+
       if offset > 0 {
-        center = CGPoint(x: origin.x + offset! - width, y: origin.y)
+        center = CGPoint(x: origin.x + offset! - cellWidth, y: origin.y)
       } else {
-        center = CGPoint(x: origin.x + offset! + width, y: origin.y)
+        center = CGPoint(x: origin.x + offset! + cellWidth, y: origin.y)
       }
     }
   }

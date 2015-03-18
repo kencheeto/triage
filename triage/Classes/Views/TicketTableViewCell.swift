@@ -55,8 +55,8 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   private var panGestureRecognizer: UIPanGestureRecognizer!
   private var tapGestureRecognizer: UITapGestureRecognizer!
   private var origin: CGPoint!
-  private var deadX: CGFloat!
-  private var farRightX: CGFloat!
+  private var deadZoneEndX: CGFloat!
+  private var macroZoneStartX: CGFloat!
   private var cellWidth: CGFloat!
 
   required init(coder: NSCoder) {
@@ -91,8 +91,10 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    deadX = frame.width * 0.15
-    farRightX = frame.width * 0.5
+    // the gray dead swipe zone ends
+    deadZoneEndX = frame.width * 0.15
+    // the macro swipe zone begins
+    macroZoneStartX = frame.width * 0.4
     cellWidth = frame.width
   }
 
@@ -100,19 +102,23 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     let translation = recognizer.translationInView(self)
     if recognizer.state == .Began {
       origin = ticketView.center
-      swipeView = SwipeView(frame: frame, origin: origin)
+      swipeView = SwipeView(frame: frame)
+      swipeView.origin = origin
+      swipeView.deadZoneEndX = deadZoneEndX
+      swipeView.macroZoneStartX = macroZoneStartX
+      swipeView.cellWidth = cellWidth
       insertSubview(swipeView, aboveSubview: ticketView)
     } else if recognizer.state == .Changed {
       swipeView.offset = translation.x
       ticketView.center = CGPoint(x: origin.x + translation.x, y: origin.y)
     } else if recognizer.state == .Ended {
-      if translation.x > farRightX {
+      if translation.x > macroZoneStartX {
         swipeView.center = origin
         delegate?.didFarRightSwipe(self)
         return
-      } else if translation.x > deadX {
+      } else if translation.x > deadZoneEndX {
         delegate?.didNearRightSwipe(self)
-      } else if translation.x > -deadX {
+      } else if translation.x > -deadZoneEndX {
         UIView.animateWithDuration(0.2, animations: {
           self.ticketView.center = self.origin
         })
