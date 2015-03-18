@@ -119,9 +119,18 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       } else if translation.x > deadZoneEndX {
         delegate?.didNearRightSwipe(self)
       } else if translation.x > -deadZoneEndX {
-        UIView.animateWithDuration(0.2, animations: {
-          self.ticketView.center = self.origin
-        })
+        UIView.animateWithDuration(
+          0.4,
+          delay: 0,
+          usingSpringWithDamping: 0.75,
+          initialSpringVelocity: 0,
+          options: nil,
+          animations: {
+            self.ticketView.center = self.origin
+            self.swipeView.alpha = 0
+          },
+          completion: nil
+        )
       } else {
         delegate?.didLeftSwipe(self)
       }
