@@ -25,14 +25,22 @@ class CommentTableViewCell: UITableViewCell {
             }
         }
     }
-
+  
+  var comment: Comment? {
+    didSet {
+      updateFromComment()
+    }
+  }
+  
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userPhotoView: UIImageView!
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var createAtLabel: UILabel!
     override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+      super.awakeFromNib()
+      userPhotoView.layer.cornerRadius = 4.0
+      userPhotoView.layer.borderColor = UIColor.whiteColor().CGColor
+      userPhotoView.layer.masksToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -40,5 +48,16 @@ class CommentTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+  
+    func updateFromComment() {
+      if let c = comment {
+        if let u = c.author {
+          self.userNameLabel.text = u.fields.name
+          self.userPhotoView.setImageWithURL(NSURL(string: u.avatarURL()))
+        }
+        commentLabel.text = c.fields.body
+        createAtLabel.text = c.createdAgoInWords()
+        
+    }
+  }
 }

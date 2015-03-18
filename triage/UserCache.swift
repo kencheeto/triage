@@ -9,21 +9,19 @@
 import Foundation
 
 class UserCache {
-  private var cache: NSCache
-  
-  init() {
-    cache = NSCache()
+  struct Static {
+    static private var cache = NSCache()
   }
   
-  func lookupUserByUserId(user_id: Int) -> (User?) {
-    return cache.objectForKey(cacheKey(user_id)) as? User
+  class func lookupUserByUserId(user_id: Int) -> (User?) {
+    return Static.cache.objectForKey(cacheKey(user_id)) as? User
   }
   
-  func setUserByUserId(user_id: Int, user: User) {
-    cache.setObject(user, forKey: cacheKey(user_id))
+  class func setUserByUserId(user_id: Int, user: User) {
+    Static.cache.setObject(user, forKey: cacheKey(user_id))
   }
   
-  private func cacheKey(user_id: Int) -> (String) {
+  class private func cacheKey(user_id: Int) -> (String) {
     return "user:\(user_id)"
   }
   

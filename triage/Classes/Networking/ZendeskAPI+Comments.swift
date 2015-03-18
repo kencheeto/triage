@@ -34,9 +34,42 @@ extension ZendeskAPI {
           let structs: [CommentFields]? = json >>- { $0 <| "comments" >>- decodeArray }
           let comments = structs!.map({Comment(fields: $0)})
           
-          _ = success?(operation: operation, comments: comments)
+          self.getTicketCommentUsers(comments, success: success, failure: failure)
+          
+          
         },
         failure: failure
       )
+  }
+  
+  final func getTicketCommentUsers(comments: [Comment], success: ((operation: AFHTTPRequestOperation!, comments: [Comment]) -> Void)?,
+    failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
+      var callback = success
+      var user_ids_to_fetch: [Int] = []
+      
+      for comment in comments {
+        if let user = UserCache.lookupUserByUserId(comment.fields.author_id) {
+          comment.author = user
+        } else {
+          user_ids_to_fetch.append(comment.fields.author_id)
+        }
+      }
+      
+      if user_ids_to_fetch.count > 0 {
+        getManyUsers(user_ids_to_fetch, success: { (operation, users: [User]) -> Void in
+          for comment in comments {
+            var match = users.filter({$0.fields.id == comment.fields.author_id})
+            if match.count > 0 {
+              comment.author = match[0]
+            }
+          }
+          
+          callback?(operation: operation, comments: comments)
+        
+        }, failure: failure)
+      } else {
+        callback?(operation: nil, comments: comments)
+      }
+      
   }
 }

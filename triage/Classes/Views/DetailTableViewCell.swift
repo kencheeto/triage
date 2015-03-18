@@ -22,6 +22,7 @@ class DetailTableViewCell: UITableViewCell{
   
     var comments: [Comment]? {
       didSet {
+        self.comments = self.comments?.reverse()
         detailTableView.reloadData()
       }
     }
@@ -68,6 +69,7 @@ class DetailTableViewCell: UITableViewCell{
   
     func didLoadComments(operation: AFHTTPRequestOperation!, comments: [Comment]) {
       self.comments = comments
+      detailTableView.reloadData()
     }
   
   func apiFailure(operation: AFHTTPRequestOperation!, error: NSError) {
@@ -90,7 +92,9 @@ extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
             println("indexPath:\(indexPath.row)")
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as CommentTableViewCell
             cell.ticket = ticket
-           
+            if comments != nil {
+              cell.comment = comments![indexPath.row - 1]
+            }
             cell.layoutMargins = UIEdgeInsetsZero
             cell.updateConstraintsIfNeeded()
             cell.contentView.backgroundColor = Colors.Snow

@@ -18,7 +18,6 @@ class TicketsViewController: UIViewController {
     NSNotificationCenter.defaultCenter()
 
   private let API = ZendeskAPI.instance
-  private let userCache = UserCache()
 
   private var page: Int = 1
 
@@ -189,7 +188,7 @@ class TicketsViewController: UIViewController {
     
     for ticketRow in rows {
       if ticketRow.ticket.requester == nil {
-        if let cachedUser = userCache.lookupUserByUserId(ticketRow.requester_id) {
+        if let cachedUser = UserCache.lookupUserByUserId(ticketRow.requester_id) {
           var ticket = ticketRow.fields.ticket
           ticket.requester = cachedUser
         } else {

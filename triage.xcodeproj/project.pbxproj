@@ -14,6 +14,7 @@
 		475FCAB51AA7D45E00C579C6 /* triageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAB41AA7D45E00C579C6 /* triageTests.swift */; };
 		475FCAC51AA8076D00C579C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475FCAC41AA8076D00C579C6 /* User.swift */; };
 		476FB78D1AB1088300085F12 /* TicketsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476FB78C1AB1088300085F12 /* TicketsNavigationController.swift */; };
+		4788A31D1AB92B7C0018CD88 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4788A31C1AB92B7C0018CD88 /* TimeUtils.swift */; };
 		47C7069A1AB4BC0F00C8A827 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C706991AB4BC0F00C8A827 /* Comment.swift */; };
 		47C7069C1AB4C72E00C8A827 /* ZendeskAPI+Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7069B1AB4C72E00C8A827 /* ZendeskAPI+Comments.swift */; };
 		47D379901AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */; };
@@ -102,6 +103,7 @@
 		475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "triage-Bridging-Header.h"; path = "Classes/triage-Bridging-Header.h"; sourceTree = "<group>"; };
 		475FCAC41AA8076D00C579C6 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		476FB78C1AB1088300085F12 /* TicketsNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsNavigationController.swift; path = Classes/ViewControllers/TicketsNavigationController.swift; sourceTree = "<group>"; };
+		4788A31C1AB92B7C0018CD88 /* TimeUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		47C706991AB4BC0F00C8A827 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		47C7069B1AB4C72E00C8A827 /* ZendeskAPI+Comments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Comments.swift"; sourceTree = "<group>"; };
 		47D3798F1AAFE17D00E1ED41 /* TicketsTableViewDataSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewDataSources.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 		C55E6F821AA8201C00B55982 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4788A31C1AB92B7C0018CD88 /* TimeUtils.swift */,
 				475FCABE1AA806AF00C579C6 /* triage-Bridging-Header.h */,
 				475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */,
 				C583502D1AABC0CC0097FF7D /* Categories */,
@@ -663,6 +666,7 @@
 				C571CAAF1AACA5BA00BE6BCA /* TicketFilterRow.swift in Sources */,
 				C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */,
 				C5D2818B1AAC98A4003ED493 /* sequence.swift in Sources */,
+				4788A31D1AB92B7C0018CD88 /* TimeUtils.swift in Sources */,
 				C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */,
 				47D379941AAFE60C00E1ED41 /* EmptyTableViewCell.swift in Sources */,
 				C571CAA41AAC9D3A00BE6BCA /* Array.swift in Sources */,

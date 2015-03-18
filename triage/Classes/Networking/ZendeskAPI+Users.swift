@@ -63,6 +63,10 @@ extension ZendeskAPI {
           let structs: [UserFields]? = json >>- { $0 <| "users" >>- decodeArray }
           let users = structs!.map({User(fields: $0)})
           
+          for user in users {
+            UserCache.setUserByUserId(user.fields.id, user: user)
+          }
+          
           _ = success?(operation: operation, users: users)
         },
         failure: failure

@@ -82,30 +82,17 @@ extension Ticket: JSONDecodable, JSONSerializable {
 
   func createdAtInWords() -> String {
     if let time = created_at {
-      var f = Ticket.dateFormatter()
-      var date = f.dateFromString(time)
-      return date!.timeAgoSinceNow()
+      return TimeUtils.parseJSONTime(time).timeAgoSinceNow()
     } else {
       return ""
     }
   }
+
   
-  // refactor so this caches the dateFormatter
-  static func dateFormatter() -> NSDateFormatter {
-    var formatter = NSDateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
-    
-    return formatter;
-  }
-    
-  func createAtInEnglish() -> String
-  {
+  func createAtInEnglish() -> String {
     if let time = created_at {
-      var f = Ticket.dateFormatter()
-      var date = f.dateFromString(time)
-      var formatter = NSDateFormatter()
-      formatter.dateFormat = "MMM d, y"
-      return formatter.stringFromDate(date!)
+      var date = TimeUtils.parseJSONTime(time)
+      return TimeUtils.Struct.dayFormatter.stringFromDate(date)
     } else {
       return ""
     }

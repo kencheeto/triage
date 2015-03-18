@@ -57,9 +57,15 @@ extension CommentFields: JSONDecodable {
 
 class Comment {
   var fields: CommentFields
+  var author: User?
   
   init(fields: CommentFields) {
     self.fields = fields
+  }
+  
+  func createdAgoInWords() -> String {
+    var time = TimeUtils.parseJSONTime(fields.createdAt)
+    return time.timeAgoSinceNow()
   }
   
   
