@@ -13,8 +13,19 @@ protocol DetailTableViewCellDelegate {
 
 class DetailTableViewCell: UITableViewCell{
 
-    var ticket: Ticket!
-
+    var ticket: Ticket! {
+      didSet {
+        detailTableView.reloadData()
+        loadComments()
+      }
+    }
+  
+    var comments: [Comment]? {
+      didSet {
+        detailTableView.reloadData()
+      }
+    }
+  
     @IBOutlet var headerView: UIView!
     @IBOutlet var detailTableView: UITableView!
     @IBOutlet var cancelButton: UIButton!
@@ -50,6 +61,19 @@ class DetailTableViewCell: UITableViewCell{
     @IBAction func onCancelButton(sender: UIButton) {
         delegate?.onCancelbutton(self)
     }
+  
+    func loadComments() {
+      ZendeskAPI.instance.getTicketComments(ticket.id, success: didLoadComments, failure: apiFailure)
+    }
+  
+    func didLoadComments(operation: AFHTTPRequestOperation!, comments: [Comment]) {
+      self.comments = comments
+    }
+  
+  func apiFailure(operation: AFHTTPRequestOperation!, error: NSError) {
+      println(error.localizedDescription)
+    }
+  
 }
 
 extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
@@ -66,6 +90,7 @@ extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
             println("indexPath:\(indexPath.row)")
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as CommentTableViewCell
             cell.ticket = ticket
+           
             cell.layoutMargins = UIEdgeInsetsZero
             cell.updateConstraintsIfNeeded()
             cell.contentView.backgroundColor = Colors.Snow
@@ -75,7 +100,11 @@ extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
+        if let c = self.comments {
+          return c.count + 1
+        } else {
+          return 2
+        }
+      }
 }
 
