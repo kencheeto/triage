@@ -18,7 +18,7 @@ class UserCache {
   }
   
   class func setUserByUserId(user_id: Int, user: User) {
-    Static.cache.setObject(user, forKey: cacheKey(user_id))
+//    Static.cache.setObject(user, forKey: cacheKey(user_id))
   }
   
   class private func cacheKey(user_id: Int) -> (String) {
