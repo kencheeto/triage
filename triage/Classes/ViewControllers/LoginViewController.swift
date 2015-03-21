@@ -114,6 +114,10 @@ class LoginViewController: UIViewController {
   }
 
   @IBAction func onSignIn(sender: UIButton) {
+    onSignIn()
+  }
+
+  func onSignIn() {
     API.authenticateUsingOAuthWithURLString(
       "oauth/tokens",
       username: emailInput.text,
@@ -186,7 +190,15 @@ extension LoginViewController: UITextFieldDelegate {
   }
 
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    return countElements(emailInput.text) > 1 &&
-      countElements(passwordInput.text) > 1
+    if countElements(emailInput.text) > 1 &&
+      countElements(passwordInput.text) > 1 {
+      textField.resignFirstResponder()
+
+      onSignIn()
+
+      return true
+    }
+
+    return false
   }
 }
