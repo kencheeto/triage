@@ -42,7 +42,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-gd-RWJ" customClass="TriageTextField" customModule="Triage" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username@zendesk.com" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qk7-gd-RWJ" customClass="TriageTextField" customModule="Triage" customModuleProvider="target">
                                 <rect key="frame" x="82" y="437" width="250" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="ffV-Sy-Y8Z"/>

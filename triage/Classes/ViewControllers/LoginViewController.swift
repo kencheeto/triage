@@ -45,6 +45,7 @@ class TriageTextField: UITextField {
     addSubview(bottomBorder)
 
     font = UIFont(name: "ProximaNova-Regular", size: 18.0)
+
     addConstraints(
       NSLayoutConstraint.constraintsWithVisualFormat(
         "V:[self(35)]",
@@ -74,16 +75,20 @@ class TriageTextField: UITextField {
 
 class LoginViewController: UIViewController {
   private let API = ZendeskAPI.instance
+  private let kDomain = "zendesk.com"
 
   @IBOutlet weak var centerYConstraint: NSLayoutConstraint!
   @IBOutlet weak var logo: UIImageView!
   @IBOutlet weak var background: UIImageView!
 
-  @IBOutlet weak var emailInput: UITextField!
+  @IBOutlet weak var emailInput: TriageTextField!
   @IBOutlet weak var passwordInput: TriageTextField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    emailInput.delegate = self
+    passwordInput.delegate = self
 
     emailInput.autocorrectionType = .No
     passwordInput.autocorrectionType = .No
@@ -94,12 +99,18 @@ class LoginViewController: UIViewController {
     super.viewDidAppear(animated)
 
     centerYConstraint.constant = 150.0
-    UIView.animateWithDuration(0.2, delay: 0, options: .CurveEaseIn, animations: { () -> Void in
-      self.background.alpha = 0.5
-      self.view.layoutIfNeeded()
-      }) { (done: Bool) -> Void in
-      //
-    }
+    UIView.animateWithDuration(
+      0.2,
+      delay: 0,
+      options: .CurveEaseIn,
+      animations: { () -> Void in
+        self.background.alpha = 0.5
+        self.view.layoutIfNeeded()
+      },
+      completion: { (done: Bool) -> Void in
+        //
+      }
+    )
   }
 
   @IBAction func onSignIn(sender: UIButton) {
@@ -128,5 +139,54 @@ class LoginViewController: UIViewController {
 
   func didFail(error: NSError!) {
     println(error)
+  }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+
+  func textField(textField: UITextField, shouldChangeCharactersInRange
+    range: NSRange, replacementString string: String) -> Bool {
+    if textField != emailInput {
+      return true
+    }
+
+    var str = (emailInput.text as NSString).stringByReplacingCharactersInRange(
+      range,
+      withString: string
+    )
+
+    if countElements(textField.text) == 0 && countElements(str) > 0 {
+      let domain = NSMutableAttributedString(string: "@\(kDomain)")
+      domain.addAttribute(
+        NSForegroundColorAttributeName,
+        value: Colors.DarkGray,
+        range: NSMakeRange(0, countElements(kDomain) + 1)
+      )
+
+      let text = NSMutableAttributedString(string: str)
+      text.appendAttributedString(domain)
+      textField.attributedText = text
+
+      let selectedRange = textField.selectedTextRange!
+      let newPosition = textField.positionFromPosition(
+        selectedRange.start as UITextPosition!,
+        offset: -(text.length - 1)
+      )
+      let newRange = textField.textRangeFromPosition(
+        newPosition,
+        toPosition: newPosition
+      )
+
+      textField.selectedTextRange = newRange
+
+      return false
+    }
+
+    return true
+  }
+
+  func textFieldShouldReturn(textField: UITextField) -> Bool {
+    return countElements(emailInput.text) > 1 &&
+      countElements(passwordInput.text) > 1
   }
 }
