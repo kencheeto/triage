@@ -91,7 +91,7 @@
 
 /* Begin PBXFileReference section */
 		353525C43F7A356824135E5E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		475FCA991AA7D45E00C579C6 /* triage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = triage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		475FCA991AA7D45E00C579C6 /* Triage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Triage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		475FCA9D1AA7D45E00C579C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		475FCA9E1AA7D45E00C579C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Classes/AppDelegate.swift; sourceTree = "<group>"; };
 		475FCAA31AA7D45E00C579C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,7 +213,7 @@
 		475FCA9A1AA7D45E00C579C6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				475FCA991AA7D45E00C579C6 /* triage.app */,
+				475FCA991AA7D45E00C579C6 /* Triage.app */,
 				475FCAAE1AA7D45E00C579C6 /* triageTests.xctest */,
 			);
 			name = Products;
@@ -491,7 +491,7 @@
 			);
 			name = triage;
 			productName = triage;
-			productReference = 475FCA991AA7D45E00C579C6 /* triage.app */;
+			productReference = 475FCA991AA7D45E00C579C6 /* Triage.app */;
 			productType = "com.apple.product-type.application";
 		};
 		475FCAAD1AA7D45E00C579C6 /* triageTests */ = {
@@ -799,7 +799,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = triage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Triage;
 				SWIFT_OBJC_BRIDGING_HEADER = "triage/Classes/triage-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -814,7 +814,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = triage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Triage;
 				SWIFT_OBJC_BRIDGING_HEADER = "triage/Classes/triage-Bridging-Header.h";
 			};
 			name = Release;
