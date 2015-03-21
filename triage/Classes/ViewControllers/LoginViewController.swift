@@ -10,14 +10,22 @@ import UIKit
 
 class TriageButton: UIButton {
 
+  override var enabled: Bool {
+    didSet {
+      var color = enabled ? Colors.Forest : Colors.Iron
+
+      self.layer.borderColor = color.CGColor
+    }
+  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
 
     backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
-    layer.borderColor = Colors.Kermit.CGColor
     layer.borderWidth = 2.0
     setTitleColor(Colors.Forest, forState: .Normal)
     setTitleColor(Colors.Forest, forState: .Selected)
+    setTitleColor(Colors.Aluminum, forState: .Disabled)
     titleLabel!.font = UIFont(name: "ProximaNova-Semibold", size: 18.0)
     layer.cornerRadius = 4.0
 
@@ -83,6 +91,14 @@ class LoginViewController: UIViewController {
 
   @IBOutlet weak var emailInput: TriageTextField!
   @IBOutlet weak var passwordInput: TriageTextField!
+  @IBOutlet weak var signInButton: TriageButton!
+
+  private var isValid: Bool {
+    get {
+      return countElements(emailInput.text) > 0 &&
+        countElements(passwordInput.text) > 0
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -93,6 +109,8 @@ class LoginViewController: UIViewController {
     emailInput.autocorrectionType = .No
     passwordInput.autocorrectionType = .No
     passwordInput.secureTextEntry = true
+
+    signInButton.enabled = isValid
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -113,11 +131,7 @@ class LoginViewController: UIViewController {
     )
   }
 
-  @IBAction func onSignIn(sender: UIButton) {
-    onSignIn()
-  }
-
-  func onSignIn() {
+  func signIn() {
     API.authenticateUsingOAuthWithURLString(
       "oauth/tokens",
       username: emailInput.text,
@@ -126,6 +140,10 @@ class LoginViewController: UIViewController {
       success: didSignIn,
       failure: didFail
     )
+  }
+
+  @IBAction func onSignIn(sender: UIButton) {
+    signIn()
   }
 
   func didSignIn(credential: AFOAuthCredential!) {
@@ -151,7 +169,14 @@ extension LoginViewController: UITextFieldDelegate {
   func textField(textField: UITextField, shouldChangeCharactersInRange
     range: NSRange, replacementString string: String) -> Bool {
     if textField != emailInput {
-      return true
+      let text = passwordInput.text as NSString
+      passwordInput.text = text.stringByReplacingCharactersInRange(
+        range,
+        withString: string
+      )
+      signInButton.enabled = isValid
+
+      return false
     }
 
     var str = (emailInput.text as NSString).stringByReplacingCharactersInRange(
@@ -182,19 +207,20 @@ extension LoginViewController: UITextFieldDelegate {
       )
 
       textField.selectedTextRange = newRange
+      signInButton.enabled = isValid
 
       return false
     }
+
+    signInButton.enabled = isValid
 
     return true
   }
 
   func textFieldShouldReturn(textField: UITextField) -> Bool {
-    if countElements(emailInput.text) > 1 &&
-      countElements(passwordInput.text) > 1 {
+    if isValid {
       textField.resignFirstResponder()
-
-      onSignIn()
+      signIn()
 
       return true
     }

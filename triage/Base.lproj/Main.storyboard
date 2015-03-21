@@ -98,6 +98,7 @@
                         <outlet property="emailInput" destination="Qk7-gd-RWJ" id="ZXZ-4U-soF"/>
                         <outlet property="logo" destination="OiD-hp-DCk" id="5a8-xZ-CqQ"/>
                         <outlet property="passwordInput" destination="zHm-ar-4jr" id="OnP-ag-pjr"/>
+                        <outlet property="signInButton" destination="RMi-F5-Dwj" id="sOT-0N-qja"/>
                         <segue destination="EGh-jC-dIw" kind="presentation" identifier="loginSegue" id="lE4-k7-46O"/>
                     </connections>
                 </viewController>

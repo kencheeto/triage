@@ -17,6 +17,7 @@ struct Colors {
   // Grayscale
   static let Oil = UIColor(hex: 0x333333)
   static let DarkGray = UIColor(hex: 0x555555)
+  static let Aluminum = UIColor(hex: 0x999999)
   static let Iron = UIColor(hex: 0xCCCCCC)
   static let Gainsboro = UIColor(hex: 0xDDDDDD)
   static let Snow = UIColor(hex: 0xFBFBFB)
