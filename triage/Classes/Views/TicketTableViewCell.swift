@@ -79,14 +79,14 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     )
     tapGestureRecognizer.delegate = self
 
-    /*
+
     subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
     descriptionLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
     ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
     userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
-*/
+
   }
 
   override func layoutSubviews() {

@@ -33,6 +33,10 @@ class SwipeView: UIView {
   func initSubviews() {
     let nib = UINib(nibName: "SwipeView", bundle: nil)
     nib.instantiateWithOwner(self, options: nil)
+    rightLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
+    rightLabel.textColor = UIColor.whiteColor()
+    leftLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
+    leftLabel.textColor = UIColor.whiteColor()
     contentView.frame = bounds
     addSubview(contentView)
   }
