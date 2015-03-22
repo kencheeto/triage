@@ -229,7 +229,7 @@ class LoginViewController: UIViewController {
   }
 
   func didSignIn(credential: AFOAuthCredential!) {
-//    AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
+    AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
     API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
     API.getMe(
       success: { (operation: AFHTTPRequestOperation!, user: UserFields) -> Void in
