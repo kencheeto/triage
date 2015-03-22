@@ -10,6 +10,9 @@ import UIKit
 
 class TriageButton: UIButton {
 
+  var buttonHeight: Float = 42.0
+  var buttonFontSize: Float = 18.0
+
   override var enabled: Bool {
     didSet {
       var color = enabled ? Colors.Forest : Colors.Iron
@@ -18,25 +21,52 @@ class TriageButton: UIButton {
     }
   }
 
+  override init() {
+    super.init()
+    applyStyle()
+  }
+
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+  }
+
+  convenience init(height: Float, fontSize: Float) {
+    self.init()
+
+    buttonHeight = height
+    buttonFontSize = fontSize
+
+    titleLabel!.font = UIFont(name: "ProximaNova-Semibold", size: CGFloat(buttonFontSize))
+  }
+
+  required init(coder: NSCoder) {
+    super.init(coder: coder)
+  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
+    applyStyle()
+  }
 
+  func applyStyle() {
     backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
     layer.borderWidth = 2.0
     setTitleColor(Colors.Forest, forState: .Normal)
     setTitleColor(Colors.Forest, forState: .Selected)
     setTitleColor(Colors.Aluminum, forState: .Disabled)
-    titleLabel!.font = UIFont(name: "ProximaNova-Semibold", size: 18.0)
+    titleLabel!.font = UIFont(name: "ProximaNova-Semibold", size: CGFloat(buttonFontSize))
     layer.cornerRadius = 4.0
 
-    addConstraints(
-      NSLayoutConstraint.constraintsWithVisualFormat(
-        "V:[self(42)]",
-        options: nil,
-        metrics: nil,
-        views: ["self": self]
+    if !translatesAutoresizingMaskIntoConstraints() {
+      addConstraints(
+        NSLayoutConstraint.constraintsWithVisualFormat(
+          "V:[self(\(buttonHeight))]",
+          options: nil,
+          metrics: nil,
+          views: ["self": self]
+        )
       )
-    )
+    }
   }
 }
 

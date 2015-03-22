@@ -88,17 +88,20 @@ class TicketsViewController: UIViewController {
   }
   
   func configureNavBar() {
-    var logoutButton = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "doLogout")
+    let button = TriageButton(height: 24.0, fontSize: 14.0)
+    button.frame = CGRectMake(0, 0, 75, 24)
+    button.setTitle("Sign out", forState: .allZeros)
+    button.addTarget(self, action: "doLogout", forControlEvents: UIControlEvents.TouchDown)
+    let logoutButton = UIBarButtonItem(customView: button)
     self.navigationItem.leftBarButtonItem = logoutButton
-    
-    var title = UILabel()
-    title.text = "Z1 Triage"
-    title.textColor = Colors.ZendeskGreen
-    title.font = UIFont.boldSystemFontOfSize(20)
-    title.frame = CGRectMake(0, 0, 100, 30);
-    title.textAlignment = NSTextAlignment.Center
-    self.navigationItem.titleView = title
-    
+
+    let logoView = UIImageView(
+      image: UIImage(named: "LogoSansText")
+    )
+    logoView.contentMode = .ScaleAspectFit
+    logoView.frame = CGRectMake(0, 0, 25, 25)
+    self.navigationItem.titleView = logoView
+
     //self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
     //self.setShouldScrollWhenContentFits(true)
     navigationController?.navigationBar.translucent = false
