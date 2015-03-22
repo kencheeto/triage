@@ -33,9 +33,9 @@ class SwipeView: UIView {
   func initSubviews() {
     let nib = UINib(nibName: "SwipeView", bundle: nil)
     nib.instantiateWithOwner(self, options: nil)
-    rightLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
+    rightLabel.font = UIFont(name: "ProximaNova-Regular", size: 20.0)
     rightLabel.textColor = UIColor.whiteColor()
-    leftLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
+    leftLabel.font = UIFont(name: "ProximaNova-Regular", size: 20.0)
     leftLabel.textColor = UIColor.whiteColor()
     contentView.frame = bounds
     addSubview(contentView)
@@ -52,11 +52,11 @@ class SwipeView: UIView {
         rightLabel.text = "tier 1"
         leftLabel.text = ""
       } else if offset > -deadZoneEndX {
-        contentView.backgroundColor = UIColor.lightGrayColor()
+        contentView.backgroundColor = Colors.Gainsboro
         rightLabel.text = "tier 1"
         leftLabel.text = "trash"
       } else {
-        contentView.backgroundColor = UIColor.redColor()
+        contentView.backgroundColor = Colors.DarkPastelRed
         rightLabel.text = ""
         leftLabel.text = "trash"
       }
