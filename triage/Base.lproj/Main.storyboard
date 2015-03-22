@@ -136,7 +136,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TicketTableViewCell" rowHeight="121" id="llb-o9-sL1" customClass="TicketTableViewCell" customModule="Triage" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TicketTableViewCell" id="llb-o9-sL1" customClass="TicketTableViewCell" customModule="Triage" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="llb-o9-sL1" id="NLC-wk-fbk">
@@ -146,7 +146,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jve-jh-5xB">
-                                                            <rect key="frame" x="68" y="24" width="69" height="22"/>
+                                                            <rect key="frame" x="68" y="24" width="445" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="21.5" id="EOr-Ah-LXm"/>
                                                             </constraints>
@@ -189,14 +189,14 @@
                                                                 <constraint firstAttribute="height" constant="50" id="uWY-vV-Pc3"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrw-2B-oDQ">
-                                                            <rect key="frame" x="68" y="46" width="514" height="58"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrw-2B-oDQ">
+                                                            <rect key="frame" x="68" y="54" width="514" height="14"/>
                                                             <attributedString key="attributedText">
                                                                 <fragment content="A description of your ticket">
                                                                     <attributes>
                                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <font key="NSFont" size="12" name="HelveticaNeue"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
                                                                     </attributes>
                                                                 </fragment>
                                                             </attributedString>
@@ -211,8 +211,9 @@
                                                         <constraint firstItem="NTV-eS-AXU" firstAttribute="top" secondItem="uHd-pu-5yI" secondAttribute="top" constant="8" id="ErQ-PR-Hxl"/>
                                                         <constraint firstItem="aa0-Zt-Y5R" firstAttribute="top" secondItem="uHd-pu-5yI" secondAttribute="top" constant="8" id="GlM-2b-Ppy"/>
                                                         <constraint firstAttribute="trailing" secondItem="aa0-Zt-Y5R" secondAttribute="trailing" constant="10" id="MyM-Vg-wue"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="Qrw-2B-oDQ" secondAttribute="bottom" constant="8" id="OB0-YR-qCf"/>
-                                                        <constraint firstItem="Qrw-2B-oDQ" firstAttribute="top" secondItem="Jve-jh-5xB" secondAttribute="bottom" id="TZC-sC-3Os"/>
+                                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="Qrw-2B-oDQ" secondAttribute="bottom" constant="8" id="OB0-YR-qCf"/>
+                                                        <constraint firstItem="aa0-Zt-Y5R" firstAttribute="leading" secondItem="Jve-jh-5xB" secondAttribute="trailing" constant="10" id="OsO-eh-bd2"/>
+                                                        <constraint firstItem="Qrw-2B-oDQ" firstAttribute="top" secondItem="Jve-jh-5xB" secondAttribute="bottom" constant="8" id="TZC-sC-3Os"/>
                                                         <constraint firstItem="Jve-jh-5xB" firstAttribute="leading" secondItem="5cX-H5-GOO" secondAttribute="trailing" constant="10" id="bwO-E3-PTo"/>
                                                         <constraint firstItem="5cX-H5-GOO" firstAttribute="leading" secondItem="uHd-pu-5yI" secondAttribute="leading" constant="8" id="hCh-Xc-JiD"/>
                                                         <constraint firstItem="5cX-H5-GOO" firstAttribute="top" secondItem="uHd-pu-5yI" secondAttribute="top" constant="8" id="p5o-DR-bj9"/>

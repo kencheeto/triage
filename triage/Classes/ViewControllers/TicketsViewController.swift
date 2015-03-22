@@ -25,9 +25,10 @@ class TicketsViewController: UIViewController {
   private var isExhausted: Bool = false
   private var isFetching: Bool = false
   private var isRefreshing: Bool = false
+
   private let emptyDataSource =  EmptyTableViewSource()
   private let loadingDataSource = LoadingTableViewSource()
-  private let initialTableViewRowHeight = CGFloat(90)
+  private let initialTableViewRowHeight = CGFloat(100)
   private var flag = false
   private var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
   private var expanded: Bool = false
@@ -102,8 +103,9 @@ class TicketsViewController: UIViewController {
     logoView.frame = CGRectMake(0, 0, 25, 25)
     self.navigationItem.titleView = logoView
 
-    //self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
-    //self.setShouldScrollWhenContentFits(true)
+    self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
+    self.setShouldScrollWhenContentFits(true)
+
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.tintColor = Colors.ZendeskGreen
   }
@@ -251,6 +253,24 @@ class TicketsViewController: UIViewController {
 
   func scrollViewDidScroll(scrollView: UIScrollView) {
     loadMoreTicketsIfNeeded()
+  }
+
+  /*
+   * Straight copy from TicketTableViewCell.
+   *
+   * For the unlazy, feel free to refactor.
+   */
+  override func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+    if gestureRecognizer.isKindOfClass(UIPanGestureRecognizer){
+      let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
+      let translation = panGestureRecognizer.translationInView(
+        panGestureRecognizer.view!
+      )
+
+      return fabs(translation.x) < fabs(translation.y)
+    } else {
+      return true
+    }
   }
 }
 

@@ -144,7 +144,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
   override func gestureRecognizerShouldBegin(
     gestureRecognizer: UIGestureRecognizer) -> Bool {
-
     if gestureRecognizer.isKindOfClass(UIPanGestureRecognizer){
       let panGestureRecognizer = gestureRecognizer as UIPanGestureRecognizer
       let translation = panGestureRecognizer.translationInView(
