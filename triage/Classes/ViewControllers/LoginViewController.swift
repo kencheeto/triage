@@ -44,6 +44,12 @@ class TriageTextField: UITextField {
 
   lazy private var bottomBorder = UIView()
 
+  override var enabled: Bool {
+    didSet {
+      alpha = enabled ? 1 : 0.7
+    }
+  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
 
@@ -87,11 +93,15 @@ class LoginViewController: UIViewController {
 
   @IBOutlet weak var centerYConstraint: NSLayoutConstraint!
   @IBOutlet weak var logo: UIImageView!
+  @IBOutlet weak var logoSansText: UIImageView!
   @IBOutlet weak var background: UIImageView!
 
   @IBOutlet weak var emailInput: TriageTextField!
   @IBOutlet weak var passwordInput: TriageTextField!
   @IBOutlet weak var signInButton: TriageButton!
+
+  @IBOutlet weak var logoSansTextConstraint: NSLayoutConstraint!
+  @IBOutlet weak var logoSansTextYConstraint: NSLayoutConstraint!
 
   private var isValid: Bool {
     get {
@@ -102,6 +112,8 @@ class LoginViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    logoSansText.alpha = 0
 
     emailInput.delegate = self
     passwordInput.delegate = self
@@ -132,13 +144,51 @@ class LoginViewController: UIViewController {
   }
 
   func signIn() {
-    API.authenticateUsingOAuthWithURLString(
-      "oauth/tokens",
-      username: emailInput.text,
-      password: passwordInput.text,
-      scope: "read write",
-      success: didSignIn,
-      failure: didFail
+    emailInput.enabled = false
+    passwordInput.enabled = false
+
+    signInButton.enabled = false
+    signInButton.setTitle("Signing in...", forState: .allZeros)
+
+    UIView.animateWithDuration(
+      0.2,
+      delay: 0,
+      options: .CurveEaseIn,
+      animations: { () -> Void in
+        self.logo.alpha = 0
+        self.logoSansText.alpha = 1
+      },
+      completion: { (done: Bool) -> Void in
+        self.view.removeConstraint(self.logoSansTextConstraint)
+        self.logoSansTextConstraint = NSLayoutConstraint(
+          item: self.view,
+          attribute: .CenterX,
+          relatedBy: .Equal,
+          toItem: self.logoSansText,
+          attribute: .CenterX,
+          multiplier: 1.0,
+          constant: 0
+        )
+        self.view.addConstraint(self.logoSansTextConstraint)
+        UIView.animateWithDuration(
+          0.2,
+          delay: 0,
+          options: .CurveEaseIn,
+          animations: { () -> Void in
+            self.view.layoutIfNeeded()
+          },
+          completion: { (done: Bool) -> Void in
+            _ = self.API.authenticateUsingOAuthWithURLString(
+              "oauth/tokens",
+              username: self.emailInput.text,
+              password: self.passwordInput.text,
+              scope: "read write",
+              success: self.didSignIn,
+              failure: self.didFail
+            )
+          }
+        )
+      }
     )
   }
 
@@ -147,20 +197,94 @@ class LoginViewController: UIViewController {
   }
 
   func didSignIn(credential: AFOAuthCredential!) {
-    AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
-    API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
-    API.getMe(
-      success: { (operation: AFHTTPRequestOperation!, user: UserFields) -> Void in
-        UserFields.currentUser = user
-
-        self.performSegueWithIdentifier("loginSegue", sender: self)
+    logoSansText.image = UIImage(named: "LogoSansText")
+    view.removeConstraint(logoSansTextYConstraint)
+    view.addConstraint(
+      NSLayoutConstraint(
+        item: self.view,
+        attribute: .Top,
+        relatedBy: .Equal,
+        toItem: self.logoSansText,
+        attribute: .TopMargin,
+        multiplier: 1.0,
+        constant: -30
+      )
+    )
+    logoSansText.transform = CGAffineTransformMakeScale(
+      25 / logoSansText.bounds.width,
+      25 / logoSansText.bounds.height
+    )
+    UIView.animateWithDuration(
+      0.2,
+      delay: 0,
+      options: .CurveEaseIn,
+      animations: { () -> Void in
+        self.background.alpha = 0
+        self.emailInput.alpha = 0
+        self.passwordInput.alpha = 0
+        self.signInButton.alpha = 0
+        self.view.layoutIfNeeded()
       },
-      failure: nil
+      completion: { (done: Bool) -> Void in
+        _ = UIView.animateWithDuration(
+          0.2,
+          delay: 0,
+          options: .CurveEaseIn,
+          animations: { () -> Void in
+            AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
+            self.API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
+            _ = self.API.getMe(
+              success: { (operation: AFHTTPRequestOperation!, user: UserFields) -> Void in
+                UserFields.currentUser = user
+
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+              },
+              failure: nil
+            )
+          },
+          completion: { (done: Bool) -> Void in
+            //
+          }
+        )
+      }
     )
   }
 
   func didFail(error: NSError!) {
-    println(error)
+    emailInput.enabled = true
+    passwordInput.enabled = true
+
+    signInButton.enabled = isValid
+    signInButton.setTitle("Sign in", forState: .allZeros)
+
+    self.view.removeConstraint(self.logoSansTextConstraint)
+    self.logoSansTextConstraint = NSLayoutConstraint(
+      item: self.logo,
+      attribute: .Leading,
+      relatedBy: .Equal,
+      toItem: self.logoSansText,
+      attribute: .Leading,
+      multiplier: 1.0,
+      constant: 0
+    )
+    self.view.addConstraint(self.logoSansTextConstraint)
+    UIView.animateWithDuration(
+      0.2,
+      delay: 0,
+      options: .CurveEaseIn,
+      animations: { () -> Void in
+        self.view.layoutIfNeeded()
+      },
+      completion: { (done: Bool) -> Void in
+        _ = UIView.animateWithDuration(
+          0.2,
+          animations: { () -> Void in
+            self.logo.alpha = 1
+            self.logoSansText.alpha = 0
+          }
+        )
+      }
+    )
   }
 }
 
