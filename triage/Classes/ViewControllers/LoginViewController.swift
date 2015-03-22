@@ -133,6 +133,8 @@ class LoginViewController: UIViewController {
   @IBOutlet weak var logoSansTextConstraint: NSLayoutConstraint!
   @IBOutlet weak var logoSansTextYConstraint: NSLayoutConstraint!
 
+  private var isPresenting = false
+
   private var isValid: Bool {
     get {
       return countElements(emailInput.text) > 0 &&
@@ -227,56 +229,21 @@ class LoginViewController: UIViewController {
   }
 
   func didSignIn(credential: AFOAuthCredential!) {
-    logoSansText.image = UIImage(named: "LogoSansText")
-    view.removeConstraint(logoSansTextYConstraint)
-    view.addConstraint(
-      NSLayoutConstraint(
-        item: self.view,
-        attribute: .Top,
-        relatedBy: .Equal,
-        toItem: self.logoSansText,
-        attribute: .TopMargin,
-        multiplier: 1.0,
-        constant: -30
-      )
-    )
-    logoSansText.transform = CGAffineTransformMakeScale(
-      25 / logoSansText.bounds.width,
-      25 / logoSansText.bounds.height
-    )
-    UIView.animateWithDuration(
-      0.2,
-      delay: 0,
-      options: .CurveEaseIn,
-      animations: { () -> Void in
-        self.background.alpha = 0
-        self.emailInput.alpha = 0
-        self.passwordInput.alpha = 0
-        self.signInButton.alpha = 0
-        self.view.layoutIfNeeded()
-      },
-      completion: { (done: Bool) -> Void in
-        _ = UIView.animateWithDuration(
-          0.2,
-          delay: 0,
-          options: .CurveEaseIn,
-          animations: { () -> Void in
-            AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
-            self.API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
-            _ = self.API.getMe(
-              success: { (operation: AFHTTPRequestOperation!, user: UserFields) -> Void in
-                UserFields.currentUser = user
+//    AFOAuthCredential.storeCredential(credential, withIdentifier: APICredentialID)
+    API.requestSerializer.setAuthorizationHeaderFieldWithCredential(credential)
+    API.getMe(
+      success: { (operation: AFHTTPRequestOperation!, user: UserFields) -> Void in
+        UserFields.currentUser = user
+        let viewController = self.storyboard?.instantiateViewControllerWithIdentifier(
+          "TicketsNavViewController"
+        ) as TicketsNavigationController
 
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-              },
-              failure: nil
-            )
-          },
-          completion: { (done: Bool) -> Void in
-            //
-          }
-        )
-      }
+        viewController.modalPresentationStyle = .Custom
+        viewController.transitioningDelegate = self
+
+        self.presentViewController(viewController, animated: true, completion: nil)
+      },
+      failure: nil
     )
   }
 
@@ -380,5 +347,82 @@ extension LoginViewController: UITextFieldDelegate {
     }
 
     return false
+  }
+}
+
+extension LoginViewController: UIViewControllerTransitioningDelegate,
+  UIViewControllerAnimatedTransitioning {
+
+  func animationControllerForPresentedController(presented: UIViewController!, presentingController presenting: UIViewController!, sourceController source: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+    isPresenting = true
+
+    return self
+  }
+
+  func animationControllerForDismissedController(dismissed: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+    isPresenting = false
+
+    return self
+  }
+
+  func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    return 0.4
+  }
+
+  func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    var containerView = transitionContext.containerView()
+    var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+    var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+
+    if (isPresenting) {
+      containerView.addSubview(toViewController.view)
+      toViewController.view.alpha = 0
+
+      logoSansText.image = UIImage(named: "LogoSansText")
+      view.removeConstraint(logoSansTextYConstraint)
+      view.addConstraint(
+        NSLayoutConstraint(
+          item: self.view,
+          attribute: .Top,
+          relatedBy: .Equal,
+          toItem: self.logoSansText,
+          attribute: .TopMargin,
+          multiplier: 1.0,
+          constant: -30
+        )
+      )
+      logoSansText.transform = CGAffineTransformMakeScale(
+        25 / logoSansText.bounds.width,
+        25 / logoSansText.bounds.height
+      )
+      UIView.animateWithDuration(
+        0.2,
+        animations: { () -> Void in
+          self.background.alpha = 0
+          self.emailInput.alpha = 0
+          self.passwordInput.alpha = 0
+          self.signInButton.alpha = 0
+          self.view.layoutIfNeeded()
+        },
+        completion: { (done: Bool) -> Void in
+          _ = UIView.animateWithDuration(
+            0.2,
+            animations: { () -> Void in
+              toViewController.view.alpha = 1
+            },
+            completion: { (done: Bool) -> Void in
+              transitionContext.completeTransition(true)
+            }
+          )
+        }
+      )
+    } else {
+      UIView.animateWithDuration(0.4, animations: { () -> Void in
+        fromViewController.view.alpha = 0
+        }) { (finished: Bool) -> Void in
+          transitionContext.completeTransition(true)
+          fromViewController.view.removeFromSuperview()
+      }
+    }
   }
 }

@@ -26,9 +26,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
 
         if let r = t.requester? {
           userNameLabel.text = r.fields.name
-          userAvatar.layer.cornerRadius = 4.0
-          userAvatar.layer.borderColor = UIColor.whiteColor().CGColor
-          userAvatar.layer.masksToBounds = true
           userAvatar.setImageWithURL(NSURL(string: r.avatarURL()))
         } else {
           userNameLabel.text = ""
@@ -79,6 +76,9 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     )
     tapGestureRecognizer.delegate = self
 
+    userAvatar.layer.cornerRadius = userAvatar.bounds.width / 2
+    userAvatar.layer.borderColor = UIColor.whiteColor().CGColor
+    userAvatar.layer.masksToBounds = true
 
     subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
@@ -86,7 +86,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
     ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
     userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
-
   }
 
   override func layoutSubviews() {

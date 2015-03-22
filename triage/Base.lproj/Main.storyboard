@@ -113,7 +113,6 @@
                         <outlet property="logoSansTextYConstraint" destination="bDC-xb-Uz2" id="e6Q-C9-7Us"/>
                         <outlet property="passwordInput" destination="zHm-ar-4jr" id="OnP-ag-pjr"/>
                         <outlet property="signInButton" destination="RMi-F5-Dwj" id="sOT-0N-qja"/>
-                        <segue destination="EGh-jC-dIw" kind="presentation" identifier="loginSegue" id="lE4-k7-46O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5o-v7-ykG" userLabel="First Responder" sceneMemberID="firstResponder"/>

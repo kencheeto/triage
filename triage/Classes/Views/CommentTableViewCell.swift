@@ -38,7 +38,7 @@ class CommentTableViewCell: UITableViewCell {
     @IBOutlet var createAtLabel: UILabel!
     override func awakeFromNib() {
       super.awakeFromNib()
-      userPhotoView.layer.cornerRadius = 4.0
+      userPhotoView.layer.cornerRadius = userPhotoView.bounds.width / 2
       userPhotoView.layer.borderColor = UIColor.whiteColor().CGColor
       userPhotoView.layer.masksToBounds = true
     }
