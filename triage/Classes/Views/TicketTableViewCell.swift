@@ -77,7 +77,8 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     tapGestureRecognizer.delegate = self
 
     userAvatar.layer.cornerRadius = userAvatar.bounds.width / 2
-    userAvatar.layer.borderColor = UIColor.whiteColor().CGColor
+    userAvatar.layer.borderColor = Colors.Gainsboro.CGColor
+    userAvatar.layer.borderWidth = 1.0
     userAvatar.layer.masksToBounds = true
 
     subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)

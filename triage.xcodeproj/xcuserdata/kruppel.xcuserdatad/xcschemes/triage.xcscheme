@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "475FCA981AA7D45E00C579C6"
-               BuildableName = "triage.app"
+               BuildableName = "Triage.app"
                BlueprintName = "triage"
                ReferencedContainer = "container:triage.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "475FCA981AA7D45E00C579C6"
-            BuildableName = "triage.app"
+            BuildableName = "Triage.app"
             BlueprintName = "triage"
             ReferencedContainer = "container:triage.xcodeproj">
          </BuildableReference>
@@ -72,11 +72,12 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "475FCA981AA7D45E00C579C6"
-            BuildableName = "triage.app"
+            BuildableName = "Triage.app"
             BlueprintName = "triage"
             ReferencedContainer = "container:triage.xcodeproj">
          </BuildableReference>
@@ -90,11 +91,12 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "475FCA981AA7D45E00C579C6"
-            BuildableName = "triage.app"
+            BuildableName = "Triage.app"
             BlueprintName = "triage"
             ReferencedContainer = "container:triage.xcodeproj">
          </BuildableReference>

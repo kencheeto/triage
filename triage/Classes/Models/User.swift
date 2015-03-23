@@ -91,22 +91,39 @@ extension UserFields: JSONDecodable, JSONSerializable {
   }
 }
 
+let AVATAR_GENERATOR_DOMAIN = "http://triage-avatars.herokuapp.com"
+
 class User {
   var fields: UserFields
+
+  var emailHash: String {
+    get {
+      return fields.email.lowercaseString.md5
+    }
+  }
+
+  var defaultAvatarURL: String {
+    get {
+      let hashValue = emailHash.hashValue
+      var value = (hashValue << 8) % 121
+
+      if (value < 60) {
+        value = 121 - value
+      }
+
+      let green = NSString(format: "%02X", value & 0xFF)
+      let hexString = "50\(green)30"
+      let name = fields.name.stringByReplacingOccurrencesOfString(" ", withString: "_")
+
+      return "\(AVATAR_GENERATOR_DOMAIN)/180x180/\(hexString)/FBFBFB/\(name)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
+    }
+  }
   
   init(fields: UserFields) {
     self.fields = fields
   }
-  
 
   func avatarURL() -> (String) {
-    var emailHash = fields.email.lowercaseString.md5
-    
-    var url = "http://gravatar.com/avatar/\(emailHash)?d=https%3A//assets.zendesk.com/images/types/user_sm.png&s=64&r=g"
-    
-    return url
-    
+    return "http://gravatar.com/avatar/\(emailHash)?d=\(defaultAvatarURL)&s=64&r=g"
   }
-
-
 }
