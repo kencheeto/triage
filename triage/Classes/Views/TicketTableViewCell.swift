@@ -20,8 +20,20 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   var ticket: Ticket? {
     didSet {
       if let t = ticket {
+        let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+        paragraphStyle.lineSpacing = 4.0
+        paragraphStyle.lineBreakMode = .ByTruncatingTail
+
+        let attributes = [
+          NSParagraphStyleAttributeName: paragraphStyle
+        ]
+        let attributedString = NSAttributedString(
+          string: t.description,
+          attributes: attributes
+        )
+
         subjectLabel.text = t.subject
-        descriptionLabel.text = t.description
+        descriptionLabel.attributedText = attributedString
         ticketCreatedAtLabel.text = t.createdAtInWords()
 
         if let r = t.requester? {
@@ -81,12 +93,16 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
     userAvatar.layer.borderWidth = 1.0
     userAvatar.layer.masksToBounds = true
 
-    subjectLabel.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
+    subjectLabel.font = UIFont(name: "ProximaNova-Sbold", size: 18.0)
     subjectLabel.preferredMaxLayoutWidth = subjectLabel.frame.size.width
-    descriptionLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
+    descriptionLabel.textColor = Colors.Oil
+    descriptionLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
     descriptionLabel.preferredMaxLayoutWidth = descriptionLabel.frame.size.width
+    descriptionLabel.textColor = Colors.DarkGray
     ticketCreatedAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+    ticketCreatedAtLabel.textColor = Colors.Aluminum
     userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+    userNameLabel.textColor = Colors.Aluminum
   }
 
   override func layoutSubviews() {

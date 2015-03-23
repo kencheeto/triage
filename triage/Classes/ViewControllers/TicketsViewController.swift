@@ -28,7 +28,7 @@ class TicketsViewController: UIViewController {
 
   private let emptyDataSource =  EmptyTableViewSource()
   private let loadingDataSource = LoadingTableViewSource()
-  private let initialTableViewRowHeight = CGFloat(100)
+  private let initialTableViewRowHeight = CGFloat(115)
   private var flag = false
   private var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
   private var expanded: Bool = false
