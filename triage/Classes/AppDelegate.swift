@@ -48,7 +48,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     AFOAuthCredential.deleteCredentialWithIdentifier(APICredentialID)
     API.requestSerializer.clearAuthorizationHeader()
     UserFields.currentUser = nil
-
+    
+    var storage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+    var cookies = storage.cookies!
+    for obj in cookies {
+      storage.deleteCookie(obj as NSHTTPCookie)
+    }
+    
     window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
   }
 }
