@@ -25,7 +25,6 @@
 		9399F2C007157E8BEE8BC999 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0D86D4594E832EAC13C2FE1 /* libPods.a */; };
 		9C23BF261AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23BF251AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift */; };
 		9C23BF281AB7D922009FED3C /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C23BF271AB7D922009FED3C /* CommentTableViewCell.swift */; };
-		9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C799B651AAEB706009086C1 /* DetailViewController.swift */; };
 		9C8895F91AB295BE0062F55D /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8895F81AB295BE0062F55D /* DetailTableViewCell.swift */; };
 		C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */; };
 		C53A120E1AABE8C400DE1906 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53A120D1AABE8C400DE1906 /* APIConstants.swift */; };
@@ -114,7 +113,6 @@
 		8E73AE19D0335D6C871FC9B7 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9C23BF251AB7D8E4009FED3C /* DetailSubjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		9C23BF271AB7D922009FED3C /* CommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
-		9C799B651AAEB706009086C1 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Classes/ViewControllers/DetailViewController.swift; sourceTree = "<group>"; };
 		9C8895F81AB295BE0062F55D /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		A0D86D4594E832EAC13C2FE1 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C53A120B1AABE09A00DE1906 /* ZendeskAPI+Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ZendeskAPI+Users.swift"; sourceTree = "<group>"; };
@@ -274,7 +272,6 @@
 		47BC6FCE1AA82C7A00202B61 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				9C799B651AAEB706009086C1 /* DetailViewController.swift */,
 				C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */,
 				476FB78C1AB1088300085F12 /* TicketsNavigationController.swift */,
 				C56C52701AAD4FDA000A5098 /* MacrosViewController.swift */,
@@ -642,7 +639,6 @@
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
 				E314EEEB1AB65AB600DB8C30 /* SwipeView.swift in Sources */,
-				9C799B661AAEB706009086C1 /* DetailViewController.swift in Sources */,
 				47DC3A0F1AAED7D00074F453 /* String.swift in Sources */,
 				C55F705F1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift in Sources */,
 				C58350331AABC8860097FF7D /* ZendeskAPI.swift in Sources */,

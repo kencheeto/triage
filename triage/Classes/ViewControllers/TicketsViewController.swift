@@ -31,8 +31,8 @@ class TicketsViewController: UIViewController {
   private let initialTableViewRowHeight = CGFloat(115)
   private var flag = false
   private var selectedRowIndex: NSIndexPath = NSIndexPath(forRow: -1, inSection: 0)
-  private var expanded: Bool = false
   private var offset: CGFloat!
+  private var offsetFromNav: CGFloat = 0
   var macros: [Macro] = []
   var rows: [TicketFilterRow] = []
 
@@ -81,6 +81,7 @@ class TicketsViewController: UIViewController {
     )
     
     configureNavBar()
+    self.setScrollingNavbarDelegate(self)
 
     activityIndicator.startAnimating()
 
@@ -109,7 +110,7 @@ class TicketsViewController: UIViewController {
     navigationController?.navigationBar.translucent = false
     navigationController?.navigationBar.tintColor = Colors.ZendeskGreen
   }
-  
+    
   func doLogout() {
     notificationCenter.postNotificationName(LogoutNotification, object: self)
   }
@@ -314,23 +315,24 @@ extension TicketsViewController: UITableViewDataSource{
   }
     
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    if !expanded {
-      selectedRowIndex = indexPath
-      expanded = true
+    self.stopFollowingScrollView()
+    tableView.scrollEnabled = false
+    tableView.allowsSelection = false
+    selectedRowIndex = indexPath
     
-      offset = tableView.contentOffset.y
-      var cellRect = tableView.rectForRowAtIndexPath(indexPath)
-
-      UIView.animateWithDuration(0.3, animations: { () -> Void in
-        tableView.contentOffset = CGPoint(x: 0, y: cellRect.minY)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-      })
-      tableView.beginUpdates()
-      tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-      tableView.endUpdates()
-      tableView.scrollEnabled = false
-      tableView.allowsSelection = false
-    }
+    offset = tableView.contentOffset.y
+    var cellRect = tableView.rectForRowAtIndexPath(indexPath)
+    println("\(cellRect.minY)")
+    
+    UIView.animateWithDuration(0.3, animations: { () -> Void in
+      tableView.contentOffset = CGPoint(x: 0, y: cellRect.minY + 20)// + self.offsetFromNav)
+      self.navigationController?.setNavigationBarHidden(true, animated: true)
+    })
+    
+    println("new\(ticketsTableView.contentOffset.y)")
+    tableView.beginUpdates()
+    tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+    tableView.endUpdates()
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -407,22 +409,8 @@ extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCel
     println("didLeftSwipe")
   }
     
-  func didTap(cell: TicketTableViewCell){
-    println("didTap")
-    
-    let viewController =
-    storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as DetailViewController
-    
-    viewController.ticket = cell.ticket
-    
-    viewController.transitioningDelegate = viewController
-    viewController.modalPresentationStyle = .Custom
-    presentViewController(viewController, animated: true, completion: nil)
-  }
-    
   func onCancelbutton(cell: DetailTableViewCell) {
     print("onCancelButton")
-    self.expanded = false
     self.selectedRowIndex = NSIndexPath(forRow: -1, inSection: 0)
     let indexPath = ticketsTableView.indexPathForCell(cell)!
 
@@ -439,6 +427,17 @@ extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCel
     self.ticketsTableView.endUpdates()
     self.ticketsTableView.scrollEnabled = true
     self.ticketsTableView.allowsSelection = true
-
+    self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
+    offsetFromNav = 0
   }
+}
+
+extension TicketsViewController: AMScrollingNavbarDelegate {
+    
+    func navigationBarDidChangeToCollapsed(collapsed: Bool) {
+    }
+    
+    func navigationBarDidChangeToExpanded(expanded: Bool) {
+    }
+    
 }

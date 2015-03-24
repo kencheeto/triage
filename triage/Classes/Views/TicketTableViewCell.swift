@@ -12,7 +12,6 @@ protocol TicketTableViewCellDelegate {
   func didNearRightSwipe(cell: TicketTableViewCell)
   func didFarRightSwipe(cell: TicketTableViewCell)
   func didLeftSwipe(cell: TicketTableViewCell)
-  func didTap(cell: TicketTableViewCell)
 }
 
 class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
@@ -152,10 +151,6 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
       }
       swipeView.removeFromSuperview()
     }
-  }
-
-  func didTap(recognizer: UIPanGestureRecognizer) {
-    delegate?.didTap(self)
   }
 
   override func gestureRecognizerShouldBegin(

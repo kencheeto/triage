@@ -41,16 +41,16 @@ class DetailTableViewCell: UITableViewCell{
         detailTableView.delegate = self
         detailTableView.dataSource = self
         detailTableView.layoutMargins = UIEdgeInsetsZero
-        detailTableView.separatorColor = UIColor.clearColor()
+        detailTableView.separatorColor = UIColor.whiteColor()
         detailTableView.separatorInset = UIEdgeInsetsZero
         detailTableView.tableFooterView = UIView()
         detailTableView.allowsSelection = false
-
+       
+        cancelButton.setTitleColor(Colors.Forest, forState: .Normal)
         cancelButton.setTitle("✕", forState: .allZeros)
-        cancelButton.titleLabel?.textColor = Colors.Snow
         cancelButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
         
-        headerView.backgroundColor = Colors.ZendeskGreen
+        headerView.backgroundColor = Colors.Snow
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -89,7 +89,6 @@ extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
             
             return cell
         }else {
-            println("indexPath:\(indexPath.row)")
             let cell = tableView.dequeueReusableCellWithIdentifier("CommentTableViewCell") as CommentTableViewCell
             cell.ticket = ticket
             if comments != nil {
