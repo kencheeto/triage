@@ -14,6 +14,7 @@ struct Colors {
   // Secondary
   static let MoonYellow = UIColor(hex: 0xEDBE0E)
   static let DarkPastelRed = UIColor(hex: 0xBF3026)
+  static let IndianRed = UIColor(hex: 0xCF645C)
 
   // Grayscale
   static let Oil = UIColor(hex: 0x333333)

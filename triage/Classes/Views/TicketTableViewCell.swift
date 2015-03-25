@@ -107,7 +107,7 @@ class TicketTableViewCell: UITableViewCell, UIGestureRecognizerDelegate {
   override func layoutSubviews() {
     super.layoutSubviews()
     // the gray dead swipe zone ends
-    deadZoneEndX = frame.width * 0.15
+    deadZoneEndX = frame.width * 0.2
     // the macro swipe zone begins
     macroZoneStartX = frame.width * 0.4
     cellWidth = frame.width

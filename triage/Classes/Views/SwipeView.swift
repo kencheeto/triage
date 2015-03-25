@@ -48,13 +48,17 @@ class SwipeView: UIView {
         rightLabel.text = "macro"
         leftLabel.text = ""
       } else if offset > deadZoneEndX {
-        contentView.backgroundColor = Colors.ZendeskGreen
+        contentView.backgroundColor = Colors.Forest
         rightLabel.text = "tier 1"
         leftLabel.text = ""
-      } else if offset > -deadZoneEndX {
-        contentView.backgroundColor = Colors.Gainsboro
+      } else if offset > 0 {
+        contentView.backgroundColor = Colors.Kermit
         rightLabel.text = "tier 1"
         leftLabel.text = "trash"
+      } else if offset > -deadZoneEndX {
+          contentView.backgroundColor = Colors.IndianRed
+          rightLabel.text = "tier 1"
+          leftLabel.text = "trash"
       } else {
         contentView.backgroundColor = Colors.DarkPastelRed
         rightLabel.text = ""
