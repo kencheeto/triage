@@ -32,6 +32,7 @@ class CommentTableViewCell: UITableViewCell {
     }
   }
   
+    @IBOutlet var commentBackgroundView: UIView!
     @IBOutlet var userNameLabel: UILabel!
     @IBOutlet var userPhotoView: UIImageView!
     @IBOutlet var commentLabel: UILabel!
@@ -41,6 +42,15 @@ class CommentTableViewCell: UITableViewCell {
       userPhotoView.layer.cornerRadius = userPhotoView.bounds.width / 2
       userPhotoView.layer.borderColor = UIColor.whiteColor().CGColor
       userPhotoView.layer.masksToBounds = true
+        
+      commentBackgroundView.backgroundColor = Colors.Forest
+      commentBackgroundView.alpha = 0.03
+      commentBackgroundView.layer.cornerRadius = 4.0
+        
+      commentLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
+      userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
+      createAtLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
+    
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

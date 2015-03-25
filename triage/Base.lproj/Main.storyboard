@@ -381,28 +381,32 @@
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hYa-wc-5IX" id="IT2-xU-fwM">
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TJh-PN-61M">
+                                                                        <rect key="frame" x="16" y="4" width="584" height="146.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </view>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y8E-zp-NOs">
-                                                                        <rect key="frame" x="23" y="16" width="40" height="40"/>
+                                                                        <rect key="frame" x="28" y="16" width="40" height="40"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="40" id="Npd-2S-ixy"/>
                                                                             <constraint firstAttribute="height" constant="40" id="ZNW-jc-dh9"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPz-oZ-Q33">
-                                                                        <rect key="frame" x="71" y="60" width="521" height="78"/>
+                                                                        <rect key="frame" x="76" y="60" width="512" height="70.5"/>
                                                                         <string key="text">This comment is a really really long comment which would have to be wrapped as serveral lines.This comment is a really really long comment which would have to be wrapped as serveral lines.This comment is a really really long comment which would have to be wrapped as serveral lines.</string>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="UserName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHY-Jw-r3J">
-                                                                        <rect key="frame" x="71" y="24" width="64.5" height="16"/>
+                                                                        <rect key="frame" x="76" y="24" width="64.5" height="16"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                                         <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="CreateAt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4M9-Cs-AXn">
-                                                                        <rect key="frame" x="543" y="24" width="49" height="14.5"/>
+                                                                        <rect key="frame" x="539" y="24" width="49" height="14.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -411,23 +415,29 @@
                                                                 <constraints>
                                                                     <constraint firstItem="BPz-oZ-Q33" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" id="0sq-UK-19k"/>
                                                                     <constraint firstItem="BPz-oZ-Q33" firstAttribute="top" secondItem="y8E-zp-NOs" secondAttribute="bottom" constant="4" id="0xQ-st-sPu"/>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="4M9-Cs-AXn" secondAttribute="trailing" constant="16" id="7dH-fF-XXE"/>
+                                                                    <constraint firstItem="TJh-PN-61M" firstAttribute="leading" secondItem="IT2-xU-fwM" secondAttribute="leadingMargin" constant="8" id="2Dh-ds-yzV"/>
+                                                                    <constraint firstItem="4M9-Cs-AXn" firstAttribute="leading" secondItem="TJh-PN-61M" secondAttribute="trailing" id="5Eo-0W-xK1"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="4M9-Cs-AXn" secondAttribute="trailing" constant="20" id="7dH-fF-XXE"/>
+                                                                    <constraint firstItem="4M9-Cs-AXn" firstAttribute="leading" secondItem="TJh-PN-61M" secondAttribute="trailing" id="AdV-M7-lJO"/>
                                                                     <constraint firstItem="4M9-Cs-AXn" firstAttribute="leading" secondItem="IT2-xU-fwM" secondAttribute="leadingMargin" constant="63" id="EOL-mj-ev4"/>
                                                                     <constraint firstItem="tHY-Jw-r3J" firstAttribute="leading" secondItem="y8E-zp-NOs" secondAttribute="trailing" constant="8" id="F6K-aW-rn3"/>
                                                                     <constraint firstItem="BPz-oZ-Q33" firstAttribute="top" secondItem="tHY-Jw-r3J" secondAttribute="bottom" constant="24" id="GY9-kb-0Np"/>
+                                                                    <constraint firstItem="TJh-PN-61M" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" constant="-4" id="Gg7-LI-QxZ"/>
                                                                     <constraint firstItem="4M9-Cs-AXn" firstAttribute="top" secondItem="BPz-oZ-Q33" secondAttribute="bottom" constant="8" id="JrV-Xh-XQN"/>
-                                                                    <constraint firstAttribute="trailingMargin" secondItem="BPz-oZ-Q33" secondAttribute="trailing" constant="16" id="MU4-gB-xcv"/>
+                                                                    <constraint firstAttribute="trailingMargin" secondItem="BPz-oZ-Q33" secondAttribute="trailing" constant="20" id="MU4-gB-xcv"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="TJh-PN-61M" secondAttribute="bottom" constant="-4" id="MkW-bs-i8b"/>
                                                                     <constraint firstItem="tHY-Jw-r3J" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" constant="16" id="SHq-po-Y2L"/>
                                                                     <constraint firstItem="y8E-zp-NOs" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" constant="8" id="SQn-31-luk"/>
+                                                                    <constraint firstItem="TJh-PN-61M" firstAttribute="trailing" secondItem="IT2-xU-fwM" secondAttribute="trailingMargin" constant="-8" id="dPj-fH-FvH"/>
                                                                     <constraint firstItem="4M9-Cs-AXn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tHY-Jw-r3J" secondAttribute="trailing" constant="8" id="hF6-BL-F0d"/>
                                                                     <constraint firstItem="4M9-Cs-AXn" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" constant="16" id="lXB-Xh-0WI"/>
                                                                     <constraint firstItem="4M9-Cs-AXn" firstAttribute="bottom" secondItem="IT2-xU-fwM" secondAttribute="bottomMargin" id="mb8-pb-hK3"/>
                                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tHY-Jw-r3J" secondAttribute="trailing" constant="8" id="qhQ-Pn-QQ9"/>
                                                                     <constraint firstItem="tHY-Jw-r3J" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" id="rQ1-mb-Hp5"/>
                                                                     <constraint firstItem="y8E-zp-NOs" firstAttribute="top" secondItem="IT2-xU-fwM" secondAttribute="topMargin" constant="8" id="sx1-tX-fvu"/>
-                                                                    <constraint firstItem="y8E-zp-NOs" firstAttribute="leading" secondItem="IT2-xU-fwM" secondAttribute="leadingMargin" constant="15" id="vYy-jN-Dyx"/>
+                                                                    <constraint firstItem="y8E-zp-NOs" firstAttribute="leading" secondItem="IT2-xU-fwM" secondAttribute="leadingMargin" constant="20" id="vYy-jN-Dyx"/>
                                                                     <constraint firstItem="BPz-oZ-Q33" firstAttribute="leading" secondItem="y8E-zp-NOs" secondAttribute="trailing" constant="8" id="xeY-w2-MAu"/>
-                                                                    <constraint firstAttribute="bottomMargin" secondItem="BPz-oZ-Q33" secondAttribute="bottom" constant="8" id="zCE-Ud-eiA"/>
+                                                                    <constraint firstAttribute="bottomMargin" secondItem="BPz-oZ-Q33" secondAttribute="bottom" constant="16" id="zCE-Ud-eiA"/>
                                                                 </constraints>
                                                                 <variation key="default">
                                                                     <mask key="constraints">
@@ -436,6 +446,8 @@
                                                                         <exclude reference="rQ1-mb-Hp5"/>
                                                                         <exclude reference="0sq-UK-19k"/>
                                                                         <exclude reference="GY9-kb-0Np"/>
+                                                                        <exclude reference="5Eo-0W-xK1"/>
+                                                                        <exclude reference="AdV-M7-lJO"/>
                                                                         <exclude reference="EOL-mj-ev4"/>
                                                                         <exclude reference="JrV-Xh-XQN"/>
                                                                         <exclude reference="mb8-pb-hK3"/>
@@ -443,10 +455,11 @@
                                                                 </variation>
                                                             </tableViewCellContentView>
                                                             <connections>
+                                                                <outlet property="commentBackgroundView" destination="TJh-PN-61M" id="48n-LQ-SoG"/>
                                                                 <outlet property="commentLabel" destination="BPz-oZ-Q33" id="oeZ-9O-P1e"/>
                                                                 <outlet property="createAtLabel" destination="4M9-Cs-AXn" id="1VC-Om-BAh"/>
                                                                 <outlet property="userNameLabel" destination="tHY-Jw-r3J" id="pfR-R5-48y"/>
-                                                                <outlet property="userPhotoView" destination="y8E-zp-NOs" id="OFj-gl-T1z"/>
+                                                                <outlet property="userPhotoView" destination="y8E-zp-NOs" id="RXf-Bf-ULV"/>
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>

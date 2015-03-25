@@ -32,6 +32,11 @@ class DetailSubjectTableViewCell: UITableViewCell {
     @IBOutlet var subjectLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        subjectLabel.font = UIFont(name: "ProximaNova-Sbold", size: 18.0)
+        dateLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
+        userNameLabel.font = UIFont(name: "ProximaNova-Regular", size: 13.0)
+
         // Initialization code
     }
 

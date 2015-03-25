@@ -96,7 +96,7 @@ extension DetailTableViewCell:UITableViewDataSource, UITableViewDelegate {
             }
             cell.layoutMargins = UIEdgeInsetsZero
             cell.updateConstraintsIfNeeded()
-            cell.contentView.backgroundColor = Colors.Snow
+//            cell.contentView.backgroundColor = Colors.Snow
             
             return cell
         }
