@@ -171,8 +171,6 @@ class TicketsViewController: UIViewController {
       isExhausted = true
     }
     
-    loadRequesters(rows)
-
     if (isRefreshing) {
       self.rows = rows
     } else {
@@ -188,40 +186,7 @@ class TicketsViewController: UIViewController {
     refreshControl.endRefreshing()
   }
   
-  func loadRequesters(rows: [TicketFilterRow]) {
-    var ticketsNeedingRequester = [TicketFilterRow]()
-    var userIdsToFetch = [Int: AnyObject]() // hash as set
-    
-    for ticketRow in rows {
-      if ticketRow.ticket.requester == nil {
-        if let cachedUser = UserCache.lookupUserByUserId(ticketRow.requester_id) {
-          var ticket = ticketRow.fields.ticket
-          ticket.requester = cachedUser
-        } else {
-          ticketsNeedingRequester.append(ticketRow)
-          userIdsToFetch[ticketRow.requester_id] = 1
-        }
-      }
-    }
-    
 
-    API.getManyUsers(userIdsToFetch.keys.array, success: { (operation: AFHTTPRequestOperation!, users: [User]) -> Void in
-      
-      for ticketRow in ticketsNeedingRequester {
-        var match = users.filter({$0.fields.id == ticketRow.requester_id})
-        if match.count > 0 {
-          var fields = ticketRow.fields
-          var ticket = fields.ticket
-          ticket.requester = match[0]
-          
-          ticketRow.fields = TicketFilterRowFields(requester_id: fields.requester_id, ticket: ticket)
-          
-        }
-      }
-      
-      self.ticketsTableView.reloadData()
-      }, failure: didError)
-  }
 
   func didError(operation: AFHTTPRequestOperation!, error: NSError) {
     activityIndicator.stopAnimating()

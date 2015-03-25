@@ -29,6 +29,7 @@ extension ZendeskAPI {
   final func executeView(id: Int, parameters: NSDictionary,
     success: ((operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) -> Void)?,
     failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
+      
     GET("api/v2/views/\(id)/execute",
       parameters: parameters,
       success: { (operation: AFHTTPRequestOperation!,
@@ -36,8 +37,8 @@ extension ZendeskAPI {
         let json = JSON.parse <^> response
         let rowsFields: [TicketFilterRowFields]? = json >>- { $0 <| "rows" >>- decodeArray }
         let rows = rowsFields!.map({TicketFilterRow(fields: $0)})
+        self.loadRequesters(rows, success: success, failure: failure)
 
-        _ = success?(operation: operation, rows: rows)
       },
       failure: { (operation: AFHTTPRequestOperation!,
         error: NSError!) -> Void in
@@ -45,4 +46,42 @@ extension ZendeskAPI {
       }
     )
   }
+
+
+  func loadRequesters(rows: [TicketFilterRow],
+    success: ((operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) -> Void)?,
+    failure: ((operation: AFHTTPRequestOperation!, error: NSError) -> Void)?) {
+    var ticketsNeedingRequester = [TicketFilterRow]()
+    var userIdsToFetch = [Int: AnyObject]() // hash as set
+    
+    for ticketRow in rows {
+      if ticketRow.ticket.requester == nil {
+        if let cachedUser = UserCache.lookupUserByUserId(ticketRow.requester_id) {
+          var ticket = ticketRow.fields.ticket
+          ticket.requester = cachedUser
+        } else {
+          ticketsNeedingRequester.append(ticketRow)
+          userIdsToFetch[ticketRow.requester_id] = 1
+        }
+      }
+    }
+    
+    
+    getManyUsers(userIdsToFetch.keys.array, success: { (operation: AFHTTPRequestOperation!, users: [User]) -> Void in
+      
+      for ticketRow in ticketsNeedingRequester {
+        var match = users.filter({$0.fields.id == ticketRow.requester_id})
+        if match.count > 0 {
+          var fields = ticketRow.fields
+          var ticket = fields.ticket
+          ticket.requester = match[0]
+          ticketRow.fields = TicketFilterRowFields(requester_id: fields.requester_id, ticket: ticket)
+        }
+      }
+      
+      success?(operation: operation, rows: rows)
+      
+      }, failure: failure)
+  }
+
 }
