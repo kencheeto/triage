@@ -283,8 +283,8 @@ class LoginViewController: UIViewController {
         wiggle.repeatCount = 2
         wiggle.autoreverses = true
         wiggle.removedOnCompletion = true
-        wiggle.fromValue = NSValue(CGPoint: CGPointMake(self.signInButton.center.x - 1, self.signInButton.center.y))
-        wiggle.toValue = NSValue(CGPoint: CGPointMake(self.signInButton.center.x + 1, self.signInButton.center.y))
+        wiggle.fromValue = NSValue(CGPoint: CGPointMake(self.signInButton.center.x - 3, self.signInButton.center.y))
+        wiggle.toValue = NSValue(CGPoint: CGPointMake(self.signInButton.center.x + 3, self.signInButton.center.y))
         self.signInButton.layer.addAnimation(wiggle, forKey: "wiggle")
         self.signInButton.setTitle("Sign in failed", forState: .allZeros)
 
