@@ -186,9 +186,7 @@ class TicketsViewController: UIViewController {
 
   func didFetchTicketRows(operation: AFHTTPRequestOperation!, rows: [TicketFilterRow]) {
 
-    if (rows.count == 0) {
-      isExhausted = true
-    }
+    isExhausted = rows.count == 0
     
     if (isRefreshing) {
       self.rows = rows
