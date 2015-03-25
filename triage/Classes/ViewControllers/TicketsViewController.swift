@@ -405,14 +405,18 @@ extension TicketsViewController: TicketTableViewCellDelegate, DetailTableViewCel
     self.selectedRowIndex = NSIndexPath(forRow: -1, inSection: 0)
     let indexPath = ticketsTableView.indexPathForCell(cell)!
 
+    self.ticketsTableView.beginUpdates()
+    self.ticketsTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+    self.ticketsTableView.endUpdates()
+    
+    println(self.offset)
+    println("new\(ticketsTableView.contentOffset.y)")
     UIView.animateWithDuration(0.3, animations: { () -> Void in
         self.ticketsTableView.contentOffset = CGPoint(x: 0, y: self.offset - 20)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     })
- 
-    self.ticketsTableView.beginUpdates()
-    self.ticketsTableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
-    self.ticketsTableView.endUpdates()
+    println("should be\(ticketsTableView.contentOffset.y)")
+
     self.ticketsTableView.scrollEnabled = true
     self.ticketsTableView.allowsSelection = true
     self.followScrollView(ticketsTableView, usingTopConstraint: topConstraint, withDelay: 65)
