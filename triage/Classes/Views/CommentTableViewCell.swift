@@ -17,6 +17,7 @@ class CommentTableViewCell: UITableViewCell {
                 commentLabel.text = t.description
                 if let r = t.requester? {
                     userNameLabel.text = r.fields.name
+                    userPhotoView.setImageWithURL(NSURL(string: r.avatarURL()))
                 } else {
                     userNameLabel.text = ""
                 }

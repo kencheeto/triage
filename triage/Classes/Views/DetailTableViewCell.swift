@@ -23,7 +23,6 @@ class DetailTableViewCell: UITableViewCell{
     var comments: [Comment]? {
       didSet {
         self.comments = self.comments?.reverse()
-        detailTableView.reloadData()
       }
     }
   
@@ -69,7 +68,17 @@ class DetailTableViewCell: UITableViewCell{
   
     func didLoadComments(operation: AFHTTPRequestOperation!, comments: [Comment]) {
       self.comments = comments
-      detailTableView.reloadData()
+      
+      var paths = NSMutableArray()
+      
+      for (index, element) in enumerate(comments) {
+        if (index < comments.count - 1) {
+          paths.addObject(NSIndexPath(forRow: index + 1, inSection: 0))
+        }
+      }
+    
+      
+      detailTableView.insertRowsAtIndexPaths(paths, withRowAnimation: UITableViewRowAnimation.Automatic)
     }
   
   func apiFailure(operation: AFHTTPRequestOperation!, error: NSError) {

@@ -258,7 +258,9 @@ extension TicketsViewController: UITableViewDataSource{
         
         cell.layoutMargins = UIEdgeInsetsZero
         cell.ticket = row.ticket
+        cell.comments = nil
         cell.delegate = self
+        cell.detailTableView.reloadData()
         cell.updateConstraintsIfNeeded()
         return cell
     }
