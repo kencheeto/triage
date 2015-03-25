@@ -44,7 +44,7 @@ class CommentTableViewCell: UITableViewCell {
       userPhotoView.layer.masksToBounds = true
         
       commentBackgroundView.backgroundColor = Colors.Forest
-      commentBackgroundView.alpha = 0.03
+      commentBackgroundView.alpha = 0.02
       commentBackgroundView.layer.cornerRadius = 4.0
         
       commentLabel.font = UIFont(name: "ProximaNova-Regular", size: 14.0)
