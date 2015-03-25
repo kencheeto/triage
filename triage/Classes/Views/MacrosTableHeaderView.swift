@@ -22,7 +22,7 @@ class MacrosTableHeaderView: UIView {
     super.init(coder: aDecoder)
 
     backgroundColor = Colors.MoonYellow
-    label.font = UIFont(name: "HelveticaNeue", size: 16.0)
+    label.font = UIFont(name: "ProximaNova-Regular", size: 16.0)
     label.textColor = Colors.Snow
     label.text = "Apply a macro"
     label.numberOfLines = 0

@@ -46,8 +46,8 @@ class DetailTableViewCell: UITableViewCell{
         detailTableView.tableFooterView = UIView()
         detailTableView.allowsSelection = false
        
-        cancelButton.setTitleColor(Colors.Forest, forState: .Normal)
-        cancelButton.setTitle("✕", forState: .allZeros)
+        cancelButton.setTitleColor(Colors.DarkGray, forState: .Normal)
+        cancelButton.setTitle("×", forState: .allZeros)
         cancelButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 20.0)
         
         headerView.backgroundColor = Colors.Snow

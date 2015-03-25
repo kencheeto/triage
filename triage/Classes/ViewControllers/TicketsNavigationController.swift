@@ -20,10 +20,6 @@ class TicketsNavigationController: UINavigationController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
-  func doLogout() {
-    println("adsfd")
-  }
     
 
     /*

@@ -24,6 +24,6 @@ class MacrosTableViewCell: UITableViewCell {
     super.awakeFromNib()
 
     titleLabel.textColor = Colors.Oil
-    titleLabel.font = UIFont(name: "HelveticaNeue", size: 15.0)
+    titleLabel.font = UIFont(name: "ProximaNova-Regular", size: 15.0)
   }
 }
