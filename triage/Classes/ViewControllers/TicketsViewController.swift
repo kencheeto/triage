@@ -57,6 +57,8 @@ class TicketsViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    becomeFirstResponder()
 
     ticketsTableView.rowHeight = initialTableViewRowHeight
     ticketsTableView.estimatedRowHeight = initialTableViewRowHeight//44
@@ -87,6 +89,23 @@ class TicketsViewController: UIViewController {
 
     fetchMacros()
     fetchTicketRows(page: 1)
+  }
+  
+  override func canBecomeFirstResponder() -> Bool {
+    return true
+  }
+  
+  
+  override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+    if motion == UIEventSubtype.MotionShake {
+      simulateNoTickets()
+    }
+  }
+  
+  func simulateNoTickets() {
+    rows.removeAll(keepCapacity: true)
+    isExhausted = true
+    configureTableView()
   }
   
   func configureNavBar() {
