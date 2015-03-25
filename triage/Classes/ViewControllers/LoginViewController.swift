@@ -17,6 +17,7 @@ class TriageButton: UIButton {
     didSet {
       var color = enabled ? Colors.Forest : Colors.Iron
 
+      self.setTitleColor(color, forState: .allZeros)
       self.layer.borderColor = color.CGColor
     }
   }
@@ -271,9 +272,22 @@ class LoginViewController: UIViewController {
       delay: 0,
       options: .CurveEaseIn,
       animations: { () -> Void in
+        self.signInButton.layer.borderColor = Colors.DarkPastelRed.CGColor
+        self.signInButton.setTitleColor(Colors.DarkPastelRed, forState: .allZeros)
         self.view.layoutIfNeeded()
       },
       completion: { (done: Bool) -> Void in
+        let wiggle = CABasicAnimation(keyPath: "position")
+
+        wiggle.duration = 0.1
+        wiggle.repeatCount = 2
+        wiggle.autoreverses = true
+        wiggle.removedOnCompletion = true
+        wiggle.fromValue = NSValue(CGPoint: CGPointMake(self.signInButton.center.x - 1, self.signInButton.center.y))
+        wiggle.toValue = NSValue(CGPoint: CGPointMake(self.signInButton.center.x + 1, self.signInButton.center.y))
+        self.signInButton.layer.addAnimation(wiggle, forKey: "wiggle")
+        self.signInButton.setTitle("Sign in failed", forState: .allZeros)
+
         _ = UIView.animateWithDuration(
           0.2,
           animations: { () -> Void in
@@ -290,6 +304,8 @@ extension LoginViewController: UITextFieldDelegate {
 
   func textField(textField: UITextField, shouldChangeCharactersInRange
     range: NSRange, replacementString string: String) -> Bool {
+    signInButton.setTitle("Sign in", forState: .allZeros)
+
     if textField != emailInput {
       let text = passwordInput.text as NSString
       passwordInput.text = text.stringByReplacingCharactersInRange(
