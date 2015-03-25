@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func userDidLogout() {
     AFOAuthCredential.deleteCredentialWithIdentifier(APICredentialID)
-    API.requestSerializer.clearAuthorizationHeader()
+    API.requestSerializer.setAuthorizationHeaderFieldWithUsername(APIClientID, password: APISecret)
     UserFields.currentUser = nil
     
     var storage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
@@ -57,5 +57,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     window!.rootViewController = (storyboard.instantiateInitialViewController() as UIViewController)
   }
-  
 }
