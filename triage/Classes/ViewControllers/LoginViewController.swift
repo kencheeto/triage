@@ -121,17 +121,17 @@ class LoginViewController: UIViewController {
   private let API = ZendeskAPI.instance
   private let kDomain = "zendesk.com"
 
+  @IBOutlet weak var loaderView: TRLoaderView!
   @IBOutlet weak var centerYConstraint: NSLayoutConstraint!
   @IBOutlet weak var logo: UIImageView!
-  @IBOutlet weak var logoSansText: UIImageView!
   @IBOutlet weak var background: UIImageView!
 
   @IBOutlet weak var emailInput: TriageTextField!
   @IBOutlet weak var passwordInput: TriageTextField!
   @IBOutlet weak var signInButton: TriageButton!
 
-  @IBOutlet weak var logoSansTextConstraint: NSLayoutConstraint!
-  @IBOutlet weak var logoSansTextYConstraint: NSLayoutConstraint!
+  @IBOutlet weak var loaderViewXConstraint: NSLayoutConstraint!
+  @IBOutlet weak var loaderViewYConstraint: NSLayoutConstraint!
 
   private var isPresenting = false
 
@@ -145,7 +145,7 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    logoSansText.alpha = 0
+    loaderView.alpha = 0
 
     emailInput.delegate = self
     passwordInput.delegate = self
@@ -188,20 +188,21 @@ class LoginViewController: UIViewController {
       options: .CurveEaseIn,
       animations: { () -> Void in
         self.logo.alpha = 0
-        self.logoSansText.alpha = 1
+        self.loaderView.alpha = 1
       },
       completion: { (done: Bool) -> Void in
-        self.view.removeConstraint(self.logoSansTextConstraint)
-        self.logoSansTextConstraint = NSLayoutConstraint(
+        self.loaderView.loading = true
+        self.view.removeConstraint(self.loaderViewXConstraint)
+        self.loaderViewXConstraint = NSLayoutConstraint(
           item: self.view,
           attribute: .CenterX,
           relatedBy: .Equal,
-          toItem: self.logoSansText,
+          toItem: self.loaderView,
           attribute: .CenterX,
           multiplier: 1.0,
           constant: 0
         )
-        self.view.addConstraint(self.logoSansTextConstraint)
+        self.view.addConstraint(self.loaderViewXConstraint)
         UIView.animateWithDuration(
           0.2,
           delay: 0,
@@ -254,17 +255,17 @@ class LoginViewController: UIViewController {
     signInButton.enabled = isValid
     signInButton.setTitle("Sign in", forState: .allZeros)
 
-    self.view.removeConstraint(self.logoSansTextConstraint)
-    self.logoSansTextConstraint = NSLayoutConstraint(
+    self.view.removeConstraint(self.loaderViewXConstraint)
+    self.loaderViewXConstraint = NSLayoutConstraint(
       item: self.logo,
       attribute: .Leading,
       relatedBy: .Equal,
-      toItem: self.logoSansText,
+      toItem: self.loaderView,
       attribute: .Leading,
       multiplier: 1.0,
       constant: 0
     )
-    self.view.addConstraint(self.logoSansTextConstraint)
+    self.view.addConstraint(self.loaderViewXConstraint)
     UIView.animateWithDuration(
       0.2,
       delay: 0,
@@ -277,7 +278,7 @@ class LoginViewController: UIViewController {
           0.2,
           animations: { () -> Void in
             self.logo.alpha = 1
-            self.logoSansText.alpha = 0
+            self.loaderView.alpha = 0
           }
         )
       }
@@ -370,30 +371,29 @@ extension LoginViewController: UIViewControllerTransitioningDelegate,
   }
 
   func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-    var containerView = transitionContext.containerView()
-    var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
-    var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
+    let containerView = transitionContext.containerView()
+    let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+    let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
 
     if (isPresenting) {
       containerView.addSubview(toViewController.view)
       toViewController.view.alpha = 0
 
-      logoSansText.image = UIImage(named: "LogoSansText")
-      view.removeConstraint(logoSansTextYConstraint)
+      view.removeConstraint(loaderViewYConstraint)
       view.addConstraint(
         NSLayoutConstraint(
           item: self.view,
           attribute: .Top,
           relatedBy: .Equal,
-          toItem: self.logoSansText,
+          toItem: self.loaderView,
           attribute: .TopMargin,
           multiplier: 1.0,
           constant: -30
         )
       )
-      logoSansText.transform = CGAffineTransformMakeScale(
-        25 / logoSansText.bounds.width,
-        25 / logoSansText.bounds.height
+      loaderView.transform = CGAffineTransformMakeScale(
+        25 / loaderView.bounds.width,
+        25 / loaderView.bounds.height
       )
       UIView.animateWithDuration(
         0.2,

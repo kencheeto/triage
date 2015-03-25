@@ -27,13 +27,14 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoginBackground" translatesAutoresizingMaskIntoConstraints="NO" id="LbI-27-vMh">
                                 <rect key="frame" x="16" y="0.0" width="382" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LogoBase" translatesAutoresizingMaskIntoConstraints="NO" id="pqn-0r-1Xx">
-                                <rect key="frame" x="132" y="348" width="39" height="39"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ejf-BW-9VK" customClass="TRLoaderView" customModule="Triage" customModuleProvider="target">
+                                <rect key="frame" x="132" y="348" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="39" id="61R-nC-0Oh"/>
-                                    <constraint firstAttribute="height" constant="39" id="uRA-J5-4b2"/>
+                                    <constraint firstAttribute="height" constant="40" id="K9Y-5M-XGx"/>
+                                    <constraint firstAttribute="width" constant="40" id="fxM-h6-ND2"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="OiD-hp-DCk">
                                 <rect key="frame" x="132" y="348" width="150" height="39"/>
                                 <constraints>
@@ -77,27 +78,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ejf-BW-9VK" firstAttribute="top" secondItem="OiD-hp-DCk" secondAttribute="top" id="19X-jw-BGL"/>
                             <constraint firstAttribute="centerX" secondItem="zHm-ar-4jr" secondAttribute="centerX" id="7gH-po-veg"/>
-                            <constraint firstItem="OiD-hp-DCk" firstAttribute="centerX" secondItem="pqn-0r-1Xx" secondAttribute="centerX" constant="56" id="9g4-sb-BWk"/>
                             <constraint firstItem="zHm-ar-4jr" firstAttribute="top" secondItem="Qk7-gd-RWJ" secondAttribute="bottom" constant="20" id="I2C-Yn-EJJ"/>
                             <constraint firstItem="RMi-F5-Dwj" firstAttribute="top" secondItem="zHm-ar-4jr" secondAttribute="bottom" constant="50" id="MBD-oF-6pY"/>
                             <constraint firstItem="LbI-27-vMh" firstAttribute="leading" secondItem="9p4-cM-cgQ" secondAttribute="leadingMargin" id="Q6m-tO-3xG"/>
                             <constraint firstAttribute="centerX" secondItem="RMi-F5-Dwj" secondAttribute="centerX" id="Tz0-dJ-Yfz"/>
                             <constraint firstItem="ukm-nT-DKb" firstAttribute="top" secondItem="LbI-27-vMh" secondAttribute="bottom" id="U7c-Fr-0iD"/>
                             <constraint firstAttribute="centerX" secondItem="Qk7-gd-RWJ" secondAttribute="centerX" id="X80-um-rch"/>
-                            <constraint firstItem="OiD-hp-DCk" firstAttribute="centerY" secondItem="pqn-0r-1Xx" secondAttribute="centerY" id="bDC-xb-Uz2"/>
                             <constraint firstAttribute="centerY" secondItem="OiD-hp-DCk" secondAttribute="centerY" id="cqs-Fz-2x9"/>
-                            <constraint firstItem="OiD-hp-DCk" firstAttribute="leading" secondItem="pqn-0r-1Xx" secondAttribute="leading" id="epJ-Ej-YKs"/>
                             <constraint firstItem="RMi-F5-Dwj" firstAttribute="height" secondItem="zHm-ar-4jr" secondAttribute="height" id="lbt-tf-6kG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LbI-27-vMh" secondAttribute="trailing" id="o1B-k0-HcC"/>
                             <constraint firstItem="LbI-27-vMh" firstAttribute="top" secondItem="9p4-cM-cgQ" secondAttribute="topMargin" id="qoJ-PZ-3pb"/>
                             <constraint firstItem="Qk7-gd-RWJ" firstAttribute="top" secondItem="OiD-hp-DCk" secondAttribute="bottom" constant="50" id="srr-aj-iTA"/>
                             <constraint firstAttribute="centerX" secondItem="OiD-hp-DCk" secondAttribute="centerX" id="w9l-xJ-QUC"/>
+                            <constraint firstItem="ejf-BW-9VK" firstAttribute="leading" secondItem="OiD-hp-DCk" secondAttribute="leading" id="xG5-Jv-UDR"/>
                             <constraint firstItem="RMi-F5-Dwj" firstAttribute="width" secondItem="zHm-ar-4jr" secondAttribute="width" id="zfv-d4-Z1W"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="9g4-sb-BWk"/>
                                 <exclude reference="lbt-tf-6kG"/>
                             </mask>
                         </variation>
@@ -107,10 +106,10 @@
                         <outlet property="background" destination="LbI-27-vMh" id="8xM-jr-zs1"/>
                         <outlet property="centerYConstraint" destination="cqs-Fz-2x9" id="yWg-mz-K7L"/>
                         <outlet property="emailInput" destination="Qk7-gd-RWJ" id="ZXZ-4U-soF"/>
+                        <outlet property="loaderView" destination="ejf-BW-9VK" id="0T8-zj-3lk"/>
+                        <outlet property="loaderViewXConstraint" destination="xG5-Jv-UDR" id="cjP-ll-kYM"/>
+                        <outlet property="loaderViewYConstraint" destination="19X-jw-BGL" id="A8t-Dk-Ttm"/>
                         <outlet property="logo" destination="OiD-hp-DCk" id="5a8-xZ-CqQ"/>
-                        <outlet property="logoSansText" destination="pqn-0r-1Xx" id="gvc-xS-e6v"/>
-                        <outlet property="logoSansTextConstraint" destination="epJ-Ej-YKs" id="B8Y-u7-0EG"/>
-                        <outlet property="logoSansTextYConstraint" destination="bDC-xb-Uz2" id="e6Q-C9-7Us"/>
                         <outlet property="passwordInput" destination="zHm-ar-4jr" id="OnP-ag-pjr"/>
                         <outlet property="signInButton" destination="RMi-F5-Dwj" id="sOT-0N-qja"/>
                     </connections>
@@ -795,6 +794,5 @@
     <resources>
         <image name="LoginBackground" width="445" height="667"/>
         <image name="Logo" width="374" height="96"/>
-        <image name="LogoBase" width="100" height="100"/>
     </resources>
 </document>

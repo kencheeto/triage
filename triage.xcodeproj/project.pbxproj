@@ -51,6 +51,7 @@
 		C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */; };
 		C58EBCB51AA84757003F29C1 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCB31AA84757003F29C1 /* Ticket.swift */; };
 		C58EBCC31AA84FF9003F29C1 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */; };
+		C5C997281AC274C50071C94F /* TRLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5C997271AC274C50071C94F /* TRLoaderView.swift */; };
 		C5D281871AAC98A4003ED493 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D281781AAC98A4003ED493 /* Dictionary.swift */; };
 		C5D281881AAC98A4003ED493 /* curry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817A1AAC98A4003ED493 /* curry.swift */; };
 		C5D281891AAC98A4003ED493 /* flatReduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D2817B1AAC98A4003ED493 /* flatReduce.swift */; };
@@ -141,6 +142,7 @@
 		C58EBCB11AA8470F003F29C1 /* TicketsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TicketsViewController.swift; path = Classes/ViewControllers/TicketsViewController.swift; sourceTree = "<group>"; };
 		C58EBCB31AA84757003F29C1 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Ticket.swift; path = Classes/Models/Ticket.swift; sourceTree = "<group>"; };
 		C58EBCC21AA84FF9003F29C1 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
+		C5C997271AC274C50071C94F /* TRLoaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRLoaderView.swift; sourceTree = "<group>"; };
 		C5D281781AAC98A4003ED493 /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		C5D2817A1AAC98A4003ED493 /* curry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = curry.swift; sourceTree = "<group>"; };
 		C5D2817B1AAC98A4003ED493 /* flatReduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = flatReduce.swift; sourceTree = "<group>"; };
@@ -398,6 +400,7 @@
 				C55F705E1AB61DDE00CFB5A7 /* MacrosTableHeaderView.swift */,
 				E314EEEA1AB65AB600DB8C30 /* SwipeView.swift */,
 				E314EEEC1AB65ADC00DB8C30 /* SwipeView.xib */,
+				C5C997271AC274C50071C94F /* TRLoaderView.swift */,
 			);
 			name = Views;
 			path = Classes/Views;
@@ -636,6 +639,7 @@
 				C5D2818C1AAC98A4003ED493 /* StandardTypes.swift in Sources */,
 				475FCAC51AA8076D00C579C6 /* User.swift in Sources */,
 				C571CAA91AAC9DE200BE6BCA /* ArgoOperators.swift in Sources */,
+				C5C997281AC274C50071C94F /* TRLoaderView.swift in Sources */,
 				C58EBCB21AA8470F003F29C1 /* TicketsViewController.swift in Sources */,
 				C53A120C1AABE09A00DE1906 /* ZendeskAPI+Users.swift in Sources */,
 				E314EEEB1AB65AB600DB8C30 /* SwipeView.swift in Sources */,
